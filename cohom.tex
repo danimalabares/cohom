@@ -1,0 +1,246 @@
+\documentclass[spanish]{book}
+\usepackage{titlesec}
+
+%Quitar páginas en blanco
+\let\cleardoublepage\clearpage
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@endpart}{\vfil\newpage}{\par}{}{}
+\makeatother
+
+%\usepackage[spanish]{babel} ¡Esto estaba interfiriendo con las flechitas de los \tikspicture
+
+\renewcommand{\contentsname}{Índice}
+\renewcommand{\partname}{Parte}
+
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{}{0pt}{\Huge\thechapter.~}
+
+\titleformat{name=\chapter,numberless}[display]
+{\normalfont\huge\bfseries}{}{0pt}{\Huge}
+\renewcommand{\chaptermark}[1]{\markboth{{} \thechapter: #1}{}}
+
+\usepackage[left=4cm, right=4cm]{geometry}
+\usepackage{palatino}%Font
+\usepackage{graphicx}
+\usepackage{marvosym}%Smileys
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage[bookmarks,bookmarksopen,bookmarksdepth=3]{hyperref}
+\hypersetup{
+	colorlinks=true,
+	urlcolor=blue,
+	linkcolor=magenta,
+	citecolor=blue,
+	filecolor=blue,
+	urlbordercolor=white,
+	linkbordercolor=white,
+	citebordercolor=white,
+	filebordercolor=white
+}
+
+\theoremstyle{definition}
+\renewcommand{\proofname}{Demostración}
+
+\newtheorem*{defn}{Definición}
+\newtheorem*{lema}{Lema}
+\newtheorem*{obs}{Observación}
+\newtheorem*{teo}{Teorema}
+\newtheorem*{prop}{Proposición}
+\newtheorem*{coro}{Corolario}
+\newtheorem*{ejer}{Ejercicio}
+\newtheorem*{ejem}{Ejemplo}
+\newtheorem*{pregunta}{Pregunta}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\img}{img}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\comp}{comp}
+\DeclareMathOperator{\RCH}{R\text{-}ch\text{-}comp}
+\DeclareMathOperator{\RMod}{R\text{-}mod}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Hom}{Hom}
+
+
+\title{La conjetura de Poincaré en dimensiones altas}
+\author{Notas\\ \\ \href{https://github.com/danimalabares/curves-and-surfaces}{github.com/danimalabares/notas}}
+
+\begin{document}
+	\maketitle
+	\phantomsection
+	\addcontentsline{toc}{part}{\contentsname}
+	\tableofcontents
+	
+\chapter{Repaso de álgebra homológica}
+Sea $R$ un anillo asociativo con 1. Podemos ahora tomar la categoría de $R$-módulos, $R$-$\mod$, cuyos objetos son $R$-módulos y los morfismos son homomorfismos $R$-lineales. También podemos construir $\RCH$, cuyos objetos son complejos de cadenas,
+\[\begin{tikzcd}
+	\cdots\arrow[r,"\partial_{n+1}"]&C_n\arrow[r,"\partial_{n}"]&C_{n-1}\arrow[r,"\partial_{n-1}"]&\cdots
+\end{tikzcd}\]
+tales que $\partial_{n-1}\circ\partial_n=0$, es decir, $\img\partial_n\subseteq\ker\partial_{n-1}$.
+y sus morfismos son morfismos complejos de cadenas, \begin{tikzcd}
+	C_\bullet\arrow[r,"f"]&D_\bullet\end{tikzcd},
+que son muchos morfismos tales que el siguiente diagrama conmuta en todos los cuadraditos:
+\[\begin{tikzcd}
+	\cdots \arrow{r} & C_{n+1} \arrow{r}{\partial_{n+1}} \arrow{d}{f_{n+1}} & C_n \arrow{r}{\partial_n} \arrow{d}{f_n} & C_{n-1} \arrow{r} \arrow{d}{f_{n-1}} & \cdots \\
+	\cdots \arrow{r} & D_{n+1} \arrow{r}{\delta_n} & D_n \arrow{r}{\delta_n} & D_{n-1} \arrow{r} & \cdots
+\end{tikzcd}\]
+Y definimos
+\[H_n(C_\bullet)=\frac{\ker\partial_n}{\img\partial_{n+1}}\]
+\begin{defn}\leavevmode
+	\begin{itemize}
+		\item Decimos que $C_\bullet$ es \textbf{acíclico} si $H_n(C_\bullet)=0$ para toda $n$.
+		\item La sucesión
+		\begin{tikzcd}[column sep=small]
+			C_1\arrow[r,"\varphi"]&C_2\arrow[r,"\psi"]&C_3
+		\end{tikzcd}
+		es \textbf{exacta} si $\img\varphi=\ker\psi$.
+		\item La sucesión 
+		\begin{tikzcd}[column sep=small]
+			0\arrow[r]&C_1\arrow[r]&C_2\arrow[r]&C_3\arrow[r]&0
+		\end{tikzcd}
+		es una \textbf{sucesión exacta corta}.
+		\item Y si se extiende infinitamente, es una \textbf{sucesión exacta larga}.
+	\end{itemize}
+\end{defn}
+\begin{prop} En una sucesión exacta corta, $\varphi$ es inyectiva, $\psi$ es suprayectiva y $C_3\approx C_2/\ker\psi$. Abusando de notación, podemos pensar que $C_3\approx C_2/C_1$, pero hay que tener cuidado aquí porque el encaje de $C_1$ en $C_2$ puede no ser único.
+\end{prop}
+Tomemos $n$ fijo. Entonces
+\[\begin{tikzcd}
+	&\Ab\\
+	\RCH \arrow[r,"H_n"]\arrow[ru]&\RMod \arrow[u]\\[-0.6cm]
+	C_\bullet\arrow[r,maps to]&H_n(C_\bullet)
+\end{tikzcd}\]
+Y como los morfismos de cadenas mandan ciclos en ciclos y fronteras en fronteras, podemos definir los morfismos inducidos, que satisfacen que $(fg)_*=f_*g_*$ y $id_{C_{\bullet*}}=id_{H_n(C_\bullet)}$. Como la composición de morfismos se abre en el mismo orden en el que estaba, se llama \textbf{funtor covariante}.
+\begin{defn}
+	Dos homomorfismos 
+	\begin{align*}
+		f,g:(C_\bullet,\partial)\to(C'_\bullet,\partial')
+	\end{align*}
+	son \textbf{homotópicos} si existen homomorfismos $h_n:C_n\to C'_{n+1}$ para toda $p\in\Z$ tales que \[f_n-g_n=\partial'_{n+1}h_n+h_{n-1}\partial_n\] Estas flechas se pueden visualizar aquí:
+	\[\begin{tikzcd}[column sep=large, row sep=large]
+		\cdots \arrow{r} & C_{n+1} \arrow{r}{\partial_{n+1}} \arrow{d}[left]{f_{n+1}-g_{n+1}} & C_n \arrow{r}[blue]{\partial_n} \arrow{d}[right,red]{f_n-g_n} \arrow{ld}[left,blue]{h_n} & C_{n-1} \arrow{r} \arrow{d}[right]{f_{n-1}-g_{n-1}} \arrow{ld}[right,blue]{h_{n-1}} & \cdots \\
+		\cdots \arrow{r} & C'_{n+1} \arrow{r}[below,blue]{\partial'_{n+1}} & C'_n \arrow{r}[below]{\partial_n'} & C'_{n-1} \arrow{r} & \cdots
+	\end{tikzcd}
+	\]
+	Así que la suma de las flechas azules es igual a la flecha roja. (No estamos diciendo que el diagrama sea conmutativo).
+	
+	Esto es tanto como decir que $H_n(f)=H_n(g)$ para toda $n$. Es decir, funciones homotópicas inducen los mismos homomorfismos entre complejos de cadenas.
+\end{defn}
+	\begin{teo}[fundamental del álgebra homológica]
+	Si 
+	\[\begin{tikzcd}[column sep=small]
+		0\arrow{r}&A_\bullet\arrow{r}{\phi}&B_\bullet\arrow{r}{\psi}&C_\bullet\arrow{r}&0
+	\end{tikzcd}\]
+	es una sucesión exacta corta de complejos de cadena, entonces existen homomorfismos \[\delta_{*p}:H_p(C_\bullet)\to H_{p-1}(A_\bullet)\]
+	tales que la sucesión
+	\[\begin{tikzcd}[column sep=small]
+		&\cdots\arrow{r}&H_p(A_\bullet)\arrow{r}{\bar\phi_p}&H_p(B_\bullet)\arrow{r}{\bar\psi_p}&H_p(C_\bullet)\arrow{r}{\delta_{*p}}&H_{p-1}(A_\bullet)\arrow{r}{\bar\phi_{p-1}}&H_{p-1}(B_\bullet)\arrow{r}&\cdots
+	\end{tikzcd}\]
+	es exacta.
+\end{teo}
+En el siguiente diagrama conmutativo se ve claramente qué está pasando:
+\[
+\begin{tikzcd}
+	& & 0 \arrow{d} & 0 \arrow{d} & 0 \arrow{d} & \\
+	& \cdots \arrow{r} & A_{p+1} \arrow{r}{\partial_{p+1}} \arrow{d}{i_{p+1}} & A_p \arrow{r}{\partial_p} \arrow{d}{i_p} & A_{p-1} \arrow{r} \arrow[d,magenta,"i_{p-1}"] & \cdots \\
+	& \cdots \arrow{r} & B_{p+1} \arrow{r}{\partial_{p+1}} \arrow{d}{j_{p+1}} & B_p \arrow[r,magenta,"\partial_p"] \arrow[d,magenta,"j_p"] & B_{p-1} \arrow{r} \arrow{d}{j_{p-1}} & \cdots \\
+	& \cdots \arrow{r} & C_{p+1} \arrow{r}{\partial_{p+1}} \arrow{d} & C_p \arrow{r}{\partial_p} \arrow{d} & C_{p-1} \arrow{r} \arrow{d} & \cdots \\
+	& & 0 & 0 & 0 & \\
+\end{tikzcd}
+\]
+\begin{proof}
+	Explicamos un poco cómo definir el homomorfismo de conexión haciendo cacería de diagrama. Comenzamos con un ciclo $c\in C_p(A)$. Como $j_p$ es suprayectiva, existe un $a\in B_p$ tal que $j_p(a)=c$. Luego, $\partial_p(a)\in\ker j_{p-1}$, ya que, como el diagrama conmuta, $\partial_pj_p=j_{p-1}\partial_p$ y $c$ es un ciclo. Como la sucesión es exacta, $\ker j_{p-1}=\img i_{p-1}$, así que existe $a\in A_{p-1}$ tal que $i_{p-1}(a)=\partial_p(b)$. Este $a$ es un ciclo, ya que el diagrama conmuta, $i_{p-2}(a)=\partial(\partial(b))=0$, y la $i_{p-2}$ es inyectiva por exactitud, es decir, el único elemento al que va a dar el cero es el cero. Así que definimos $\delta_{*p}[c]=[a]$.
+	
+	Y una vez definido este homomorfismo, el resto de la prueba sale sin trucos.
+\end{proof}
+\begin{teo}[Naturalidad del homomorfismo de conexión]
+	Para dos sucesiones exactas cortas y morfismos $f$, $g$ y $h$,
+	\[\begin{tikzcd}[column sep=small]
+		&0\arrow{r}&A_\bullet\arrow{r}{i}\arrow{d}{f}&B_\bullet\arrow{r}{j}\arrow{d}{g}&C_\bullet\arrow{r}\arrow{d}{h}&0\\
+		&0\arrow{r}&A'_\bullet\arrow{r}&B'_\bullet\arrow{r}&C'_\bullet\arrow{r}&0
+	\end{tikzcd}\]
+	donde las filas son exactas.\par
+	Entonces, el siguiente diagrama conmuta
+	\[\begin{tikzcd}[column sep=small, row sep=large]
+		& \cdots \arrow{r} & H_p(A) \arrow{r} \arrow{d}{\bar{f}} & H_p(B) \arrow{r} \arrow{d}{\bar{g}} & H_p(C) \arrow{r}{\delta_*} \arrow{d}{\bar{h}} & H_{p-1}(A) \arrow{r} \arrow{d}{\bar{f}} & H_{p-1}(B) \arrow{r} \arrow{d}{\bar{g}} & H_{p-1}(C) \arrow{r} \arrow{d}{\bar{h}} & \cdots \\
+		& \cdots \arrow{r} & H_p(A') \arrow{r} & H_p(B') \arrow{r} & H_p(C') \arrow{r} & H_{p-1}(A') \arrow{r} & H_{p-1}(B') \arrow{r} & H_{p-1}(C') \arrow{r} & \cdots
+	\end{tikzcd}\]
+\end{teo}
+\begin{proof}
+	Salvo en los cuadrados donde está $\bar{h}$ a la izquierda y $\bar{f}$ a la derecha, la conmutatividad se sigue por funtorialidad.
+\end{proof}
+\begin{lema}[de los cinco]
+	Consideremos el diagrama conmutativo con filas exactas
+	\[\begin{tikzcd}
+		M_5\arrow{r}{f_5}\arrow{d}{h_5}&M_4\arrow{r}{f_4}\arrow{d}{h_4}&M_3\arrow{r}{f_3}\arrow{d}{h_3}&M_2\arrow{r}{f_2}\arrow{d}{h_2}&M_1\arrow{d}{h_1}\\
+		N_5\arrow[r,swap,"g_5"]&N_4\arrow[r,swap,"g_4"]&N_3\arrow[r,swap,"g_3"]&N_2\arrow[r,swap,"g_2"]&N_1
+	\end{tikzcd}\]
+	Si $h_5,h_4,h_2$ y $h_1$ son isomorfismos, entonces $h_3$ también.
+\end{lema}
+
+\chapter{Más álgebra homológica}
+Tomemos $N,M$ $R$-módulos, y el conjunto de homomorfismos $R$-lineales de $M$ en $N$, que es un grupo abeliano (cuya identidad es el morifsmo que manda todo a $0$, y $f+g(m)=f(m)+g(m)$ que también es un morfismo, $(-f)(m)=-f(m)$). También tiene estructura de $R$-módulo con la operación $(rf)(m)=rf(m)=f(rm)$.
+
+Ahora construyamos un funtor:
+\begin{align*}
+	\Hom(-,N):\RMod&\to\Ab\\
+	M&\mapsto\Hom(M,N)\\
+	M\xrightarrow{\varphi} M'&\mapsto \qquad?
+\end{align*}
+La flecha inducida será
+\begin{align*}
+	\Hom(M,N)&\xleftarrow{\varphi^*}\Hom(M',N)\\
+	\varphi^*(f)=f\varphi&\mapsfrom f
+\end{align*}
+De acuerdo a
+\[\begin{tikzcd}
+	M\arrow[d,"\varphi"]\arrow[rd,"f\varphi"]\\
+	M'\arrow[r,swap,"f"]&N
+\end{tikzcd}\]
+Así que $\Hom(-,N)$ es un funtor \textbf{contravariante}. De hecho, es un \textbf{funtor aditivo exacto izquierdo}:
+\begin{itemize}
+	\item \textbf{Aditivo}. Manda sumas directas en sumas directas, es decir,
+	\[\Hom(M_1\oplus M_2,N)\approx \Hom(M_1,N)\oplus\Hom(M_2,N)\]
+	Que tiene que ver con la propiedad universal de la suma directa:
+	\[\begin{tikzcd}
+		M_1\arrow[r,hook]\arrow[rd,"f"]&M_1\oplus M_2\arrow[d,dashed,"\exists! f\oplus g"]&M_2\arrow[l,hook']\arrow[dl,"g"]\\
+		&N
+	\end{tikzcd}\]
+	Donde $(f\oplus g)(m_1,m_2)=f(m_1)+g(m_2)$. Así que si tenemos $(f,g)$ en el módulo de la derecha, lo mandamos a $f\oplus g$.
+	\item \textbf{Exacto} Supongamos que tenemos la sucesión exacta corta
+	\[\begin{tikzcd}
+		0\arrow[r]&A\arrow[r,"\varphi"]&B\arrow[r,"\psi"]&C\arrow[r]&0
+	\end{tikzcd}\]
+	a la que le aplicamos el funtor para obtener la sucesión exacta
+	\[\begin{tikzcd}
+		0\arrow[r]&\Hom(C,N)\arrow[r,"\psi_*"]&\Hom(B,N)\arrow[r,"\varphi_*"]&\Hom(A,N)
+	\end{tikzcd}\]
+	En general, $\varphi_*$ no es suprayectiva.
+\end{itemize}
+
+\begin{ejer}
+	\begin{itemize}\leavevmode
+		\item Checar lo anterior.
+		\begin{proof}[Solución]
+			Basta ver que la flecha $0\to A$ no necesiamente va a dar a una flecha de la forma $\Hom(A,N)\to0$.
+		\end{proof}
+		\item ¿Qué pasa con el cokernel?
+	\end{itemize}
+\end{ejer}
+\begin{obs}
+	También podemos definir el funtor análogo dejando libre la entrada de la derecha, y obtenemos un funtor covariante (que no usaremos tanto).
+\end{obs}
+
+\end{document}
