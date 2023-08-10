@@ -294,13 +294,13 @@ Luego, diremos que $P$ es \textbf{proyectivo} si existe $Q$ tal que $P\oplus Q$ 
 	\end{tikzcd}\]
 	entonces existen los $\alpha_i$ que hacen conmutar el diagrama.
 	
-	Más aún, existen $\beta_i:F_i\to F'_i$ que cumplen lo mismo entonces los homomorfismos determinados por los $\alpha_i$ y $\beta_i$ son homotópicos.
+	Más aún, si existen $\beta_i:F_i\to F'_i$ que cumplen lo mismo entonces los homomorfismos determinados por los $\alpha_i$ y $\beta_i$ son homotópicos.
 \end{teo}
 \begin{proof}
 	\[\begin{tikzcd}
-		&&&\beta_0\arrow[d,hook,]&&\\	
-		\cdots\arrow[r]&F_2\arrow[r,"f_2"]\arrow[d,dashed,"\alpha_2"]&F_1\arrow[r,"f_1"]\arrow[d,dashed,"\alpha_1"]&F_0\arrow[d,dashed,"\alpha_0"]\arrow[r,"f_0"]&M\arrow[d,"\alpha"]\arrow[r]&0\\
-		\cdots\arrow[r]&F'_2\arrow[r,"f'_2"]&F'_1\arrow[r,"f'_1"]&F'_0\arrow[r,"f'_0"]&M\arrow[r]&0
+		&\beta_0\arrow[d,hook,]&&\\	
+		\cdots\arrow[r]&F_0\arrow[d,dashed,"\alpha_0"]\arrow[r,"f_0"]&M\arrow[d,"\alpha"]\arrow[r]&0\\
+		\cdots\arrow[r]&F'_0\arrow[r,"f'_0"]&M\arrow[r]&0
 	\end{tikzcd}\]
 	Tomamos un elemento $e\in \beta_0$ en la base de $F_0$. Lo mandamos mediante $f_0$ a $M$, luego con $\alpha$. Pero como $f'_0$ es supra, podemos escoger un elemento $e'\in F'_0$ que le pega.
 	
@@ -337,16 +337,17 @@ Luego, diremos que $P$ es \textbf{proyectivo} si existe $Q$ tal que $P\oplus Q$ 
 \begin{proof}
 	Usamos el teorema anterior (dos veces), tomando dos resoluciones de $M$ usando la identidad como $\alpha$:
 	\[\begin{tikzcd}
-		\cdots\arrow[r]&F_2\arrow[r,"f_2"]\arrow[d,dashed,"\alpha_2"]&F_1\arrow[r,"f_1"]\arrow[d,dashed,"\alpha_1"]&F_0\arrow[d,dashed,"\alpha_0"]\arrow[r,"f_0"]&M\arrow[d,"Id"]\arrow[r]&0\\
-		\cdots\arrow[r]&F'_2\arrow[r,"f_2"]\arrow[d,dashed,"\beta_2"]&F'_1\arrow[r,"f_1"]\arrow[d,dashed,"\beta_1"]&F'_0\arrow[d,dashed,"\beta_0"]\arrow[r,"f_0"]&M\arrow[d,"Id"]\arrow[r]&0\\
+		\cdots\arrow[r]&F_2\arrow[r,"f_2"]\arrow[d,"\alpha_2"]&F_1\arrow[r,"f_1"]\arrow[d,"\alpha_1"]&F_0\arrow[d,"\alpha_0"]\arrow[r,"f_0"]&M\arrow[d,"Id"]\arrow[r]&0\\
+		\cdots\arrow[r]&F'_2\arrow[r,"f_2"]\arrow[d,"\beta_2"]&F'_1\arrow[r,"f_1"]\arrow[d,"\beta_1"]&F'_0\arrow[d,"\beta_0"]\arrow[r,"f_0"]&M\arrow[d,"Id"]\arrow[r]&0\\
 		\cdots\arrow[r]&F_2\arrow[r,"f_2"]&F_1\arrow[r,"f_1"]&F_0\arrow[r,"f_0"]&M\arrow[r]&0
 	\end{tikzcd}\]
-	Y aquí resulta que $\{\beta_i\alpha_i\}\simeq\{Id\}$. Ydualizamos:
+	Y aquí resulta que $\{\beta_i\alpha_i\}\simeq\{Id\}$. Y dualizamos:
 	\[\begin{tikzcd}
 		\cdots&F_1^*\arrow[l]&F_0^*\arrow[l]&M^*\arrow[l]&0\arrow[l]\\
-		\cdots&F_1^{'*}\arrow[u,"\alpha_1^*"]\arrow[l]&F^{'*}_0\arrow[u,"\alpha_1^*"]\arrow[l]&M^*\arrow[l]&0\arrow[l]
+		\cdots&F_1^{'*}\arrow[u,"\alpha_1^*"]\arrow[l]&F^{'*}_0\arrow[u,"\alpha_0^*"]\arrow[l]&M^*\arrow[l]&0\arrow[l]\\
+		\cdots&F_1^{'*}\arrow[u,"\beta_1^*"]\arrow[l]&F^{'*}_0\arrow[u,"\beta_0^*"]\arrow[l]&M^*\arrow[l]&0\arrow[l]
 	\end{tikzcd}\]
-	Y como el funtor es aditivo, la homotopía pasa al dual, es decir, $\{\beta_i\alpha_i^*\}\simeq\{Id\}$. Luego pasamos a los grupos de homología:
+	Y como el funtor es aditivo, la homotopía pasa al dual, es decir, $\{\beta_i^*\alpha_i^*\}\simeq\{Id\}$. Luego pasamos a los grupos de homología:
 	\[\begin{tikzcd}
 		H_1(F^*)\\
 		H_1(F'^*)\arrow[u,"\alpha_1^\#"]\\
@@ -367,16 +368,16 @@ Luego, diremos que $P$ es \textbf{proyectivo} si existe $Q$ tal que $P\oplus Q$ 
 	Luego $\ker f_1^*\approx \img f_0^*\approx M^*$. Luego, por definición $\Ext^0_R(M,N)=\ker f_1^*\approx M^*=\Hom(M,N)$
 \end{proof}
 
-\begin{lema}[De la herradura] \textit{Sucesiones exactas cortas de módulos inducen sucesiones exactas cortas de resoluciones.} Tomemos una sucesión exacta corta y dos resulciones libres de los extremos. Entonces existen 
+\begin{lema}[De la herradura] \textit{Sucesiones exactas cortas de módulos inducen sucesiones exactas cortas de resoluciones.} Tomemos una sucesión exacta corta y dos resulciones libres de los extremos. Entonces existe lo rojo:
 	\[\begin{tikzcd}
 		&0&0&0\\
 		1\arrow[r]&M'\arrow[u]\arrow[r]&M\arrow[red,u]\arrow[r]&M''\arrow[u]\arrow[r]&0\\
-		0\arrow[red,r]&F_0'\arrow[r,red]\arrow[u]&F_0\arrow[r,red]\arrow[u,red]&F_0^{''}\arrow[u]\arrow[r,red]&0\\
-		0\arrow[red,r]&F_1'\arrow[r,red]\arrow[u]&F_1\arrow[r,red]\arrow[u,red]&F_1^{''}\arrow[u]\arrow[r,red]&0\\
+		0\arrow[red,r]&F_0'\arrow[r,red]\arrow[u]&\textcolor{red}{F_0}\arrow[r,red]\arrow[u,red]&F_0^{''}\arrow[u]\arrow[r,red]&0\\
+		0\arrow[red,r]&F_1'\arrow[r,red]\arrow[u]&\textcolor{red}{F_1}\arrow[r,red]\arrow[u,red]&F_1^{''}\arrow[u]\arrow[r,red]&0\\
 		&\cdots\arrow[u]&\cdots\arrow[u,red]&\cdots\arrow[u]&
 	\end{tikzcd}\]
 \end{lema}
-\begin{proof} Pa pronto, la resolución de en medio es la suma de las resoluciones:
+\begin{proof} Pa' pronto, la resolución de en medio es la suma de las resoluciones:
 	\[\begin{tikzcd}
 		&0&&0\\
 		1\arrow[r]&M'\arrow[r]\arrow[u]&M\arrow[r]&M''\arrow[r]\arrow[u]&0\\
