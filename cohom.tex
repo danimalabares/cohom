@@ -27,7 +27,7 @@
 \usepackage{float}
 \usepackage{subcaption}
 \usepackage{enumitem}
-\usepackage{parskip}
+%\usepackage{parskip}
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -71,6 +71,7 @@
 \DeclareMathOperator{\comp}{comp}
 \DeclareMathOperator{\RCH}{R\text{-}ch\text{-}comp}
 \DeclareMathOperator{\RMod}{R\text{-}mod}
+\DeclareMathOperator{\ZMod}{\mathbb{Z}\text{-}mod}
 \DeclareMathOperator{\Ab}{Ab}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\Ext}{Ext}
@@ -233,8 +234,8 @@ Así que $\Hom(-,N)$ es un funtor \textbf{contravariante}. De hecho, es un \text
 	En general, $\varphi^*$ no es suprayectiva.
 \end{itemize}
 
-\begin{ejer}
-	\begin{itemize}\leavevmode
+\begin{ejer}\leavevmode
+	\begin{itemize}
 		\item Checar lo anterior.
 		\begin{proof}[Solución]
 			Basta ver que la flecha $0\to A$ no necesiamente va a dar a una flecha de la forma $\Hom(A,N)\to0$.
@@ -354,7 +355,7 @@ Luego, diremos que $P$ es \textbf{proyectivo} si existe $Q$ tal que $P\oplus Q$ 
 		H_1(F^*)\arrow[u,"\beta_1^\#"]
 	\end{tikzcd}\]
 	Cambiando los roles, obtenemos que estas dos funciones $\alpha_1^\#$ y $\beta_1^\#$ son inversas una de la otra.
-\end{proof}
+\end{proof}\vspace{-.3cm}
 \begin{prop}
 	$\Ext^0_R(M,N)\approx\Hom_R(M,N)$.
 \end{prop}
@@ -362,7 +363,7 @@ Luego, diremos que $P$ es \textbf{proyectivo} si existe $Q$ tal que $P\oplus Q$ 
 	\[\begin{tikzcd}
 		0\arrow[r]&\img f_1\arrow[r,"f_1"]&F_0\arrow[r,"f_0"]&M\arrow[r]&0
 	\end{tikzcd}\]
-		\[\begin{tikzcd}
+	\[\begin{tikzcd}
 		0\arrow[r]&M^*\arrow[r,"f_0^*"]&F^*_0\arrow[r,"f_1^*"]&\img f_1^*
 	\end{tikzcd}\]
 	Luego $\ker f_1^*\approx \img f_0^*\approx M^*$. Luego, por definición $\Ext^0_R(M,N)=\ker f_1^*\approx M^*=\Hom(M,N)$
@@ -385,5 +386,133 @@ Luego, diremos que $P$ es \textbf{proyectivo} si existe $Q$ tal que $P\oplus Q$ 
 	\end{tikzcd}\]
 	Y hay que hacer todo lo de rutina.
 \end{proof}
-El lunes: dualizar esto.
+Ahora apliquemos $\Hom(-,N)$:
+\[\begin{tikzcd}
+	&0\arrow[d]&0\arrow[d]&0\arrow[d]&\\
+	0&P_0^{'*}\arrow[l]\arrow[d]&P_0^{*}\arrow[l]\arrow[d]&P_0^{''*}\arrow[l]\arrow[d]&0\arrow[l]\\	0&P_1^{'*}\arrow[l]\arrow[d]&P_1^{*}\arrow[l]\arrow[d]&P_1^{''*}\arrow[l]\arrow[d]&0\arrow[l]\\
+	&\cdots&\cdots&\cdots&
+\end{tikzcd}\]
+O sea que tenemos la sucesión exacta corta
+\[\begin{tikzcd}
+	0&P^{'*}_\bullet\arrow[l]&P^*_\bullet\arrow[l]&P_\bullet^{''*}\arrow[l]&0\arrow[l]
+\end{tikzcd}\]
+A la que aplicamos el teorema fundamental del álgebra homológica para obtener
+\[\begin{tikzcd}
+	0\arrow[r]&\Ext_R^0(M'',N)\arrow[r]&\Ext_R^0(M,N)\arrow[r]&\Ext_R^0(M',N)\arrow[r]&\Ext_R^1(M'',N)\arrow[r]&\cdots
+\end{tikzcd}\]
+Y notemos que los primeros tres módulos son:
+\[\begin{tikzcd}
+	0\arrow[r]&\Hom_R(M'',N)\arrow[r]&\Hom_R(M,N)\arrow[r]&\Hom_R(M',N)\arrow[r]&\Ext_R^1(M'',N)\arrow[r]&\cdots
+\end{tikzcd}\]
+Y ahora supongamos que tenemos
+\[\begin{tikzcd}
+	0\arrow[r]&M'\arrow[r]\arrow[d]&M\arrow[r]\arrow[d]&M''\arrow[r]\arrow[d]&0\\
+		0\arrow[r]&A'\arrow[r]&A\arrow[r]&A''\arrow[r]&0
+\end{tikzcd}\]
+Que inducen
+\[\begin{tikzcd}
+	0&P^{'*}_\bullet\arrow[l]&P^*_\bullet\arrow[l]&P_\bullet^{''*}\arrow[l]&0\arrow[l]\\
+		0&Q^{'*}_\bullet\arrow[l]\arrow[u]&Q^{*}_\bullet\arrow[l]\arrow[u]&Q_\bullet^{''*}\arrow[l]\arrow[u]&0\arrow[l]
+\end{tikzcd}\]
+Y por fin obtenemos
+\[\begin{tikzcd}
+	0\arrow[r]&\Ext_R^0(M'',N)\arrow[r]&\Ext_R^0(M,N)\arrow[r]&\Ext_R^0(M',N)\arrow[r]&\Ext_R^1(M'',N)\arrow[r]&\cdots\\
+		0\arrow[r]&\Ext_R^0(A'',N)\arrow[r]\arrow[u]&\Ext_R^0(A,N)\arrow[r]\arrow[u]&\Ext_R^0(A',N)\arrow[r]\arrow[r]&\Ext_R^1(M'',N)\arrow[r]\arrow[u]&\cdots
+\end{tikzcd}\]
+donde todo conmuta. Y ese es más o menos el juego de los funtores derivados.
+
+Es momento de hacer un decreto:
+\begin{quotation}
+	\textbf{A partir de ahora el anillo será $\Z$.}
+\end{quotation}
+Tomemos entonces $A,B\in\ZMod$ y el funtor $\Hom_\Z(-,B)$. ¿Cómo será una resolución libre proyectiva para $A$?
+\[\begin{tikzcd}
+	0\arrow[r]&0\arrow[r]&\ker f_0=P_1\arrow[r]&\bigoplus_{I_0}\Z=P_0\arrow[r,"f_0"]&A\arrow[r]&0
+\end{tikzcd}\]
+Que inducen
+\[\begin{tikzcd}
+	0&0\arrow[l]&P_1^*\arrow[l]&P_0^*\arrow[l]&0\arrow[l]
+\end{tikzcd}\]
+Es decir, $\Ext^n_\Z(A,B)=0$ para cualesquiera $\Z$-módulos $A,B$ y $n\geq2$.
+\begin{prop}\leavevmode
+	\begin{itemize}
+		\item $\Ext^n_R(-,N)$ es un funtor aditivo para toda $n$, es decir,
+		\[\Ext_R^n(M'\oplus M'',N)\approx\Ext_R^n(M',N)\oplus\Ext^n_R(M'',N)\]
+		\begin{proof}
+			Consideremos
+			\[\begin{tikzcd}[row sep=small]
+				P'_\bullet\arrow[r]&M'\arrow[r]&0\\
+				P''_\bullet\arrow[r]&M''\arrow[r]&0
+			\end{tikzcd}\]
+			Y no es difícil ver que también tenemos
+			\[\begin{tikzcd}
+				P'_\bullet\oplus P''_\bullet\arrow[r]&M'\oplus M''\arrow[r]&0
+			\end{tikzcd}\]
+			Y la homología abre sumas: $(P_\bullet''\oplus P_\bullet'')^*\approx P_\bullet''\oplus P_\bullet'^*$.
+		\end{proof}
+		\item $\Ext^n_\Z(A,B)=0$ si $A$ es libre.
+		\begin{proof}
+			Simplemente tomamos $0\to A\to A\to 0$.
+		\end{proof}
+		\item $\Ext^1_\Z(\Z/n\Z,B)\approx B/nB$.
+		\begin{proof}
+			\[\begin{tikzcd}[row sep=small]
+				0&\Hom(\Z,B)\arrow[l]\arrow[d,"\approx"]&\Hom(\Z,B)\arrow[l,swap,"n^*"]\arrow[d,"\approx"]&0\arrow[l]\\
+				0&B\arrow[l]&B\arrow[l,"n"]&0\arrow[l]
+			\end{tikzcd}\]
+			Así que $B/nB=\Ext_\Z^1(\Z/n,B)$.
+		\end{proof}
+	\end{itemize}
+\end{prop}
+¿Qué obtenemos de esta proposición? Si $A$ es finitamente generado, $A\approx\Z^r\oplus\Z/m_1\oplus\ldots\oplus\Z/m_t$, entonces $\Ext^1_\Z(A,B)\approx B/m_1B\oplus\ldots\oplus B/m_tB$.
+
+\section{Grupos de cohomología}
+Tomemos un grupo abeliano $G$ y un complejo de cadenas de grupos abelianos libres
+\[\begin{tikzcd}
+	\cdots\arrow[r]&C_n\arrow[r,"\partial_n"]&C_{n-1}\arrow[r,"\partial_{n-1}"]&C_{n-2}\arrow[r]&\cdots
+\end{tikzcd}\]
+Y apliquemos el $\Hom_\Z(-,G)$ para obtener
+\[\begin{tikzcd}
+	\cdots\arrow[r]&C_n^*\arrow[r,"\partial_{n+1}^*"]&C_{n+1}^*\arrow[r,"\partial^*_{n+2}"]&C_{n+2}^*\arrow[r]&\cdots
+\end{tikzcd}\]
+que tiene su homología,
+\[H^n(C_\bullet,G)=\ker\partial_n^*/\img\partial^*_{n-1}\]
+que llamaremos el \textbf{$n$-ésimo grupo de cohomología de $C_\bullet$ con coeficientes en $G$}.
+
+Consideremos
+\[\begin{tikzcd}
+	\Hom(C_{n-1},G)\arrow[r,"\partial_{n-1}^*"]&\Hom(C_{n-1},G)\arrow[r,"\partial_n^*"]&\Hom(C_n,G)
+\end{tikzcd}\]
+Y también
+\[\begin{tikzcd}
+	C_{n-2}\arrow[r,"f"]&G\\
+	C_{n-1}\arrow[u,"\partial_{n-1}"]\arrow[ur,"f\partial_{n-1}",swap]
+\end{tikzcd}\]
+De manera que los elementos en la homología funciones que se anulan en las fronteras, ya que $[g]\in H^{n-1}(C;G)$ para alguna $g:C_{n-1}\to G$ tal que
+\begin{align*}
+	f\partial_{n-1}:C_{n-1}&\to G\\
+	g&\mapsto g\partial_n=0
+\end{align*}
+\begin{obs}
+	Los funtores homología y dualizar no conmutan, es decir $H^n(C_\bullet;G)$ y $\Hom(H_n(C_\bullet),G)$ no son iguales.
+\end{obs}
+\begin{ejem}
+	Analizar el caso de 
+	\[\begin{tikzcd}
+		0\arrow[r]&\Z\arrow[r]&\Z\arrow[r]&0
+	\end{tikzcd}\]
+\end{ejem}
+Aún así, podemos construir una función
+\begin{align*}
+	h:H^n(C_\bullet;G)&\to\Hom(H_n(C_\bullet),G)\\
+	[g]&\mapsto Z_n/B_n=H_n(C_\bullet)\to G
+\end{align*}
+donde $g:C_n\to G$ con $g|_{B_n}=0 $. Así que simplemente enviamos a $[g]$ a la restricción $g|_{Z_n}:Z_n/B_n\to G$. Que está bien definida.
+\begin{prop}
+	$h$ es suprayectiva. Más aún, exste una función $\varphi:\Hom(H_n(C_\bullet),G)\to H^n(C_\bullet;G)$ tal que $h\varphi=id$.
+\end{prop}
+\begin{coro}
+	$H^n(C_\bullet,G)\approx\Hom(H_n(C_\bullet),G)\oplus\ker h$.
+\end{coro}
+
 \end{document}
