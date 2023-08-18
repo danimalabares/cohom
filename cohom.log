@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  14 AUG 2023 16:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  17 AUG 2023 16:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -139,6 +139,18 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@count@id=\count271
 \enitdp@description=\count272
 )
+(/usr/local/texlive/2023/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)))
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks22
@@ -555,9 +567,6 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2023-02-07 v7.00v Hypertext links for LaTeX
 
-(/usr/local/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-)
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -568,9 +577,6 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-)
-(/usr/local/texlive/2023/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 )
 (/usr/local/texlive/2023/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
@@ -596,16 +602,13 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/local/texlive/2023/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
 ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
- (/usr/local/texlive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty
-Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
-))
+)
 \c@section@level=\count306
 )
 \@linkdim=\dimen284
 \Hy@linkcounter=\count307
 \Hy@pagecounter=\count308
-
-(/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2023-02-07 v7.00v Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
@@ -693,7 +696,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 48.
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 8
-3.
+6.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
@@ -705,24 +708,24 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 (./cohom.aux)
 \openout1 = `cohom.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -783,26 +786,26 @@ e
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 83.
+Package hyperref Info: Link coloring ON on input line 86.
 
 (./cohom.out) (./cohom.out)
 \@outlinefile=\write4
 \openout4 = `cohom.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 85.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 88.
 
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 85.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 88.
 
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 8
-5.
+8.
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [1
 
@@ -817,72 +820,215 @@ al/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc}] (./cohom.toc)
 ]
 Chapter 1.
 LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 1
-07.
+10.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 ) [3
 
 ] [4]
-Overfull \hbox (26.4153pt too wide) detected at line 183
+Overfull \hbox (26.4153pt too wide) detected at line 186
 []
  []
 
 [5] [6]
-Overfull \hbox (5.89752pt too wide) in paragraph at lines 274--275
+Overfull \hbox (5.89752pt too wide) in paragraph at lines 277--278
 []\OT1/ppl/b/n/10 Definici^^Son. []\OT1/ppl/m/n/10 Sea $\OML/cmm/m/it/10 M$ \OT
 1/ppl/m/n/10 un $\OML/cmm/m/it/10 R$\OT1/ppl/m/n/10 -m[]odulo. Una \OT1/ppl/b/n
 /10 res-oluci^^Son li-bre (proyec-tiva) \OT1/ppl/m/n/10 de $\OML/cmm/m/it/10 M$
  \OT1/ppl/m/n/10 es una sucesi[]on
  []
 
-[7] [8] [9] [10]
-Overfull \hbox (37.42964pt too wide) detected at line 402
+[7] [8] [9]
+Underfull \vbox (badness 1622) has occurred while \output is active []
+
+ [10]
+Overfull \hbox (37.42964pt too wide) detected at line 405
 []
  []
 
 
-Overfull \hbox (52.01299pt too wide) detected at line 406
+Overfull \hbox (52.01299pt too wide) detected at line 409
 []
  []
 
-
-Overfull \hbox (37.42964pt too wide) detected at line 421
+[11]
+Overfull \hbox (37.42964pt too wide) detected at line 424
 []
  []
 
-[11] [12] [13] (./cohom.aux)
+[12] [13]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathop' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathchardef' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\std@minus' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.22198pt
+(hyperref)                removed on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathgroup' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\symoperators' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathop' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathchardef' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\std@minus' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.22198pt
+(hyperref)                removed on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathgroup' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\symoperators' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 502.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 502.
+
+[14] [15] [16] [17] (./cohom.aux)
 Package rerunfilecheck Info: File `cohom.out' has not changed.
-(rerunfilecheck)             Checksum: C64448827D03B78E81095E847DA76CAD;797.
+(rerunfilecheck)             Checksum: E0FA0C344941DE106DD4E06D89F2F438;1200.
  ) 
 Here is how much of TeX's memory you used:
- 28332 strings out of 476025
- 560718 string characters out of 5790018
+ 29323 strings out of 476025
+ 586310 string characters out of 5790018
  1916388 words of memory out of 5000000
- 48349 multiletter control sequences out of 15000+600000
+ 49332 multiletter control sequences out of 15000+600000
  531986 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,18n,89p,720b,1221s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,18n,89p,1194b,1191s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
 usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
 r/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
-local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/loc
-al/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/
-texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
-exlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/tex
-live/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texli
-ve/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/t
-exlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/loca
-l/texlive/2023/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/
-texlive/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive
-/2023/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/t
-exmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf-di
-st/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on cohom.pdf (13 pages, 246807 bytes).
+local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/lo
+cal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local
+/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/te
+xlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
+live/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texli
+ve/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive
+/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/tex
+live/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/
+texlive/2023/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/te
+xlive/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2
+023/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/tex
+mf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf-dist
+/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on cohom.pdf (17 pages, 270940 bytes).
 PDF statistics:
- 191 PDF objects out of 1000 (max. 8388607)
- 140 compressed objects within 2 object streams
- 21 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 218 PDF objects out of 1000 (max. 8388607)
+ 161 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
+ 69 words of extra memory for PDF output out of 10000 (max. 10000000)
 

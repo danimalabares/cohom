@@ -27,7 +27,7 @@
 \usepackage{float}
 \usepackage{subcaption}
 \usepackage{enumitem}
-%\usepackage{parskip}
+\usepackage{parskip}
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -58,6 +58,7 @@
 \newtheorem*{coro}{Corolario}
 \newtheorem*{ejer}{Ejercicio}
 \newtheorem*{ejem}{Ejemplo}
+\newtheorem*{af}{Afirmación}
 \newtheorem*{pregunta}{Pregunta}
 
 \newcommand{\R}{\mathbb{R}}
@@ -74,7 +75,9 @@
 \DeclareMathOperator{\ZMod}{\mathbb{Z}\text{-}mod}
 \DeclareMathOperator{\Ab}{Ab}
 \DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Cohom}{Cohom}
 \DeclareMathOperator{\Ext}{Ext}
+
 
 
 \title{La conjetura de Poincaré en dimensiones altas}
@@ -375,7 +378,7 @@ Luego, diremos que $P$ es \textbf{proyectivo} si existe $Q$ tal que $P\oplus Q$ 
 		1\arrow[r]&M'\arrow[u]\arrow[r]&M\arrow[red,u]\arrow[r]&M''\arrow[u]\arrow[r]&0\\
 		0\arrow[red,r]&F_0'\arrow[r,red]\arrow[u]&\textcolor{red}{F_0}\arrow[r,red]\arrow[u,red]&F_0^{''}\arrow[u]\arrow[r,red]&0\\
 		0\arrow[red,r]&F_1'\arrow[r,red]\arrow[u]&\textcolor{red}{F_1}\arrow[r,red]\arrow[u,red]&F_1^{''}\arrow[u]\arrow[r,red]&0\\
-		&\cdots\arrow[u]&\cdots\arrow[u,red]&\cdots\arrow[u]&
+		&\vdots\arrow[u]&\vdots\arrow[u,red]&\vdots\arrow[u]&
 	\end{tikzcd}\]
 \end{lema}
 \begin{proof} Pa' pronto, la resolución de en medio es la suma de las resoluciones:
@@ -433,7 +436,10 @@ Que inducen
 \[\begin{tikzcd}
 	0&0\arrow[l]&P_1^*\arrow[l]&P_0^*\arrow[l]&0\arrow[l]
 \end{tikzcd}\]
-Es decir, $\Ext^n_\Z(A,B)=0$ para cualesquiera $\Z$-módulos $A,B$ y $n\geq2$.
+Es decir,
+\begin{quotation}
+	$\Ext^n_\Z(A,B)=0$ para cualesquiera $\Z$-módulos $A,B$ y $n\geq2$.
+\end{quotation}
 \begin{prop}\leavevmode
 	\begin{itemize}
 		\item $\Ext^n_R(-,N)$ es un funtor aditivo para toda $n$, es decir,
@@ -493,26 +499,118 @@ De manera que los elementos en la homología funciones que se anulan en las fron
 	f\partial_{n-1}:C_{n-1}&\to G\\
 	g&\mapsto g\partial_n=0
 \end{align*}
-\begin{obs}
+\subsection{$\Cohom$ y $\Hom$}
 	Los funtores homología y dualizar no conmutan, es decir $H^n(C_\bullet;G)$ y $\Hom(H_n(C_\bullet),G)$ no son iguales.
-\end{obs}
 \begin{ejem}
 	Analizar el caso de 
 	\[\begin{tikzcd}
-		0\arrow[r]&\Z\arrow[r]&\Z\arrow[r]&0
+		C_\bullet&0\arrow[r]&\Z\arrow[r,"2"]&\Z\arrow[r]&0
 	\end{tikzcd}\]
+	comparando $H^n(C_\bullet;\Z)$ con $\Hom(H_n(C_\bullet);\Z)$.
+	Para calcular la cohomología lo primero que hago es dualizar:
+	\[\begin{tikzcd}
+		C^*_\bullet&0&\Z\arrow[l,swap,"2"]&\Z\arrow[l]&0\arrow[l]
+	\end{tikzcd}\]
+	De manera que $H^0(C_\bullet;\Z)=0$ y $H^1(C_\bullet;\Z)=\Z/2\Z$, pero $\Hom(H_n(C_\bullet),\Z)=0$ para toda $n$.
 \end{ejem}
 Aún así, podemos construir una función
 \begin{align*}
 	h:H^n(C_\bullet;G)&\to\Hom(H_n(C_\bullet),G)\\
 	[g]&\mapsto Z_n/B_n=H_n(C_\bullet)\to G
 \end{align*}
-donde $g:C_n\to G$ con $g|_{B_n}=0 $. Así que simplemente enviamos a $[g]$ a la restricción $g|_{Z_n}:Z_n/B_n\to G$. Que está bien definida.
+donde $g:C_n\to G$ con $g|_{B_n}=0 $. Así que simplemente enviamos a $[g]$ a la restricción $g|_{Z_n}:Z_n/B_n\to G$.
 \begin{prop}
-	$h$ es suprayectiva. Más aún, exste una función $\varphi:\Hom(H_n(C_\bullet),G)\to H^n(C_\bullet;G)$ tal que $h\varphi=id$.
+	$h$ es suprayectiva. Más aún, exste una función 
+	\[\varphi:\Hom(H_n(C_\bullet),G)\to H^n(C_\bullet;G)\]
+	tal que $h\varphi=id$.
 \end{prop}
+\begin{proof}
+	Sea $\bar{g}:H_n(C_\bullet)\to G$. Como $H_n(C_\bullet)=Z_n/B_n$, lo que queremos hacer es extender $\bar{g}$ a una función en todo $C_\bullet$. Observemos que tenemos esta sucesión exacta corta:
+	\[\begin{tikzcd}
+		0\arrow[r]&Z_n\arrow[r]&C_n\arrow[r]&B_{n-1}\arrow[r]&0
+	\end{tikzcd}\]
+	Como $B_{n-1}\subset C_{n-1}$ y $C_n$ es libre porque \textbf{estamos suponiendo que $C_\bullet$ es un complejo de cadenas de grupos abelianos libres}. Luego, esta sucesión exacta corta se escinde así que $C_n=Z_n\oplus B_n$, y la proyección a $Z_n$ es un mapeo $C_n\to Z_n$. En fin,
+	\[\begin{tikzcd}
+		Z_n\arrow[r]&H_n(C)\arrow[r,"\bar{g}"]&G\\
+		C_n\arrow[u]\arrow[rru,swap,dashed,"g"]
+	\end{tikzcd}\]
+	Y de hecho$g$ sí representa un elemento en la cohomología, ya que $g|_{B_n}=0$ porque la flecha de $Z_n\to H_n(C)=Z_n/B_n$ es el paso al cociente, así que se pierden los elementos de $B_n$. Además, $\varphi$ es un homomorfismo. Ya además $\varphi h=id$ por la forma en la que fue contruida: no hemos hecho más que extender y luego restringir una función.
+\end{proof}
 \begin{coro}
 	$H^n(C_\bullet,G)\approx\Hom(H_n(C_\bullet),G)\oplus\ker h$.
 \end{coro}
-
+\begin{prop}
+	$\ker h\approx \Ext^1_\Z(H_{n-1},G)$.
+\end{prop}
+\begin{proof}
+	Esta prueba tiene un truco. Comenzamos por definir el complejo de cadenas de los ciclos,
+	\[\begin{tikzcd}
+		0\arrow[d]&&&\\
+		Z_\bullet\arrow[d,hook]&\cdots\arrow[r]&Z_n\arrow[d,hook]\arrow[r,"0"]&Z_{n-1}\arrow[d,hook]\arrow[r,"0"]&\cdots\\
+		C_\bullet\arrow[d]&\cdots\arrow[r]&C_n\arrow[d,hook]\arrow[r,"\partial_n"]&C_{n-1}\arrow[d,hook]\arrow[r,"\partial{n-1}"]&\cdots\\
+		B_{\bullet-1}\arrow[d]&\cdots\arrow[r]&B_n\arrow[r,"0"]&B_{n-1}\arrow[r,"0"]&\cdots\\
+		0&&&
+	\end{tikzcd}\]
+	Los homomorfismos frontera son $0$ cuando vemos este complejo de cadenas como subcomplejo de cadenas de $\C_\bullet$. Y algo parecido para $B_{\bullet-1}$. Ahora, la sucesión exacta corta de complejos de cadenas se escinde y al dualizar obtenemos
+	\[\begin{tikzcd}
+		0\arrow[r]&B_{\bullet-1}^*\arrow[r]&C^*_\bullet\arrow[r]&Z_\bullet^*\arrow[r]&0
+	\end{tikzcd}\]
+	Ahora sí, aplicamos el teorema fundamental del álgebra homológica para obtener
+	\[\begin{tikzcd}
+		\cdots\arrow[r]&B_{n-1}^*\arrow[r]&H^n(C_\bullet,G)\arrow[r]&Z_n^*\arrow[r]&B_n^*\arrow[r]&H^{n+1}(C_\bullet,G)\arrow[r]&\cdots
+	\end{tikzcd}\]
+	\begin{af}
+		$Z_n^*\xrightarrow{i_n^*} B_n^*$ dado por $g\mapsto g|_{B_n}$ es el dual de $B_n\hookrightarrow Z_n$.
+	\end{af}
+	\begin{obs}
+		El dual de una inclusión es una restricción.
+	\end{obs}
+	En la prueba simplemente mostramos que el mapeo $g\mapsto \bar{g}\partial_{n+1}:B_n\to G$ es una restricción.
+	\[\begin{tikzcd}
+		0\arrow[d]&&0&0&\\
+		Z_\bullet\arrow[d,hook]&\cdots\arrow[r]&Z^*_n\arrow[r,"0",red]\arrow[u]&Z^*_{n-1}\arrow[u,red]\arrow[r,"0"]&\cdots\\
+		C_\bullet\arrow[d]&\cdots\arrow[r]&C^*_n\arrow[u,red]\arrow[r,"\partial^*_n"]&C_{n-1}\arrow[u]\arrow[r,"\partial^*_{n-1}"]&\cdots\\
+		B_{\bullet-1}\arrow[d]&\cdots\arrow[r]&B^*_n\arrow[r,"0"]\arrow[u]&B^*_{n-1}\arrow[u]\arrow[r,"0"]&\cdots\\
+		0&&&
+	\end{tikzcd}\]
+	Perseguimos ese diagrama para construir el diagrama conmutativo
+	\[\begin{tikzcd}
+		&Z_n\arrow[r,"g"]\arrow[d,hook]&G\\
+		B_n\arrow[ur,hook]\arrow[r,hook]&C_n\arrow[ur,"\bar{g}"]\\
+		&C_{n+1}\arrow[ul]\arrow[u]
+	\end{tikzcd}\]
+	\textit{Parece que la $\bar{g}$ cambió de ser una restricción a una extensión...}
+	
+	Luego
+	\[\begin{tikzcd}
+		0\arrow[r]&\coker i_{n-1}^*\arrow[r]&H^n(C_\bullet;G)\arrow[r,"h"]&\ker i_{n}^*\arrow[r]&0
+	\end{tikzcd}\]
+	\begin{af}
+		$\ker i^*_n=\Hom(H_n(C_\bullet),G)$
+	\end{af}
+	\begin{af}
+		$\ker h=\coker i_{n-1}^*$.
+	\end{af}
+	Entonces,
+	\[\begin{tikzcd}
+		Z_{n-1}^*\arrow[r,"i_{n-1}^*"]&B_{n-1}^*\arrow[r]&\coker i_{n-1}^*\arrow[r]&0
+	\end{tikzcd}\]
+	Y ahora nada más tomamos
+	\[\begin{tikzcd}
+		&&&0\\
+		0\arrow[r]&B_{n-1}\arrow[r,hook]&Z_{n-1}\arrow[r]\arrow[ur]&H_{n-1}(C_\bullet)\arrow[r]&0
+	\end{tikzcd}\]
+	Y de aquí que
+	\[\begin{tikzcd}
+		0\arrow[dr]&&&0\\
+		&Z_{n-1}^*\arrow[r,"i_{n-1}^*"]&B_{n-1}^*\arrow[r]\arrow[ur]&\coker i_{n-1}^*\arrow[r]&0
+	\end{tikzcd}\]
+	Y esa de cuatro no es exacta pero sí concluimos que $\coker i_{n-1}^*=\Ext^1(H_n(C_\bullet),G)$.
+\end{proof}
+\begin{teo}
+	Tenemos
+	\[\begin{tikzcd}
+		0\arrow[r]&\Ext^1(H_{n-1}(C_\bullet),G)\arrow[r]&H^n(C_\bullet,G)\arrow[r,"h"]&\Hom(H_n(C),G)\arrow[r]&0
+	\end{tikzcd}\]
+\end{teo}
 \end{document}
