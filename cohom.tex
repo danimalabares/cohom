@@ -499,7 +499,7 @@ De manera que los elementos en la homología funciones que se anulan en las fron
 	f\partial_{n-1}:C_{n-1}&\to G\\
 	g&\mapsto g\partial_n=0
 \end{align*}
-\subsection{$\Cohom$ y $\Hom$}
+\section{Teorema de coeficientes universales}
 	Los funtores homología y dualizar no conmutan, es decir $H^n(C_\bullet;G)$ y $\Hom(H_n(C_\bullet),G)$ no son iguales.
 \begin{ejem}
 	Analizar el caso de 
@@ -607,10 +607,92 @@ donde $g:C_n\to G$ con $g|_{B_n}=0 $. Así que simplemente enviamos a $[g]$ a la
 	\end{tikzcd}\]
 	Y esa de cuatro no es exacta pero sí concluimos que $\coker i_{n-1}^*=\Ext^1(H_n(C_\bullet),G)$.
 \end{proof}
-\begin{teo}
-	Tenemos
+\begin{teo}[de coeficientes universales]
+	Sean $G$ un grupo abeliano y $C$ un $\Z$-complejo de cadenas de grupos abelianos libres, entonces tenemos la sucesión exacta
 	\[\begin{tikzcd}
-		0\arrow[r]&\Ext^1(H_{n-1}(C_\bullet),G)\arrow[r]&H^n(C_\bullet,G)\arrow[r,"h"]&\Hom(H_n(C),G)\arrow[r]&0
+		0\arrow[r]&\Ext^1(H_{n-1}(C_\bullet),G)\arrow[r]&H^n(C_\bullet,G)\arrow[r,"h"]&\Hom_\Z(H_n(C),G)\arrow[r]&0
 	\end{tikzcd}\]
+	que se escinde.
+	
+	Además, esta sucesión es \textbf{natural} en $C_\bullet$, es decir, si $	\alpha:C_\bullet\to C'_\bullet$, entonces el siguiente diagrma conmuta:
+	\[\begin{tikzcd}
+		0\arrow[r]&\Ext^1(H_{n-1}(C_\bullet),G)\arrow[r]&H^n(C_\bullet,G)\arrow[r,"h"]&\Hom_\Z(H_n(C),G)\arrow[r]&0\\
+		0\arrow[r]&\Ext^1(H_{n-1}(C_\bullet),G)\arrow[r]\arrow[u,"\alpha_*"]&H^n(C_\bullet,G)\arrow[r,"h'"]\arrow[u,"\alpha^*"]&\Hom_\Z(H_n(C),G)\arrow[r]\arrow[u,"\alpha_*"]&0
+	\end{tikzcd}\]
+	donde estamos abusando de notación con las flechas inducidas por $\alpha$, que son distintas, pero se obtienen usando que $H_n$ y $\Ext$ son funtores.
 \end{teo}
+\begin{obs}
+	El nombre \textit{coeficientes universales} tiene que ver con que la homología con coeficientes en $\Z$ determina la cohomología con cualesquiera coeficientes.
+\end{obs}
+\begin{proof}
+	Ahora demostremos la naturalidad. Comenzamos con el siguiente diagrama:
+	\[\begin{tikzcd}
+		0\arrow[r]&Z_\bullet\arrow[r]\arrow[d,"\alpha"]&C_\bullet\arrow[r,"\partial"]\arrow[d,"\alpha"]&B_{\bullet,-1}\arrow[r]\arrow[d,"\alpha"]&0\\
+		0\arrow[r]&Z'_\bullet\arrow[r]&C_\bullet'\arrow[r]&B'_{\bullet-1}\arrow[r]&0
+	\end{tikzcd}\]
+	Luego dualizamos:
+	\[\begin{tikzcd}
+		0\arrow[r]&Z^*_\bullet\arrow[r]&C^*_\bullet\arrow[r]&B^*_{\bullet-1}\arrow[r]&0\\
+		0\arrow[r]&Z^{'*}_\bullet\arrow[r]\arrow[u,"\alpha^*"]&C^{'*}_\bullet\arrow[r]\arrow[u,"\alpha^*"]&B^{'*}_{\bullet,-1}\arrow[r]\arrow[u,"\alpha^*"]&0
+	\end{tikzcd}\]
+	Y por último
+	\[\begin{tikzcd}
+		0\arrow[r]&\coker i^*_{n-1}\arrow[r]&H^n(C_\bullet,G)\arrow[r]&\ker i^*_n\arrow[r]&0\\
+		0\arrow[r]&\coker i^{'*}_{n-1}\arrow[r]\arrow[u,"\alpha^*"]&H^n(C'_\bullet,G)\arrow[r]\arrow[u,"\alpha^*"]&\ker i^{'*}_n\arrow[r]\arrow[u,"\alpha^*"]&0
+	\end{tikzcd}\]
+\end{proof}
+\begin{coro}
+	Supongamos que $H_n(C_\bullet)$ y $H_{n-1}(C_\bullet)$ son finitamente generados. Podemos expresarlos así:
+	\[H_n(C_\bullet)=\Z^{r_n}\oplus T_n\qquad\qquad H_{n-1}(C_\bullet)=\Z^{r_{n-1}}\oplus T_{n-1}\]
+	Con $T_n$ y $T_{n-1}$ finitos. Entonces,
+	\[H^n(C_\bullet,\Z)\approx\Z^{r_n}\oplus T_{n-1}\]
+\end{coro}
+\begin{proof}
+	\begin{align*}
+		H^n(C_\bullet,\Z)&\approx\Hom(H_n(C_\bullet,\Z))\oplus\Ext_\Z^1(H_{n-1}(C_\bullet),\Z)\\
+		&\approx\Hom(\Z^r\oplus T_n,\Z)\oplus\Ext(Z^{r_{n-1}}\oplus T_{n-1},\Z)\\
+		&\approx\Hom(\Z^{r_n},\Z\oplus\Hom(T_n,\Z)\oplus\Ext(\Z^{r_{n-1}},\Z)\oplus\Ext(T_{n-1},\Z))\\
+		&\approx \Z^{r_n}\oplus T_{n-1}
+	\end{align*}
+\end{proof}
+\begin{coro}
+	Si $\alpha:C_\bullet\to C_\bullet'$ induce isomorfismos en homología, entonces induce isomorfismos en cohomología.
+\end{coro}
+\begin{proof}
+	En la prueba de la naturalidad del teorema de coeficientes universales, los $\alpha_*$ de los extremos son isomorfismos. Por el lema de los cinco, $\alpha_*$ también lo es.
+\end{proof}
+
+\chapter{Cohomología}
+Sea $X$ un espacio topológico y $G$ un grupo abeliano. Podemos definir el complejo de cadenas singulares de $X$,
+\[\begin{tikzcd}
+	C_\bullet(X)&\cdots\arrow[r]&C_{n+1}\arrow[r,"\partial{n-1}"]&C_n\arrow[r,"\partial_n"]&C_{n-1}\arrow[r]&\cdots
+\end{tikzcd}\]
+donde 
+	\[C_n(X):=\left\{\sum_{i=1}^mr_i\sigma_i|m\in\Z,r_i\in\R,\sigma_i\text{ es un simplejo singular}\right\}\approx\bigoplus_{n\text{ sim. sing.}}\Z\]
+Y definimos
+\begin{align*}
+	H_n(X;\Z)&=H_n(C_\bullet(X))\\
+	C^\bullet(X;G)&=\Hom(C_\bullet(X),G)\\
+	H^n(X;G)&=H_n(C^\bullet(X,G))
+\end{align*}
+de donde
+\[\begin{tikzcd}
+	\cdots&\Hom(C_{n+1},G)\arrow[l]&\Hom(C_n,G)\arrow[l,swap,"\partial_{n+1}^*"]&\Hom(C_{n-1},G)\arrow[l,swap,"\partial_n^*"]&\cdots\arrow[l]
+\end{tikzcd}\]
+Y las fronteras están definidas mediante
+\[\begin{tikzcd}
+	C_n\arrow[r,"\varphi"]&G\\
+	C_{n+1}\arrow[u,"\partial_{n+1}"]\arrow[ur,dashed]
+\end{tikzcd}\]
+Y definimos los ciclos y las cofronteras.
+
+Y el teorema de coeficientes universales en este contexto nos dice que:
+\[\begin{tikzcd}
+	0\arrow[r]&\Ext^1(H_{n-1}(X),G)\arrow[r]&H^n(X,G)\arrow[r,"h"]&\Hom_\Z(H_n(X),G)\arrow[r]&0
+\end{tikzcd}\]
+También podemos definir los \textbf{grupos de cohomología reducidos} comenzando con el complejo de cadenas
+\[\begin{tikzcd}
+	\cdots\arrow[r]&C_{n+1}\arrow[r,"\partial{n-1}"]&C_n\arrow[r,"\partial_n"]&C_{n-1}\arrow[r]&\cdots\arrow[r]&C_0\arrow[r,"\varepsilon"]&\Z\arrow[r]&0
+\end{tikzcd}\]
+dualizando, y calculando homología. Como con la homología reducida, $\tilde{H}^n(X;G)=H^n(X;G)$, y $H^0(X)\approx\Hom(H_0(X),G)\approx\bigoplus_{\pi_0(X)}G$. Para verlo, usamos el teorema de coeficientes universales. Y si $X$ es arco-conexo, por la propiedad universal del abelianizado y usando el homomorfismo de Hurewics, $H^n(X)\approx\Hom(\pi_1(X),G)$.
 \end{document}
