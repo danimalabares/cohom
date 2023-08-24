@@ -608,7 +608,7 @@ donde $g:C_n\to G$ con $g|_{B_n}=0 $. Así que simplemente enviamos a $[g]$ a la
 	Y esa de cuatro no es exacta pero sí concluimos que $\coker i_{n-1}^*=\Ext^1(H_n(C_\bullet),G)$.
 \end{proof}
 \begin{teo}[de coeficientes universales]
-	Sean $G$ un grupo abeliano y $C$ un $\Z$-complejo de cadenas de grupos abelianos libres, entonces tenemos la sucesión exacta
+	Sean $G$ un grupo abeliano y $C_\bullet$ un $\Z$-complejo de cadenas de grupos abelianos libres, entonces tenemos la sucesión exacta
 	\[\begin{tikzcd}
 		0\arrow[r]&\Ext^1(H_{n-1}(C_\bullet),G)\arrow[r]&H^n(C_\bullet,G)\arrow[r,"h"]&\Hom_\Z(H_n(C),G)\arrow[r]&0
 	\end{tikzcd}\]
@@ -617,7 +617,7 @@ donde $g:C_n\to G$ con $g|_{B_n}=0 $. Así que simplemente enviamos a $[g]$ a la
 	Además, esta sucesión es \textbf{natural} en $C_\bullet$, es decir, si $	\alpha:C_\bullet\to C'_\bullet$, entonces el siguiente diagrma conmuta:
 	\[\begin{tikzcd}
 		0\arrow[r]&\Ext^1(H_{n-1}(C_\bullet),G)\arrow[r]&H^n(C_\bullet,G)\arrow[r,"h"]&\Hom_\Z(H_n(C),G)\arrow[r]&0\\
-		0\arrow[r]&\Ext^1(H_{n-1}(C_\bullet),G)\arrow[r]\arrow[u,"\alpha_*"]&H^n(C_\bullet,G)\arrow[r,"h'"]\arrow[u,"\alpha^*"]&\Hom_\Z(H_n(C),G)\arrow[r]\arrow[u,"\alpha_*"]&0
+		0\arrow[r]&\Ext^1(H_{n-1}(C'_\bullet),G)\arrow[r]\arrow[u,"\alpha_*"]&H^n(C'_\bullet,G)\arrow[r,"h'"]\arrow[u,"\alpha^*"]&\Hom_\Z(H_n(C'),G)\arrow[r]\arrow[u,"\alpha_*"]&0
 	\end{tikzcd}\]
 	donde estamos abusando de notación con las flechas inducidas por $\alpha$, que son distintas, pero se obtienen usando que $H_n$ y $\Ext$ son funtores.
 \end{teo}
@@ -684,9 +684,9 @@ Y las fronteras están definidas mediante
 	C_n\arrow[r,"\varphi"]&G\\
 	C_{n+1}\arrow[u,"\partial_{n+1}"]\arrow[ur,dashed]
 \end{tikzcd}\]
-Y definimos los ciclos y las cofronteras.
+Y definimos los cociclos y las cofronteras.
 
-Y el teorema de coeficientes universales en este contexto nos dice que:
+Y el \textbf{teorema de coeficientes universales en cohomología} nos dice que:
 \[\begin{tikzcd}
 	0\arrow[r]&\Ext^1(H_{n-1}(X),G)\arrow[r]&H^n(X,G)\arrow[r,"h"]&\Hom_\Z(H_n(X),G)\arrow[r]&0
 \end{tikzcd}\]
@@ -695,4 +695,78 @@ También podemos definir los \textbf{grupos de cohomología reducidos} comenzand
 	\cdots\arrow[r]&C_{n+1}\arrow[r,"\partial{n-1}"]&C_n\arrow[r,"\partial_n"]&C_{n-1}\arrow[r]&\cdots\arrow[r]&C_0\arrow[r,"\varepsilon"]&\Z\arrow[r]&0
 \end{tikzcd}\]
 dualizando, y calculando homología. Como con la homología reducida, $\tilde{H}^n(X;G)=H^n(X;G)$, y $H^0(X)\approx\Hom(H_0(X),G)\approx\bigoplus_{\pi_0(X)}G$. Para verlo, usamos el teorema de coeficientes universales. Y si $X$ es arco-conexo, por la propiedad universal del abelianizado y usando el homomorfismo de Hurewics, $H^n(X)\approx\Hom(\pi_1(X),G)$.
+
+También hay un \textbf{teorema de coeficientes universales para la cohomología reducida}.
+	
+Ahora tratemos de definir la cohomología de la pareja. Todo comienza usando
+\[\begin{tikzcd}
+	0\arrow[r]&C_\bullet(A)\arrow[r]&C_\bullet(X)\arrow[r]&C_\bullet(A,X)\arrow[r]&0
+\end{tikzcd}\]
+Que se escinde ya que la base de $C_\bullet(A)$ es una sub-base de $C_\bullet(X)$. Aplicamos $\Hom(-,G)$ para obtener
+\[\begin{tikzcd}
+	0\arrow[r]&C_\bullet^*(X,A)\arrow[r]&C_\bullet^*(X)\arrow[r]&C_\bullet^*(A)\arrow[r]&0
+\end{tikzcd}\]
+Y aquí calculamos los grupos de homología
+\[H^n(X,A):=H_n(C_\bullet^*(X,A))\]
+Aplicamos el teorema fundamental del álgebra para obtener
+\[\begin{tikzcd}
+	\cdots\arrow[r]&H^n(X,A)\arrow[r]&H^n(X)\arrow[r]&H^n(A)\arrow[r]&H^{n+1}(X,A)\arrow[r]&\cdots
+\end{tikzcd}\]
+Y también tenemos \textbf{naturalidad}, es decir, si tenemos $f:(X,A)\to(Y,B)$ es decir, una función continua con $f(A)\subset B$, entonces el siguiente diagrama conmuta:
+\[\begin{tikzcd}
+	0\arrow[r]&C_\bullet(A)\arrow[r]\arrow[d,"f_\#"]&C_\bullet(X)\arrow[r]\arrow[d,"f_\#"]&C_\bullet(A,X)\arrow[r]\arrow[d,"f_\#"]&0\\
+	0\arrow[r]&C_\bullet(B)\arrow[r]&C_\bullet(Y)\arrow[r]&C_\bullet(Y,B)\arrow[r]&0
+\end{tikzcd}\]
+Luego dualizamos,
+\[\begin{tikzcd}
+	0\arrow[r]&C^*_\bullet(A)\arrow[r]&C^*_\bullet(X)\arrow[r]&C^*_\bullet(A,X)\arrow[r]&0\\
+	0\arrow[r]&C^*_\bullet(B)\arrow[r]\arrow[u,"f^*_\#"]&C^*_\bullet(Y)\arrow[r]\arrow[u,"f^*_\#"]&C^*_\bullet(Y,B)\arrow[r]\arrow[u,"f^*_\#"]&0
+\end{tikzcd}\]
+Y también aquí todo conmuta:
+\[\begin{tikzcd}
+	\cdots\arrow[r]&H^n(X,A)\arrow[r]&H^n(X)\arrow[r]&H^n(A)\arrow[r]&H^{n+1}(X,A)\arrow[r]&\cdots\\
+	\cdots\arrow[r]&H^n(Y,B)\arrow[r]\arrow[u]&H^n(Y)\arrow[r]\arrow[u]&H^n(B)\arrow[r]\arrow[u]&H^{n+1}(Y,B)\arrow[r]\arrow[u]&\cdots
+\end{tikzcd}\]
+Aprovechamos para decir que una función de parejas como ésta tiene una \textbf{función inducida}
+\[f^*:H^n(Y,B)\to H^n(X,A)\]
+y de hecho $(fg)^*=g^*f^*$, $id^*_{(X,A)}=id_{H^n(X,A)}$. O sea que de verdad tenemos un funtor.
+
+También tenemos \textbf{invarianza homotópica}, es decir, si $f,g:(X,A)\to(Y,B)$ son homotópicas, entonces $f^*=g^*$. Recordemos un poco la demostración: si dos funciones de parejas son homotópicas, entonces las funciones inducidas en los complejos de cadenas son homotópicas con la definición algebraica, así que inducen iguales en la homología. Dualizando ese diagrama con flechas diagonales de colores, obtenemos que las funciones en cocadenas son homotópicas, así que serán iguales en cohomología.
+
+También tenemos un \textbf{teorema de coeficientes universales para parejas}, que se enuncia así:
+\[\begin{tikzcd}
+	0\arrow[r]&\Ext_\Z^1(H_n(X,A),G)\arrow[r]&H^n(X,A;G)\arrow[r]&\Hom(H_n(X,A),G)\arrow[r]&0
+\end{tikzcd}\]
+que se puede aplicar simplemente porque el complejo de cadenas $C_\bullet(X,A)$ es de grupos abelianos libres.
+
+Y además el siguiente diagrama conmuta:
+\[\begin{tikzcd}
+	0\arrow[r]&\Ext^1(H_{n-1}(X,A),G)\arrow[r]&H^n(X,A;G)\arrow[r,"h"]&\Hom_\Z(H_n(X,A),G)\arrow[r]&0\\
+	0\arrow[r]&\Ext^1(H_{n-1}(Y,B),G)\arrow[r]\arrow[u,"\alpha_*"]&H^n(Y,B;G)\arrow[r,"h'"]\arrow[u,"\alpha^*"]&\Hom_\Z(H_n(Y,B),G)\arrow[r]\arrow[u,"\alpha_*"]&0
+\end{tikzcd}\]
+
+Y también hay \textbf{escisión}: si $Z\subseteq A\subseteq X$ tal que $\bar{Z}\subseteq A$, $i: (X-Z,A-Z)\hookrightarrow (X,A)$, entonces $i^*:H^n(X-Z,A-Z)\xrightarrow{\approx}H^n(X,A)$, cuya demostración se puede dar con escisión homológica y coeficientes universales vía lema de los cinco.
+
+Ahora tomemos la cuña de espacios tales que el punto de pegado tiene una vecindad contraible, entonces:
+\begin{align*}
+	\tilde{H}_n\left(\bigvee_\alpha X_\alpha\right)\approx\bigoplus_\alpha H_n(X_\alpha)\qquad\tilde{H}^n\left(\bigvee_\alpha X_\alpha\right)\approx\prod_\alpha\tilde{H}^n(X_\alpha)\\
+	H_n\left(\bigsqcup_\alpha X_\alpha\right)\approx\bigoplus H_n(X_\alpha)\qquad H^n\left(\bigsqcup_\alpha X_\alpha\right)\approx\prod_\alpha H^n(X_\alpha)
+\end{align*}
+Para complejos CW,
+\begin{align*}
+	H_n(X^{(n)},X^{(n-1)})\approx H_n(X^{(n)}/X^{(n-1)})\approx H_n\left(\bigvee_{n\text{-células}}S^n\right)\approx\bigoplus_{n\text{-células}}\Z
+\end{align*}
+Recordemos que la homología celular se construye de acuerdo al siguiente diagrama:
+\[\begin{tikzcd}[column sep=tiny]
+	& H_{n-1}(X^{n-1}) \arrow[rd, "j_{n-1}"] \\
+	H_n(X^n, X^{n-1}) \arrow[ru, "\partial_n"] \arrow[rr, "d_n"] && H_{n-1}(X^{n-1}, X^{n-2}) \arrow[rd,swap, "\partial_{n-1}"] \arrow[rr, "d_{n-1}"] && H_{n-2}(X^{n-2}, X^{n-3}) \\
+	& && H_{n-2}(X^{n-2}) \arrow[ru,swap, "j_{n-2}"]
+\end{tikzcd}\]
+Dualicemos esto:
+\[\begin{tikzcd}[column sep=tiny]
+	& H^{n-1}(X^{n-1})\arrow[ld,swap, "\partial^*_n"] \\
+	H^n(X^n, X^{n-1})   && H^{n-1}(X^{n-1}, X^{n-2})\arrow[ll,swap, "D^n"]\arrow[lu,swap, "j^*_{n-1}"]  && H^{n-2}(X^{n-2}, X^{n-3})  \arrow[ld, "j^*_{n-2}"]\arrow[ll,swap, "D^{n-1}"] \\
+	& && H^{n-2}(X^{n-2})\arrow[lu, "\partial^*_{n-1}"]
+\end{tikzcd}\]
+Obtenemos funciones $D_n$ en vez de las $d_n$, y pues nada, tenemos \textbf{chomología celular}, y otra vez, $H_n(C_{CW}^\bullet(X)):=H_{CW}^n(X)\approx H^\bullet(X)$.
 \end{document}

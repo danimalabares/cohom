@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  21 AUG 2023 16:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  24 AUG 2023 16:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -860,15 +860,30 @@ Overfull \hbox (37.42964pt too wide) detected at line 424
 Chapter 2.
 [19
 
-] [20] (./cohom.aux)
+] [20]
+Overfull \hbox (2.18532pt too wide) detected at line 746
+[]
+ []
+
+
+Overfull \hbox (33.92769pt too wide) detected at line 764
+[]
+ []
+
+[21]
+Overfull \hbox (37.99004pt too wide) detected at line 770
+[]
+ []
+
+[22] (./cohom.aux)
 Package rerunfilecheck Info: File `cohom.out' has not changed.
 (rerunfilecheck)             Checksum: 2EF5B4C54D8938124E3467506E214999;1144.
  ) 
 Here is how much of TeX's memory you used:
- 29982 strings out of 476025
- 603480 string characters out of 5790018
+ 30711 strings out of 476025
+ 622433 string characters out of 5790018
  1916388 words of memory out of 5000000
- 49986 multiletter control sequences out of 15000+600000
+ 50713 multiletter control sequences out of 15000+600000
  532661 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,18n,89p,1194b,1191s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -889,10 +904,10 @@ texlive/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive
 /2023/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/t
 exmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf-di
 st/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on cohom.pdf (20 pages, 277922 bytes).
+Output written on cohom.pdf (22 pages, 291592 bytes).
 PDF statistics:
- 231 PDF objects out of 1000 (max. 8388607)
- 173 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
+ 240 PDF objects out of 1000 (max. 8388607)
+ 180 compressed objects within 2 object streams
+ 32 named destinations out of 1000 (max. 500000)
  77 words of extra memory for PDF output out of 10000 (max. 10000000)
 
