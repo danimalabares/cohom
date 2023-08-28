@@ -753,20 +753,89 @@ Ahora tomemos la cuña de espacios tales que el punto de pegado tiene una vecind
 	H_n\left(\bigsqcup_\alpha X_\alpha\right)\approx\bigoplus H_n(X_\alpha)\qquad H^n\left(\bigsqcup_\alpha X_\alpha\right)\approx\prod_\alpha H^n(X_\alpha)
 \end{align*}
 Para complejos CW,
-\begin{align*}
-	H_n(X^{(n)},X^{(n-1)})\approx H_n(X^{(n)}/X^{(n-1)})\approx H_n\left(\bigvee_{n\text{-células}}S^n\right)\approx\bigoplus_{n\text{-células}}\Z
-\end{align*}
+\[H_n(X^{n},X^{n-1})\approx H_n(X^{n}/X^{n-1})\approx H_n\left(\bigvee_{n\text{-células}}S^n\right)\approx\bigoplus_{n\text{-células}}\Z\]
 Recordemos que la homología celular se construye de acuerdo al siguiente diagrama:
 \[\begin{tikzcd}[column sep=tiny]
 	& H_{n-1}(X^{n-1}) \arrow[rd, "j_{n-1}"] \\
 	H_n(X^n, X^{n-1}) \arrow[ru, "\partial_n"] \arrow[rr, "d_n"] && H_{n-1}(X^{n-1}, X^{n-2}) \arrow[rd,swap, "\partial_{n-1}"] \arrow[rr, "d_{n-1}"] && H_{n-2}(X^{n-2}, X^{n-3}) \\
 	& && H_{n-2}(X^{n-2}) \arrow[ru,swap, "j_{n-2}"]
 \end{tikzcd}\]
+Recordemos que los mapeos $j_{n-1}$ y $\partial_{n-1}$ son parte de la sucesión exacta larga de la pareja, de modo que su composición es cero, así que las $d_i$ son cero porque factorizan ese cero.
+
 Dualicemos esto:
 \[\begin{tikzcd}[column sep=tiny]
 	& H^{n-1}(X^{n-1})\arrow[ld,swap, "\partial^*_n"] \\
 	H^n(X^n, X^{n-1})   && H^{n-1}(X^{n-1}, X^{n-2})\arrow[ll,swap, "D^n"]\arrow[lu,swap, "j^*_{n-1}"]  && H^{n-2}(X^{n-2}, X^{n-3})  \arrow[ld, "j^*_{n-2}"]\arrow[ll,swap, "D^{n-1}"] \\
 	& && H^{n-2}(X^{n-2})\arrow[lu, "\partial^*_{n-1}"]
 \end{tikzcd}\]
-Obtenemos funciones $D_n$ en vez de las $d_n$, y pues nada, tenemos \textbf{chomología celular}, y otra vez, $H_n(C_{CW}^\bullet(X)):=H_{CW}^n(X)\approx H^\bullet(X)$.
+Obtenemos funciones $D_n$ en vez de las $d_n$, y pues nada, tenemos \textbf{chomología celular}, y otra vez,
+\begin{prop}
+	 Si $X$ es un complejo CW, $H_n(C_{CW}^\bullet(X)):=H_{CW}^n(X)\approx H^\bullet(X)$, y además $C_{CW}^\bullet(X;G)$ es el dual de $C_\bullet^{CW}(X;G)$.
+\end{prop}
+\begin{proof}
+		 Recordemos que
+	 \begin{align*}
+	 	\Hom(\bigoplus_{n\text{-células}}\Z,G)&=\prod_{n\text{-células}}\Hom(\Z,G)\\
+	 	&=\prod_{n\text{-células}}G
+	 \end{align*}
+	 De forma que los grupos de cohomología son
+	 \[H^m(X^n,X^{n-1})=
+	 \begin{aligned}
+	 	\begin{cases}
+	 	\prod_{n\text{-células}}G\qquad&\text{si }n=m\\
+	 	0\qquad&\text{si }n\neq m
+	 \end{cases}
+	 \end{aligned}\]
+	 Ya que los grupos de homología son libres.
+	 
+	 Ahora observemos que $H^k(X^n)\approx H^k(X^{n-1})$ para $k\neq n,n-1$. Fijando $k$ y bajando la $n$, esto implica que $H^k(X^n)\approx H^k(X^0)\approx0$. De aquí que podemos poner algunos ceros en el diagrama de arriba:
+	\[\begin{tikzcd}[column sep=tiny]
+		&&&0\arrow[ld,blue]\\
+		0&&\textcolor{blue}{H^{n-1}(X^n)}\arrow[ld,blue]\\
+		&H^{n-1}(X^{n-1})\arrow[lu]\arrow[ld,swap, "\partial^*_n"] \\
+		H^n(X^n, X^{n-1})   && H^{n-1}(X^{n-1}, X^{n-2})\arrow[ll,swap, "D^n"]\arrow[lu,swap, "j^*_{n-1}"]  && H^{n-2}(X^{n-2}, X^{n-3})  \arrow[ld, "j^*_{n-2}"]\arrow[ll,swap, "D^{n-1}"] \\
+		& && H^{n-2}(X^{n-2})\arrow[lu, "\partial^*_{n-1}"]\arrow[ld]\\
+		&&0
+	\end{tikzcd}\]
+	Ahora notemos que para $k\leq n+1$, $H^k(X,X^{n+1})=0$ ya que
+	\[H^k(X,X^{n+1})\approx\Hom(H_k(X,X^{n+1}))\oplus\Ext(H_{k-1}(X,X^{n+1}))\]
+	Luego, tenemos una sucesión exacta corta:
+	\[\begin{tikzcd}
+		0\approx H^n(X,X^{n+1})\arrow[r]&H^n(X;G)\arrow[r,"\approx"]&H^n(X^{n+1};G)\arrow[r]&H^{n+1}(X,X^{n+1})\approx0
+	\end{tikzcd}\]
+	Así que ese $H^{n-1}(X^n)$ que agregamos en el diagrama de arriba es $\approx H^{n-1}(X)$.
+	
+	Por fin, las flechas en la diagonal arriba-izquierda del diagrama son parte de la sucesión exacta de la pareja, de la cual obtenemos que
+	\begin{align*}
+		H^{n-1}(X)&\approx\ker\partial_{n-1}\\
+		&\approx\ker D^{n-1}/\img\partial_{n-2}\\
+		&\approx\ker D^{n-1}/\img D^{n-2}\\
+		&\approx\Hom^{n-1}(X)
+	\end{align*}
+	Con lo que demostramos la primera parte. (Hay que recorrer la $n$ en todos lados para que sea más claro, pero así está bien).
+	
+	Para lo segundo, tomemos el siguiente diagrama, que resulta de dualizar otro
+	\[\begin{tikzcd}
+		H^n(X^n,X^{n-1})\arrow[r,"j_n"]\arrow[d,"h"]&H^n(X^n)\arrow[r,"\partial_n"]\arrow[d,"h"]&H^{n+1}(X^{n+1},X^n)\arrow[d,"h"]\\
+		\Hom(H_n(X^n,X^{n1}))\arrow[r]&\Hom(H_n(X^n))\arrow[r]&\Hom(H_{n+1}(X^{n+1},X^n))
+	\end{tikzcd}\]
+	En primer lugar, por los $\Ext$, las $h$ de los extremos son isomorfismos. Además, por las sucesiones exactas largas de las parejas, los cuadrados conmutan, de forma que las composiciones de las flechas horizontales son isomorfas, que es justo lo que queríamos demostrar.
+\end{proof}
+Por último,
+\begin{teo}
+	Mayer-Vietoris en cohomología.
+\end{teo}
+\section{Producto copa}
+Esto es que hace distinta la cohomología de la homología. En algún punto de esta sección necesitaremos que los coeficientes estén en un anillo conmutativo con unidad $R$. Construiremos el anillo
+\[\left(\bigoplus_{n\geq0}H^n(X),+,\cup\right)\]
+\begin{defn}
+	Recordemos que $C^n(X)=\Hom(C_n(X),R)$, y tomemos dos cocadenas $\varphi\in C^k(X,R)$ y $\psi\in C^\ell(X,R)$. El \textbf{producto copa} es
+	\[\varphi\cup\psi\in C^{k+\ell}(X;R)\]
+	dado por
+	\[(\varphi\cup\psi)(\sigma:\Delta^{k+\ell}\to X):=\varphi(\sigma|[v_0,\ldots,v_k])\cdot_R\psi(\sigma|[v_{k},\ldots,v_{k+\ell}])\]
+	Que es un producto de elementos en $R$.
+\end{defn}
+Ya con esto tenemos
+\[\left(\bigoplus_{n\geq0}C^n(X;R),+,\cup\right)\]
+Ya que el producto copa es asociativo y distributivo casi por definición. Además, la cocadena $1\in C^0(X;R)$ es una unidad.
 \end{document}
