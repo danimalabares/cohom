@@ -663,6 +663,7 @@ donde $g:C_n\to G$ con $g|_{B_n}=0 $. Así que simplemente enviamos a $[g]$ a la
 \end{proof}
 
 \chapter{Cohomología}
+\section{Cohomología de espacios}
 Sea $X$ un espacio topológico y $G$ un grupo abeliano. Podemos definir el complejo de cadenas singulares de $X$,
 \[\begin{tikzcd}
 	C_\bullet(X)&\cdots\arrow[r]&C_{n+1}\arrow[r,"\partial{n-1}"]&C_n\arrow[r,"\partial_n"]&C_{n-1}\arrow[r]&\cdots
@@ -827,15 +828,74 @@ Por último,
 \end{teo}
 \section{Producto copa}
 Esto es que hace distinta la cohomología de la homología. En algún punto de esta sección necesitaremos que los coeficientes estén en un anillo conmutativo con unidad $R$. Construiremos el anillo
-\[\left(\bigoplus_{n\geq0}H^n(X),+,\cup\right)\]
+\[\left(\bigoplus_{n\geq0}H^n(X),+,\smile\right)\]
 \begin{defn}
 	Recordemos que $C^n(X)=\Hom(C_n(X),R)$, y tomemos dos cocadenas $\varphi\in C^k(X,R)$ y $\psi\in C^\ell(X,R)$. El \textbf{producto copa} es
-	\[\varphi\cup\psi\in C^{k+\ell}(X;R)\]
-	dado por
-	\[(\varphi\cup\psi)(\sigma:\Delta^{k+\ell}\to X):=\varphi(\sigma|[v_0,\ldots,v_k])\cdot_R\psi(\sigma|[v_{k},\ldots,v_{k+\ell}])\]
-	Que es un producto de elementos en $R$.
+	\[\varphi\smile\psi\in C^{k+\ell}(X;R)\]
+	que debe ser una función definida en las $k+\ell$ cadenas:
+	\[(\varphi\smile\psi)(\sigma:\Delta^{k+\ell}\to X):=\varphi(\sigma|[v_0,\ldots,v_k])\cdot_R\psi(\sigma|[v_{k},\ldots,v_{k+\ell}])\]
+	Que es como aplicar la $\phi$ en los primeros $k$ vértices del simplejo y luego aplicar $\psi$ en los últimos $\ell$. Cada uno me da un elemento en $R$ y los multiplico.
 \end{defn}
 Ya con esto tenemos
-\[\left(\bigoplus_{n\geq0}C^n(X;R),+,\cup\right)\]
+\[\left(\bigoplus_{n\geq0}C^n(X;R),+,\smile\right)\]
 Ya que el producto copa es asociativo y distributivo casi por definición. Además, la cocadena $1\in C^0(X;R)$ es una unidad.
+\begin{obs}
+	Se trata de un \textbf{anillo graduado}, que es una estructura de la forma $(\bigoplus_{i\in\N\cup\{0\}}A_i,+,\cdot)$ tal que $A_i$ es un grupo abeliano y para cualesquiera $a\in A_i$ y $b\in A_j$, $a\cdot b\in A_{i+j}$.
+\end{obs}
+Para pasar a homología, lo único que debemos verificar es que este producto se restringe bien a ciclos y pasa bien al cociente:
+\begin{prop}
+	$\partial(\varphi\smile\psi)=\partial\varphi\smile\psi+(-1)^k\varphi\smile\partial\psi$
+\end{prop}
+\begin{proof}
+	Simplemente calcular cada componente. Parece que la alternancia viene del operador frontera.
+\end{proof}
+De lo cual deducimos que
+\begin{itemize}
+	\item ciclo$\smile$ciclo=ciclo.
+	\item frontera$\smile$ciclo=frontera, ya que el término $\partial\varphi\smile\psi$ se anula.
+	\item ciclo$\smile$frontera=frontera.
+\end{itemize}
+Y deducimos el producto copa en la homología no depende de los representantes para obtener el \textbf{anillo de cohomología}
+\[\left(\bigoplus_{n\geq0}H^n(X;R),+,\smile\right)\]
+Denotaremos $H^*(X,R):=\bigoplus_{n\geq0}H^n(X;R)$.
+
+Ahora debemos demostrar que el mapeo que asocia a un espacio $X$ este anillo es funtorial. Esto ya se tiene cuando vemos el anillo de cohomología como un grupo. Basta demostrar que
+\begin{prop}
+	$f^*(\varphi\smile\psi)=f^*\varphi\smile f^*\psi$.
+\end{prop}
+\begin{prop}[Anticonmutatividad]
+	Si $\alpha\in H^k$ y $\beta\in H^\ell$,
+	\[\alpha\smile\beta=(-1)^{k+\ell}\beta\smile\alpha\]
+\end{prop}
+Observemos que $\alpha\smile\alpha:=\alpha^2=-\alpha^2\implies2\alpha^2=0$ no necesariamente implica que $\alpha=0$, y que $H^*(X,\Z/2)$ sí es conmutativo.
+\begin{ejem}
+	Calculamos la homología de $\R P^n$ con coeficientes en $\Z$:
+	\[\begin{tikzcd}
+		\Z\arrow[r]&\cdots\arrow[r]&\Z\arrow[r,"2"]&\Z\arrow[r,"0"]&\Z\arrow[r,"0"]&0
+	\end{tikzcd}\]
+	y dualizamos con $\Hom(-,\Z/2)$:
+	\[\begin{tikzcd}
+		\Z/2&\Z/2\arrow[l,swap,"0"]&\Z/2\arrow[l,swap,"0"]&0\arrow[l,swap,"0"]
+	\end{tikzcd}\]
+	Así que la cohomología es $\Z/2$ si $0\leq i\leq n$ y $0$ en $i>n$. El producto de la clase de grado uno en el primer grupo de cohomología consido misma me va dando los elementos no cero en cada nivel (esto es lo único que no está demostrado en este ejemplo). Es decir, $\alpha_1^i=\alpha_i$ para cualquier $2\leq i\leq n$ y $\alpha^{n+1}_1=0$
+	
+	 Entonces
+	\[H^*(\R P^n,\Z/2)\approx\bigoplus_{i=0}^n\Z/2\approx\Z/2[X]/\langle X^{n+1}\rangle\]
+	usando la relación que pusimos arriba.
+	
+	\begin{prop}\leavevmode
+		\begin{enumerate}
+			\item $H^*(\bigsqcup X_i,R)\approx\prod H^*(X_i,R)$.
+			\item $\widetilde{H^*}(\bigvee X_i,R)=\prod \widetilde{H^*}(X,R)$ ya que, como esperaríamos, existe un anillo de cohomología reducida, aunque no necesariamente tiene unidad.
+		\end{enumerate}
+	\end{prop}
+	\begin{proof}
+		Rutina.
+	\end{proof}
+	\begin{ejem}
+		Ahora comparemos $S^\bigvee S^2$ y $\R P^2$, cuyos anillos de cohomología son los dos $\Z/2\oplus\Z/2$. Pero el elemento no trivial de grado 1 $\beta_1$ elevado al cuadrado es 0 porque estamos en el producto directo de los anillos, así que estamos en el producto del primer anillo, es decir
+		\[(\beta_1,0)^2=(\beta_1^2,0)=(0,0)\]
+		pero, como dijimos antes, el análogo en el proyectivo al cuadrado es el elemento no trivial en grado 2.
+	\end{ejem}
+\end{ejem}
 \end{document}

@@ -6,4 +6,5 @@
 \contentsline {section}{\numberline {1.4}Grupos de cohomología}{13}{section.1.4}%
 \contentsline {section}{\numberline {1.5}Teorema de coeficientes universales}{14}{section.1.5}%
 \contentsline {chapter}{\numberline {2}Cohomología}{19}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Producto copa}{24}{section.2.1}%
+\contentsline {section}{\numberline {2.1}Cohomología de espacios}{19}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Producto copa}{24}{section.2.2}%
