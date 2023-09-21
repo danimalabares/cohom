@@ -66,6 +66,7 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\Id}{Id}
 \DeclareMathOperator{\img}{img}
 \DeclareMathOperator{\coker}{coker}
 \DeclareMathOperator{\ch}{ch}
@@ -77,6 +78,7 @@
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\Cohom}{Cohom}
 \DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
 
 
 
@@ -868,7 +870,7 @@ Ahora debemos demostrar que el mapeo que asocia a un espacio $X$ este anillo es 
 	\[\alpha\smile\beta=(-1)^{k+\ell}\beta\smile\alpha\]
 \end{prop}
 Observemos que $\alpha\smile\alpha:=\alpha^2=-\alpha^2\implies2\alpha^2=0$ no necesariamente implica que $\alpha=0$, y que $H^*(X,\Z/2)$ sí es conmutativo.
-\begin{ejem}
+\begin{ejem}[Anillo de cohomología de $\R P^n$]
 	Calculamos la homología de $\R P^n$ con coeficientes en $\Z$:
 	\[\begin{tikzcd}
 		\Z\arrow[r]&\cdots\arrow[r]&\Z\arrow[r,"2"]&\Z\arrow[r,"0"]&\Z\arrow[r,"0"]&0
@@ -877,7 +879,7 @@ Observemos que $\alpha\smile\alpha:=\alpha^2=-\alpha^2\implies2\alpha^2=0$ no ne
 	\[\begin{tikzcd}
 		\Z/2&\Z/2\arrow[l,swap,"0"]&\Z/2\arrow[l,swap,"0"]&0\arrow[l,swap,"0"]
 	\end{tikzcd}\]
-	Así que la cohomología es $\Z/2$ si $0\leq i\leq n$ y $0$ en $i>n$. El producto de la clase de grado uno en el primer grupo de cohomología consido misma me va dando los elementos no cero en cada nivel (esto es lo único que no está demostrado en este ejemplo). Es decir, $\alpha_1^i=\alpha_i$ para cualquier $2\leq i\leq n$ y $\alpha^{n+1}_1=0$
+	Así que la cohomología es $\Z/2$ si $0\leq i\leq n$ y $0$ en $i>n$. El producto de la clase de grado uno en el primer grupo de cohomología consigo misma me va dando los elementos no cero en cada nivel (esto es lo único que no está demostrado en este ejemplo). Es decir, $\alpha_1^i=\alpha_i$ para cualquier $2\leq i\leq n$ y $\alpha^{n+1}_1=0$
 	
 	 Entonces
 	\[H^*(\R P^n,\Z/2)\approx\bigoplus_{i=0}^n\Z/2\approx\Z/2[X]/\langle X^{n+1}\rangle\]
@@ -893,9 +895,140 @@ Observemos que $\alpha\smile\alpha:=\alpha^2=-\alpha^2\implies2\alpha^2=0$ no ne
 		Rutina.
 	\end{proof}
 	\begin{ejem}
-		Ahora comparemos $S^\bigvee S^2$ y $\R P^2$, cuyos anillos de cohomología son los dos $\Z/2\oplus\Z/2$. Pero el elemento no trivial de grado 1 $\beta_1$ elevado al cuadrado es 0 porque estamos en el producto directo de los anillos, así que estamos en el producto del primer anillo, es decir
+		Ahora comparemos $S\vee S^2$ y $\R P^2$, cuyos anillos de cohomología son los dos $\Z/2\oplus\Z/2$. Pero el elemento no trivial de grado 1, $\beta_1$ elevado al cuadrado es 0 porque estamos en el producto directo de los anillos, así que estamos en el producto del primer anillo, es decir
 		\[(\beta_1,0)^2=(\beta_1^2,0)=(0,0)\]
 		pero, como dijimos antes, el análogo en el proyectivo al cuadrado es el elemento no trivial en grado 2.
 	\end{ejem}
 \end{ejem}
+\section{Teorema de Künneth}
+Recordemos que si $X$ y $Y$ son complejos CW, su producto $X\times Y$ también tiene estructura de complejo CW: su $n$-esqueleto es $C^{CW}_n(X\times Y)=\Z\{e^i\times e^j:i+j=n\}$.
+
+\subsection{Producto tensorial}
+Sea $R$ un anillo conmutativo con 1, y $M,N$ $R$-módulos. Una función $f:M\times N\to A$ es \textbf{$R$-bilineal} si es lineal en cada entrada. El \textbf{producto tensorial} de $M$ y $N$ sobre $R$ es un $R$-módulo $M\otimes_RN$ con una función bilineal tal que se cumple la siguiente propiedad universal
+\[\begin{tikzcd}
+	(m,n)\arrow[r,maps to]&m\otimes n\\
+	M\times N\arrow[r]\arrow[rd,swap,"\text{bilineal}"]&M\otimes_RN\arrow[d,dashed,"R\text{-lineal}"]\\
+	&A
+\end{tikzcd}\]
+\begin{align*}
+	M\otimes_RN=R[m\otimes n|m\in M,n\in N]\Big/\Big\langle &(m_1+m_2)\otimes n-m_1\otimes n-m_2\otimes n,\\
+	&m\otimes(n_1+n_2)-m\otimes n_1-m\otimes n_2,\\
+	&(rm)\otimes n-r(m\otimes n),\\
+	&m\otimes(rn)-r(m\otimes n)\Big\rangle
+\end{align*}
+\begin{prop}[Propiedades del producto tensorial]\leavevmode
+	\begin{itemize}
+		\item $R\otimes_RM\approx M$.
+		\item $M\otimes_RN\approx N\otimes_RM$ (ésta podría tener detalles si $R$ no es conmutativo).
+		\item $\left(\bigoplus_{i\in I}M_i\right)\otimes_R N\approx\bigoplus_{i\in I}(M_i\otimes_RN)$.
+		\item Si $M_1\xrightarrow{f}M_2$ es $R$-lineal, la función $M_1\otimes_RN\xrightarrow{f\otimes_R\Id_N}M_2\otimes_RN$que manda $m_1\otimes n\mapsto f(m_1)\otimes n$ es $R$-lineal.
+		\item Para $N$ fijo,
+		\[\begin{tikzcd}
+			&\Ab\\
+			-\otimes N:\RMod\arrow[r]\arrow[ur]&\RMod\arrow[u,hook]
+		\end{tikzcd}\]
+		es covariante exacto derecho, es decir,
+		\begin{tikzcd}
+			0\arrow[r]&M''\arrow[r]&M\arrow[r]&M'\arrow[r]&0
+		\end{tikzcd}
+		induce
+		\begin{tikzcd}
+			M''\otimes N\arrow[r]&M\otimes N\arrow[r]&M'\otimes N\arrow[r]&0
+		\end{tikzcd}. Y también tenemos $\Tor^i_R(-,N)$.
+		
+		\item Si $L_1$ y $L_2$ son $R$-módulos libres, entonces,
+			\[L_1\otimes L_2=\left(\bigoplus_\alpha R\right)\otimes\left(\bigoplus_\beta R\right)=\bigoplus_{\alpha\times\beta}R\]
+		que nos recuerda justamente a la construcción del producto de dos complejos CW.
+		\item Si $A=\bigoplus_{i\in\N}A_i$ y $B=\bigoplus_{j\in\N}B_j$ son $R$-módulos graduados, su producto
+		\[A\otimes_RB=\bigoplus_{i+j=n}A_i\otimes B_j\]
+		también tiene estructura de módulo graduado.
+		\[\begin{matrix}
+			\vdots&&\\
+			A_0\otimes B_n&&\\
+			\vdots&&\\
+			A_0\otimes B_2\\
+			A_0\otimes B_1&A_1\otimes B_1&\\
+			A_0\otimes B_0&A_1\otimes B_0&A_2\otimes B_0&\cdots&A_n\otimes B_0&\cdots
+		\end{matrix}\]
+		\item Si $X$ y $Y$ son complejos CW,
+		\[C_*^{CW}(X\times Y)\approx C_*^{CW}(X)\otimes_RC_*^{CW}(Y)\]
+		como $R$-módulos graduados, es decir, $C_n^{CW}(X\times Y)\approx\oplus_{i+j=n}C_i^{CW}(X)\otimes C_j^{CW}(Y)$ para toda $n$.
+	\end{itemize}
+\end{prop}
+Y la pregunta natural para complejos CW es ¿qué pasa en la homología? Tendremos la siguiente fórmula que recuerda al teorema de coeficientes universales.
+\[\begin{tikzcd}[column sep=small]
+	0\arrow[r]&\bigoplus_{i+j=k}(H_i(X)\otimes H_j(Y))\arrow[r]&H_k(X\times Y;R)\arrow[r]&\bigoplus_{i+j=k-1}\Tor(H_i(X),H_j(Y))\arrow[r]&0
+\end{tikzcd}\]
+Aunque no es cierto que $H^*(X)\times H^*(Y)$ es igual que $H^*(X\times Y;R)$, podemos definir una función llamada \textbf{producto cruz} de la siguiente forma
+\begin{align*}
+	H^*(X)\times H^*(Y)&\to H^*(X\times Y;R)\\
+	(a,b)&\mapsto p^*_1(a)\smile p_2^*(b)
+\end{align*}
+Donde $p_1:X\times Y\to X$ y $p_2:X\times Y\to Y$. Claramanete es una función bilineal.
+
+Podemos extender al producto tensorial:
+\[\begin{tikzcd}
+	H^*(X)\times H^*(Y)\arrow[r,"\times"]\arrow[d]&H^*(X\times Y;R)\\
+	H^*(X)\otimes H^*(Y)\arrow[dashed,ur,"\times",swap]
+\end{tikzcd}\]
+Definamos una estructura de anillo en $H^*(X)\otimes H^*(Y)$ mediante
+\[(a\otimes b)(c\otimes d)=(-1)^{|b||c|}(ac)\otimes(bd)\]
+con lo cual el mapeo de arriba $\times$ es un homomorfismo de anillos.
+\begin{prop}[Künneth]
+	El mapeo $\times$ es un isomorfismo de anillos si $H^*(Y,R)$ es un $R$-módulo libre.
+\end{prop}
+\begin{proof}
+	Checar en Hatcher.
+\end{proof}
+Ahora calculamos usando cohomología relativa el isomorfismo
+\[H^*(X,A)\otimes H^*(Y,B)\to H^*(X\times Y,(A\times Y)\cup (X\times B))\]
+
+\begin{prop}
+		\[H^*(\R P^n,\Z/2)\approx\bigoplus_{i=0}^n\Z/2\approx\Z/2[X]/\langle X^{n+1}\rangle\]
+		Para lo cual basta ver que el producto de los elementos no triviales en cada grado es el producto no trivial en la suma de los grados.
+\end{prop}
+\begin{proof}
+	Recordemos que
+	\begin{align*}
+		\R P^n&=\{(x_0,\ldots,x_n)\in\R^{n+1}\}\Big/x\sim \lambda y,\lambda\neq0\\
+		&=D^n\Big/x\sim -x, x\in S^{n-1}
+	\end{align*}
+	Denotemos $\R P^n$ por $P^n$. Queremos ver que el elmento no trivial en $0\neq\alpha\in H^i(P^n)$ copa el elemento no trivial en $0\neq\beta\in H^j(P^n)$ es igual al elemento no trivial en ${0\neq\alpha\smile\beta\in H^{i+j}(P^n)}$.
+	
+	Consideremos los encajes naturales
+	\begin{align*}
+		\begin{aligned}
+			P^i&\hookrightarrow P^n\\
+		[x_0,\ldots,x_i]&\mapsto[x_0,\ldots,x_i,0,\ldots,0]
+		\end{aligned}\qquad
+		\begin{aligned}
+			P^j&\hookrightarrow P^n\\
+			[y_0,\ldots,y_j]&\mapsto[0,\ldots,0,y_0,\ldots,y_k]
+		\end{aligned}
+	\end{align*}
+	Pensando en el modelo del disco, $P^i$ y $P^j$ son intersecciones de hiperplanos en el disco. Luego $P^i\cap P^j=\{p\}$.
+	
+	Notemos además que $\partial P^n=P^{n-1}$, y que $P^n-P^{n-1}$ es una bola abierta que denotaremos por $\R^n$. Y también, $P^j-P^{n-1}\approx\R^j$ y $P^i-P^{n-1}\approx\R^i$.
+	\[\begin{tikzcd}
+		H^i(P^n)\times H^j(P^n)\arrow[r,"\smile"]&H^n(P^n)\\
+		H^i(P^n,P^n-P^j)\times(P^n,P^n-P^i)\arrow[u]\arrow[r,"\smile"]\arrow[d]&H^n(P^n,P^n-\{p\})\arrow[u]\arrow[d]\\
+		H^i(\R^n,\R^n-\R^j)\times H^j(\R^n,\R^n-\R^j)\arrow[r,"\smile"]&H^n(\R^n,\R^n-\{p\})
+	\end{tikzcd}\]
+	Incluyendo las parejas usando $(P^n,\varnothing)$. El resultado se sigue de mostrar que las flechas verticales son isomorfismos y que en el renglón de hasta abajo, la copa de generadores va a dar al generador.
+	
+	Es posible retraer la pareja $(\R^n,\R^n-\R^j)$ en $(R^i,\R^i-\{0\})$ de manera que
+	\[\begin{tikzcd}
+		H^i(\R^n,\R^n-\R^j)\times H^j(\R^n,\R^n-\R^i)\arrow[r,"\smile"]\arrow[d]&H^n(\R^n,\R^n-\{0\})\arrow[d]\\
+		H^i(\R^i,\R^i-\{0\})\times H^j(\R^j,\R^j-\{0\})\arrow[r,"\times"]&H^n(\R^n,\R^n-\{0\})
+	\end{tikzcd}\]
+	Observemos que la cohomología de $H^i(\R^i,\R^i-\{0\})$ es la misma que la de la esfera ya que podemos proyectar radialmente y la cohomología de $\R^n$ se anula en la sucesión exacta larga de la pareja.
+	
+	Luego, la cohomología del producto tensorial de $\tilde{H}^*(S^{j-1})\otimes \tilde{H}^*(S^{i-1})$ es justamente $\Z/2\otimes\Z/2\approx\Z/2$ ya que son los únicos que factores que sobreviven en todos los grados. Finalmente aplicamos Künneth en el renglón de abajo.
+\end{proof}
+\begin{obs}
+	Podemos pensar que el producto copa mide cómo se intersectan dos subvariedades.
+\end{obs}
+\begin{obs}
+	Fi existe $f:X\to\R P^n$, entonces la función inducida $f^*:H^*(\R P^n;\Z/2)\to H^*(X;\Z/2)$ está determinada por su acción en el polinomio $x$.
+\end{obs}
 \end{document}
