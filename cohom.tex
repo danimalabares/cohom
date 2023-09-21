@@ -985,9 +985,10 @@ Ahora calculamos usando cohomología relativa el isomorfismo
 
 \begin{prop}
 		\[H^*(\R P^n,\Z/2)\approx\bigoplus_{i=0}^n\Z/2\approx\Z/2[X]/\langle X^{n+1}\rangle\]
-		Para lo cual basta ver que el producto de los elementos no triviales en cada grado es el producto no trivial en la suma de los grados.
 \end{prop}
 \begin{proof}
+	Basta ver que el producto de los elementos no triviales en cada grado es el producto no trivial en la suma de los grados.
+	
 	Recordemos que
 	\begin{align*}
 		\R P^n&=\{(x_0,\ldots,x_n)\in\R^{n+1}\}\Big/x\sim \lambda y,\lambda\neq0\\
@@ -995,7 +996,7 @@ Ahora calculamos usando cohomología relativa el isomorfismo
 	\end{align*}
 	Denotemos $\R P^n$ por $P^n$. Queremos ver que el elmento no trivial en $0\neq\alpha\in H^i(P^n)$ copa el elemento no trivial en $0\neq\beta\in H^j(P^n)$ es igual al elemento no trivial en ${0\neq\alpha\smile\beta\in H^{i+j}(P^n)}$.
 	
-	Consideremos los encajes naturales
+	Consideremos los encajes naturales para $i+j=n$
 	\begin{align*}
 		\begin{aligned}
 			P^i&\hookrightarrow P^n\\
@@ -1011,24 +1012,72 @@ Ahora calculamos usando cohomología relativa el isomorfismo
 	Notemos además que $\partial P^n=P^{n-1}$, y que $P^n-P^{n-1}$ es una bola abierta que denotaremos por $\R^n$. Y también, $P^j-P^{n-1}\approx\R^j$ y $P^i-P^{n-1}\approx\R^i$.
 	\[\begin{tikzcd}
 		H^i(P^n)\times H^j(P^n)\arrow[r,"\smile"]&H^n(P^n)\\
-		H^i(P^n,P^n-P^j)\times(P^n,P^n-P^i)\arrow[u]\arrow[r,"\smile"]\arrow[d]&H^n(P^n,P^n-\{p\})\arrow[u]\arrow[d]\\
+		H^i(P^n,P^n-P^j)\times(P^n,P^n-P^i)\arrow[u,"1"]\arrow[r,"\smile"]\arrow[d,"3",swap]&H^n(P^n,P^n-\{p\})\arrow[u,"2",swap]\arrow[d,"4"]\\
 		H^i(\R^n,\R^n-\R^j)\times H^j(\R^n,\R^n-\R^j)\arrow[r,"\smile"]&H^n(\R^n,\R^n-\{p\})
 	\end{tikzcd}\]
 	Incluyendo las parejas usando $(P^n,\varnothing)$. El resultado se sigue de mostrar que las flechas verticales son isomorfismos y que en el renglón de hasta abajo, la copa de generadores va a dar al generador.
 	
-	Es posible retraer la pareja $(\R^n,\R^n-\R^j)$ en $(R^i,\R^i-\{0\})$ de manera que
+	Es posible retraer la pareja $(\R^n,\R^n-\R^j)$ en $(\R^i,\R^i-\{0\})$ de manera que
 	\[\begin{tikzcd}
 		H^i(\R^n,\R^n-\R^j)\times H^j(\R^n,\R^n-\R^i)\arrow[r,"\smile"]\arrow[d]&H^n(\R^n,\R^n-\{0\})\arrow[d]\\
 		H^i(\R^i,\R^i-\{0\})\times H^j(\R^j,\R^j-\{0\})\arrow[r,"\times"]&H^n(\R^n,\R^n-\{0\})
 	\end{tikzcd}\]
 	Observemos que la cohomología de $H^i(\R^i,\R^i-\{0\})$ es la misma que la de la esfera ya que podemos proyectar radialmente y la cohomología de $\R^n$ se anula en la sucesión exacta larga de la pareja.
 	
-	Luego, la cohomología del producto tensorial de $\tilde{H}^*(S^{j-1})\otimes \tilde{H}^*(S^{i-1})$ es justamente $\Z/2\otimes\Z/2\approx\Z/2$ ya que son los únicos que factores que sobreviven en todos los grados. Finalmente aplicamos Künneth en el renglón de abajo.
+	Luego, la cohomología del producto tensorial de $\tilde{H}^*(S^{j-1})\otimes \tilde{H}^*(S^{i-1})$ es justamente $\Z/2\otimes\Z/2\approx\Z/2$ ya que son los únicos que factores que sobreviven en todos los grados. Finalmente aplicamos Künneth en el renglón de abajo: el generador de $H^i(\R^i,\R^i-\{0\})$ copa el generador de $H^j(\R^j,\R^j-\{0\})$ me da el generador de $H^n(\R^n,\R^n-\{0\}$.
+	
+	Como dijimos, para terminar basta ver que las flechas verticales son isomorfismos. El 4 es una aplicación directa del teorema de escición. Para el 2, como podemos retraer $P^n-\{p\}$ en $P^{n-1}$, tenemos que $H^n(P^n,P^n-\{p\})\approx H^n(P^n,P^{n-1})$. Y éste último de hecho es la homología de una esfera, así que debe ser $\Z/2$, igual que $H^n(P^n)$.
+	
+	Para el 3, veamos que todos aquí son isomorfismos:
+	\[\begin{tikzcd}
+		H^i(P^n)\arrow[d,"1"]&H^i(P^n,P^{i-1})\arrow[l,"5",swap]\arrow[d,"2"]&H^i(P^n,P^n-P^j)\arrow[r,"7"]\arrow[d,"3"]\arrow[l,"6",swap]&H^i(\R^n,\R^n-\R^j)\arrow[d,"4"]\\
+		H^i(P^i)&H^i(P^i,P^{i-1})\arrow[l,"8"]&H^i(P^i,P^i-\{p\})\arrow[l,"9"]\arrow[r,"10",swap]&H^i(\R^i,\R^i-\{0\})
+	\end{tikzcd}\]
+	La flecha 1 se sigue por inclusión y porque estamos con coeficientes en $\Z/2$. 4 es la retracción que ya habíamos visto. 5,6,8,9 por inclusiones. Creo que 10 por escición. 6 es porque $P^n-P^j$ se retrae or deformación a $P^{i-1}$, y las demás se siguen porque todo conmuta.
 \end{proof}
 \begin{obs}
 	Podemos pensar que el producto copa mide cómo se intersectan dos subvariedades.
 \end{obs}
 \begin{obs}
-	Fi existe $f:X\to\R P^n$, entonces la función inducida $f^*:H^*(\R P^n;\Z/2)\to H^*(X;\Z/2)$ está determinada por su acción en el polinomio $x$.
+	Si existe $f:X\to\R P^n$, entonces la función inducida $f^*:H^*(\R P^n;\Z/2)\to H^*(X;\Z/2)$ está determinada por su acción en el polinomio $x$.
 \end{obs}
+\begin{obs}\leavevmode
+	\begin{itemize}
+	\item $H^*(\R P^\infty)\approx\Z/2[X]$ con una demostración análoga.
+	
+	\item Para $\C P^n=e^0\cup e^2\cup e^4\cup\ldots\cup e^{2n}$, $H^*(\C P^n;R)\approx R[X]/\langle X^{n+1}\rangle$ para cualquier anillo, con el generador de orden 2. Y también el caso de inifinito sin dividir entre el ideal.
+	
+	\item Para los cuaternios, $H^*(\mathbb{H}P^n,R)\approx R[X]/\langle X^{n+1}\rangle$ con $|X|=4$.
+	
+	\item $H^*(\R P^\infty\times\R P^\infty,\Z/2)\approx\Z/2[X]\otimes\Z/2[Y]\approx\Z/2[X,Y]$.
+	
+	\item Iterando el inciso anterior, agregamos más y más variables. Y creemos que el caso infinito da el anillo de polinomios en infinitas variables.
+	\end{itemize}
+\end{obs}
+Para calcular $H^*(\R P^n;\Z)$, tenemos por coeficientes universales la cohomología
+\[\begin{tikzcd}
+	\Z\arrow[r]&0\arrow[r]&\Z/2\arrow[r]&0\arrow[r]&\cdots\arrow[r]&\Z/2\qquad n\text{ par}\\
+	\Z\arrow[r]&0\arrow[r]&\Z/2\arrow[r]&0\arrow[r]&\cdots\arrow[r]&\Z\qquad n\text{ impar}
+\end{tikzcd}\]
+Observemos que para cualquier espacio topológico $X$ y $R\to S$ homomorfismo de anillos, siempre tenemos el homomorfismo $H^i(X;R)\to H^i(X;S)$ para toda $i$. Además, este homomorfismo respecta el producto copa, de manera que tendremos un morfismo
+\[H^*(P^n,\Z)\to H^*(P^n,\Z/2)\approx\Z/2[X]\]
+Es decir tenemos el diagrama
+\[\begin{tikzcd}
+	\Z\arrow[r]\arrow[d,hook]&0\arrow[r]\arrow[d,hook]&\Z/2\arrow[r]\arrow[d,hook]&0\arrow[r]\arrow[d,hook]&\cdots\arrow[r]&\Z/2\text{ o }\Z\arrow[d,hook]\\
+	\Z\arrow[r]&\Z/2\arrow[r]&\Z/2\arrow[r]&\Z/2\arrow[r]&\cdots\arrow[r]&\Z/2
+\end{tikzcd}\]
+donde las flechas verticales resultaron ser inclusiones, al menos en todas salvo la última columna. En estos casos, multiplicamos el emento no trivial de $Z/2$ en el renglón de arriba consigo mismo, lo que nos manda dos grados arriba a algún elemento. Para ver que éste no es el trivial, usamos el producto copa que ya definimos en el caso de coeficientes en $\Z/2$ y la simple definición de morfismo de anillos.
+
+Para el caso de dimensión impar sólo notemos que la potencia del elemento no trivial en dimensión 2 no puede caer en el grupo de grado impar, así que necesitamos otro generador para el anillo de cohomología. En resumen:
+\[H^*(P^n,\Z)\approx\begin{cases}
+	\begin{aligned}
+		\Z[X]/\langle2X,X^{n+1}\rangle\qquad\qquad&|X|=2,\text{ en dimensión par}\\
+		\Z[X,Y]/\langle 2X,X^n,Y^n,Y\rangle\qquad&|X|=2,|Y|=n,\text{ en dimensión impar}
+	\end{aligned}
+\end{cases}\]
+Una aplicación de esto es que para $m$ par,
+\[\tilde{H}^*(\R P^m\vee S^{m+1},\Z)\approx\tilde{H}(\R P^m)\times\tilde{H}(S^{m+1})\]
+Para verlo, primero notemos que, como grupos abelianos, $\tilde{H}^*(\R P^m\vee S^{m+1},\Z)\approx_{\text{ab}}\tilde{H}(\R P^m+1)$ ya que la cohomología de $S^{m+1}$ no aporta nada hasta la dimensión $m+1$, donde le agrega un a copia de $\Z$. Cuando consideramos todo el anillo, se vuelve el producto. Y además, este anillo resulta isomorfo al anillo de cohomología del espacio proyectivo de dimensión impar.
+
+El mismo ejemplo con coeficientes en $\Z/2$ tiene el mismo isomorfismo de grupos abelianos, pero no de anillos.
 \end{document}
