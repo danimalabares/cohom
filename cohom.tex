@@ -903,8 +903,7 @@ Observemos que $\alpha\smile\alpha:=\alpha^2=-\alpha^2\implies2\alpha^2=0$ no ne
 \section{Teorema de Künneth}
 Recordemos que si $X$ y $Y$ son complejos CW, su producto $X\times Y$ también tiene estructura de complejo CW: su $n$-esqueleto es $C^{CW}_n(X\times Y)=\Z\{e^i\times e^j:i+j=n\}$.
 
-\subsection{Producto tensorial}
-Sea $R$ un anillo conmutativo con 1, y $M,N$ $R$-módulos. Una función $f:M\times N\to A$ es \textbf{$R$-bilineal} si es lineal en cada entrada. El \textbf{producto tensorial} de $M$ y $N$ sobre $R$ es un $R$-módulo $M\otimes_RN$ con una función bilineal tal que se cumple la siguiente propiedad universal
+Esto nos motiva a definir el producto tensorial. Sea $R$ un anillo conmutativo con 1, y $M,N$ $R$-módulos. Una función $f:M\times N\to A$ es \textbf{$R$-bilineal} si es lineal en cada entrada. El \textbf{producto tensorial} de $M$ y $N$ sobre $R$ es un $R$-módulo $M\otimes_RN$ con una función bilineal tal que se cumple la siguiente propiedad universal
 \[\begin{tikzcd}
 	(m,n)\arrow[r,maps to]&m\otimes n\\
 	M\times N\arrow[r]\arrow[rd,swap,"\text{bilineal}"]&M\otimes_RN\arrow[d,dashed,"R\text{-lineal}"]\\
@@ -974,9 +973,9 @@ Podemos extender al producto tensorial:
 Definamos una estructura de anillo en $H^*(X)\otimes H^*(Y)$ mediante
 \[(a\otimes b)(c\otimes d)=(-1)^{|b||c|}(ac)\otimes(bd)\]
 con lo cual el mapeo de arriba $\times$ es un homomorfismo de anillos.
-\begin{prop}[Künneth]
+\begin{teo} [de Künneth]
 	El mapeo $\times$ es un isomorfismo de anillos si $H^*(Y,R)$ es un $R$-módulo libre.
-\end{prop}
+\end{teo}
 \begin{proof}
 	Checar en Hatcher.
 \end{proof}
