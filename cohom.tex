@@ -1079,4 +1079,582 @@ Una aplicación de esto es que para $m$ par,
 Para verlo, primero notemos que, como grupos abelianos, $\tilde{H}^*(\R P^m\vee S^{m+1},\Z)\approx_{\text{ab}}\tilde{H}(\R P^m+1)$ ya que la cohomología de $S^{m+1}$ no aporta nada hasta la dimensión $m+1$, donde le agrega un a copia de $\Z$. Cuando consideramos todo el anillo, se vuelve el producto. Y además, este anillo resulta isomorfo al anillo de cohomología del espacio proyectivo de dimensión impar.
 
 El mismo ejemplo con coeficientes en $\Z/2$ tiene el mismo isomorfismo de grupos abelianos, pero no de anillos.
+
+Ahora veamos una aplicación. En realidad sólo están los complejos, los cuaternios y los octonios. Aquí podemos demostrar que:
+\begin{teo}[Hopf]
+	Si $A$ es un álgebra de división de dimensión finita sobre $\R$, entonces tiene dimensión real igual a una potencia de 2.
+\end{teo}
+\begin{proof}
+	Supongamos que $A\approx\R^n$. El producto en $A$ es una función bilineal $\R^n\times\R^n\to\R^n$. Como $A$ es un álgebra de división, las restricciones
+	\[\{x\}\times\R^n\to\R^n\qquad\qquad\R^n\times\{y\}\to\R^n\]
+	son isomorfismos lineales para $x,y\in\R^n$. Entonces tenemos un mapeo $\varphi:\R P^{n-1}\times\R P^{n-1}\to\R P^{n-1}$. Además, $\R P^{n-1}\times\{[y]\}\to\R P^{n-1}$ y $\{[x]\}\times\R P^{n-1}\to\R P^{n-1}$ son homeomorfismos para $[x],[y]\in\R P^{n-1}$.
+	
+	Ahora tomamos el homomorismo inducido,
+	\[\varphi^*:\Z/2[X]\Big/\langle X^n\rangle\to\Z/2[X_1,X_2]\Big/\langle X_1^n,X_2^n\rangle\]
+	que manda el polinmio $X$ en un polinomio de la forma $a_1X_1+a_2X_2$ porque preserva el grado. Tomando también el inducido por la inclusión en el primer factor obtenemos el diagrama conmutativo
+	\[\begin{tikzcd}
+		H^*(\R P^{n-1}\times \R P^{n-1})\arrow[d,"i^*",swap]&H^*(\R P^{n-1})\arrow[l,swap,"\varphi^*"]\arrow[ld,"\approx",dashed]\\
+		H^*(\R P^{n-1})
+	\end{tikzcd}\]
+	Entonces, el generador $X$ en la esquina arriba derecha va a dar a $a_1X_1+a_2X_2$. Por tratarse la inclusión en el primer factor, $i^*$ manda $X_1\mapsto X_1$ y $X_2\mapsto0$. Entonces, $X\mapsto a_1X_1$ bajo la flecha punteada, de forma que $a_1\neq0$, y análogamente $a_2\neq0$.
+	
+	Ahora notemos que
+	\begin{align*}
+		0&=\varphi^*(X^n)\\
+		&=(X_1+X_2)^n\\
+		&=\sum_{i=0}^n\binom{n}{i}X_1^iX_2^{n-i}\\
+		&=\binom{n}{0}X_2^n+\binom{n}{1}X_1X_2^{n-1}+\ldots+\binom{n}{n-1}X_1^{n-1}X_2+\binom{n}{n}X_1^n
+	\end{align*}
+	pero $X^n_1$ y $X^n_2$ se anulan en el cociente $\Z_2/\langle X_1^n,X_2^n\rangle$, de donde $\binom{n}{i}=0$ para $1\leq i\leq n-1$.
+	
+	Ahora expresamos $n=n_1+\ldots+n_k$ donde $n_i$ es una potencia de 2. Entonces,
+	\begin{align*}
+		(X_1+X_2)^n&=(X_1+X_2)^{n_1+\ldots+n_k}\\
+		&=(X_1+X_2)^{n_1}+\ldots+(X_1+X_2)^{n_k}\\
+		&=(X_1^{n_1}+X_2^{n_1})\ldots(X_1^{n_k}+X_2^{n_k})
+		&=\text{aquí hay }2^k\text{ términos}
+	\end{align*}
+	Pero por la observación anterior, $(X_1+X_2)^n=X_1^n+X_2^n$, así que de hecho $k=1$ y $n$ es potencia de 2.
+\end{proof}
+
+\section{Dualidad de Poincaré}
+\begin{defn}
+	Una \textbf{variedad (topológica)} de dimensión $n$ es un espacio topológico Hausdorff (con base numerable) que es localmente homeomorfo a $\R^n$.
+\end{defn}
+Si $M$ es compacta, diremos que $M$ es cerrada.
+\begin{teo}[Dualidad de Poincaré]
+	Si $M$ es orientable, \[H_k(M;\Z)\approx H^{n-k}(M;\Z)\] para toda $k\in\Z$.
+\end{teo}
+Y si $M$ no es orientable, de todas formas $H_k(M;\Z/2)\approx H^{n-k}(M;\Z/2)$.
+
+Como tensorizaro por $\Q$ no altera la construcción,
+\[H_k(M;\Q)\approx H_k(M;\Z)\otimes\Q\approx H^{n-k}(M;\Z)\otimes\Q\approx H^{n-k}(M;\Q)\approx H_{n-k}(M;\Q)\]
+O sea que la parte libre de torsión de los grupos de homología de cualquier variedad orientable cerrada tienen un comportamiento simétrico. Y de hecho también la torsión se comporta así por coeficientes universales.
+
+Observemos que en una vecindad local $U$ y un punto $x\in M$, por escisión y por la sucesión exacta corta de la pareja,
+\begin{align*}
+	H_n(M,M-x)&\approx H_n(U,U-x)\\
+	&\approx H_n(\R^n,\R^n-0)\\
+	&\approx H_{n-1}(\R^n-0)\\
+	&\approx H_{n-1}(S^{n-1})\\
+	&\approx\Z
+\end{align*}
+\begin{defn}\leavevmode
+\begin{itemize}
+	\item 	Una \textbf{orientación} en $\R^n$ es una elección de un generador de $H_n(\R^n,\R^n-0)\approx\Z$, ya que $\Z$ está generado tanto por $1$ como por $-1$. Que es algo así como un generador de la homología local.
+	
+	\item Dada una variedad $M$, una \textbf{orientación local} en $x\in M$ es una elección de un generador $\mu_x$ de $H_n(M,M-x)$.
+	
+	\item Tomemos una vecindad $B$ de $x\in M$ homeomorfa a $\R^n$. Entonces $(M,M-B)\subset (M,M-\{x\})$. Y como $B$ es homeomorfo a $\R^n$, de hecho $H_n(M,M-B)\approx H_n(M,M-\{x\})$.
+	
+	Una \textbf{orientación} en $M$ es una elección de dos orientaciones locales $\mu_x$ para todo $x\in X$ tal que si $B\subset M$ es homeomorfo a $\R^n$, entonces
+	\[H_n(M,M-B)\to H_n(M,M-\{x\})\]
+	todas las $\mu_y$ para $y\in B$ son imágenes del mismo generador en el dominio. Es decir, las orientaciones son \textbf{localmente compatibles}.
+	
+	Antes habíamos dicho que para cualquier $x\in X$ existe una vecindad $B$ de $x$ tal que para todo $y\in X$
+		\[\begin{tikzcd}
+			H_n(M,M-B)&H_n(M,M-x)\arrow[l,swap,"\approx"]\\
+			H_n(M,M-y)\arrow[u,"\approx"]
+		\end{tikzcd}\]
+	Estas dos flechas, que son las inducidas por la inclusión, mandan $\mu_y$ y $\mu_x$ en el mismo elemento.
+	
+	\item $M$ es \textbf{orientable} si admite una orientación.
+\end{itemize}
+\end{defn}
+
+\begin{obs}
+	Si $M$ es orientable y conexa, entonces tiene exactamente dos orientaciones.
+\end{obs}
+
+\begin{ejem}\leavevmode
+	\begin{enumerate}
+		\item $S^n$ es orientable para toda $n\geq0$.
+		\item $\R P^{2n}$ no es orientable para $n\geq1$.
+		\item $\R P^{2n+1}$ sí es orientable para $n\geq0$.
+		\item $K$ la botella de Klein no es orientable.
+	\end{enumerate}
+\end{ejem}
+
+\begin{prop}
+	Toda variedad (cerrada y conexa) tiene un cubriente dos a uno que es orientable.
+\end{prop}
+\begin{proof}[Sketch de demostración]
+	Definamos $\tilde{M}:=\{\mu_x:x\in M, \mu_x\text{ es una orientación local en }x\}$. (Es decir, cada $\mu_x$ es un generador de $H_n(M,M-\{x\})$). Entonces, la función $p:\tilde{M}\to M$ dad por $\mu_x\mapsto x$ es dos a uno. Intuitivamente, nos vamos deslizando por $M$ preservando la orientación hasta que le damos dos vueltas, como a la banda de Möbius (para la cual se reconstruye un cilindro).
+	
+	Ahora le damos una topología a $\tilde{M}$. A cada abierto de un punto $x\in M$ le asociamos dos vecindades en $\tilde{M}$, una para cada orientación. Entonces $p$ es continua, y de hecho es un cubriente dos a uno. Por último, $\tilde{M}$ es orientable ya que la orientación es constante localmente.
+\end{proof}
+
+\begin{obs}
+	Una orientación en $M$ equivale a dar una sección continua de $M$.
+\end{obs}
+
+\begin{coro}
+	Sea $M$ conexa. $M$ es orientable si y sólo si $\tilde{M}$ tiene dos componentes.
+\end{coro}
+\begin{proof}\leavevmode
+	\begin{enumerate}
+		\item [($\implies$)] Por la observación anterior, tenemos una copia de $M$ en $\tilde{M}$, y la otra orientación de la otra sección.
+		\item [($\impliedby$)] Si $\tilde{M}$ tiene dos componenetes, diagmos $\tilde{M}=M_+\sqcup M_+$, entonces cada una nos da una orientación en $M$.
+	\end{enumerate}
+\end{proof}
+
+\begin{coro}
+	Para $M$ conexa, si $\pi_1(M)$ no tiene subgrupos de índice $2$ entonces $M$ es orientable.
+\end{coro}
+\begin{proof}
+	Si $M$ no es orientable, por el corolario anterior, entonces $\tilde{M}$ es conexa. Luego $\pi_1(\tilde{M})\hookrightarrow\pi_1(M)$ como un subgrupo de índice $2$.
+\end{proof}
+
+Ahora podemos agrandar la construcción de $\tilde{M}$ definiendo otro cubriente más grande:
+\[M_\Z=\{\alpha_x:\alpha_x\text{ es un elemento en }H_n(M,M-\{x\})\}\] 
+
+Y nuevamente tenemos un cubriente
+\begin{align*}
+	q:M_\Z&\to M\\
+	\alpha_x&\mapsto x
+\end{align*}
+que es esencialmente la proyección de $\Z$ al $1$. De hecho, resulta ser un cubriente
+\[\begin{tikzcd}
+	M_\Z\arrow[dd,"q"]\\
+	&\tilde{M}\arrow[ul,hook]\arrow[dl,"p"]\\
+	M
+\end{tikzcd}\]
+
+Notemos que la colección de puntos que se proyectan al cero bajo $q$, es decir, $\alpha_x=0$ en $H_n(M,M-\{x\})$ es una copia de $M$ en $M_\Z$. Y de hecho, tomando parejas como $\{1,-1\}$ y $\{2,-2\}$, también obtenemos copias de $\tilde{M}$ en $M_\Z$ denotadas por $M_r$ para $r\in\Z$. De hecho, $M_\Z$ es una unión de copias de $M$ y de $\tilde{M}$.
+
+¿Qué pasa si tomamos un anillo conmutativo $R$? Bueno, la homología local sigue siendo isomorfa a $R$, así que aún podemos definir la orientación. Ahora escogemos un elemento que genera a $R$, es decir, $x\in R$ tal que $xR=R$. Estos elementos se llaman \textbf{unidades}.
+
+\begin{obs}
+	Si $R=\Z/2$ sólo hay una orientación posible y de hecho cualquier variedad es orientable.
+\end{obs}
+
+En este caso, la construcción del cubriente es $n$ a $1$ donde $n$ es el número de unidades en $\R$. Una orientación $M$ seguirá siendo una sección de este cubriente, de hecho así se define. También está el cubriente $M_R$, y de hecho, si hay elementos de orden 2 (en sentido aditivo), $\tilde{M}$ siempre tiene una sección, es decir, es $R$-orientable. En símbolos,
+\[\exists 0\neq r\in R\text{ tal que }2r=0\implies \tilde{M} \text{ es }R\text{-orientable.}\]
+
+\begin{obs}
+	Si $M$ es $\Z$-orientable, vía $M_1$ tenemos una sección de $M_R$. Entonces, $M$ es $R$-orientable para todo $R$.
+\end{obs}
+
+\begin{teo}
+	Sea $M$ una $n$-variedad cerrada y conexa.
+	\begin{enumerate}
+		\item Si $M$ es $R$-orientable, entonces
+		\[H_n(M;R)\to H_n(M,M-\{x\},R)\approx R\]
+		(donde estamos pensando que el primero es la homología de la pareja $(M,\varnothing)$, así que el morfismo es el inducido por la inclusión) es un isomorfismo para todo $x\in M$. \textcolor{red}{Checar demostración.}
+		
+		\textcolor{cyan}{Aquí estoy pensando que $H_n(M,M-\{x\},R)\approx\bigwedge^n(T_p^*M)$. Es decir, estamos viendo que la $n$-ésima homología es igual a la $n$-ésima potencia exterior.}
+		
+		\item Si $M$ no es $R$-orientable, entonces la misma función del inciso 1. es inyectiva y su imagen es $\{x\in H_n(M,M-{x}):2x=0\}$. En particular, si $M$ no es $\Z$-orientable, entonces $H_n(M;\Z)\approx 0$.
+		
+		\item $H_m(M;R)\approx0$ para $m>n$.
+	\end{enumerate}
+\end{teo}
+
+\begin{obs}\leavevmode
+	\begin{enumerate}
+	\item Si $M$ es $R$-orientable, un elemento en $H_n(H,R)$ cuya imagen es un generador en $H_n(M,M-\{x\})$ para cualquier $x\in M$ se le conoce como \textit{una} \textbf{clase fundamental} de $M$ y se denota como $[M]$. (Porque de hecho esto no cambia cuando variamos $x$ gracias a una sucesión de abiertos que conectan un punto con otros, y un diagrama conmutativo donde todo es un isomorfismo).
+
+	\item Luego, por el inciso 1. vemos que si $M$ es $R$-orientable, existe una clase fundamental. De hecho, el regreso también es cierto, pues
+	\[\begin{tikzcd}
+		H_n(M)\arrow[r]\arrow[rd]&H_n(M,M-\{x\})\\
+		&H_n(M,M-B)\arrow[u,hook]
+	\end{tikzcd}\]
+\end{enumerate}
+\end{obs}
+
+\begin{teo}
+	Si $M$ es una $n$-variedad conexa, cerrada y $R$-orientable,
+	\[H^n(M;R)\approx H_{n-k}(M;R)\qquad\forall k\in\Z\]
+\end{teo}
+\begin{proof}
+	Si $M$ tiene una estructura celular, podemos tomar la estructura celular dual. Si este complejo celular también es $M$, tenemos una igualdad en los grupos de homología de arriba a abajo. Viendo que la homología del dual es la cohomología del original, terminamos.
+	\[\begin{tikzcd}[row sep=tiny]
+		C&C^*\\
+		0\arrow[r]&n\\
+		1\arrow[r]&n-1\\
+		\vdots&\vdots\\
+		n\arrow[r]&0
+	\end{tikzcd}\]
+\end{proof}
+
+\subsection{Producto capa}
+Tomemos $X$ un espacio topológico y $R$ un anillo. Definamos
+\begin{align*}
+	\frown :C_k(X;R)\times C^\ell(X;R)&\to C_{k-\ell}(X;R)\\
+	(\sigma,\varphi)&\mapsto\sigma\frown\varphi:=\varphi(\sigma|[v_0,\ldots,v_\ell])\sigma|[v_\ell,\ldots,v_\ell]
+\end{align*}
+donde $\sigma:[v_0,\ldots,v_k]\to X$. Una vez definido en los básicos, extendemos $R$-bilinealmente para definir la función en el elemento genérico $\sum\sigma\frown\sum\varphi$.
+
+Tenemos un operador frontera
+\begin{align*}
+	\partial(\sigma\frown\varphi)=(-1)^\ell(\partial\sigma\frown\varphi-\sigma\cap\delta\varphi)
+\end{align*}
+Y a la mera hora
+\begin{align*}
+	\frown:H_k(X;R)\times H^\ell(X;R)&\to H_{k-\ell}(X;R)\\
+	([\sigma],[\varphi])&\mapsto[\sigma\frown\varphi]
+\end{align*}
+Tenemos que ver que está bien definido y manda ciclos y cociclos en ciclos, fronteras y cociclos en fronteras, y que ciclo con cofrontera es ciclo (creo). Y sí.
+
+\begin{teo}
+	Si $M$ es una $n$-variedad conexa, cerrada y $R$-orientable, el homomorfismo
+	\begin{align*}
+		[M]\frown\_:H^k(M;R)\to H_{n-k}(M;R)\qquad\forall k\in\Z
+	\end{align*}
+	es un isomorfismo.
+\end{teo}
+
+\begin{prop}
+	Para $\alpha\in C_{k+\ell}(X;R)$, $\varphi\in C^k(X;R)$, $\psi\in C^\ell(X;R)$, 
+\[\psi(\alpha\frown\varphi)=(\varphi\smile\psi)\alpha\in R\]
+\end{prop}
+
+Esta igualdad implica que
+\begin{align*}
+	\varphi\smile\_:C^\ell(X;R)\to C^{k+\ell}(X;R)\\
+	\_\cap\varphi:C_{k+\ell}(X;R)\to C_\ell(X;R)
+\end{align*}
+Dualizando la segunda función obtenemos
+\[(\_\frown\varphi)^*:C^\ell\to C^{k+\ell}(X;R)\]
+que resulta ser igual a la primera. Es decir, cupear con $\varphi$ es el dual de capear con $\varphi$.
+
+Y ahora hacemos el diagrama conmutativo
+\[\begin{tikzcd}
+	H^\ell(X;R)\arrow[d,"\varphi\smile",swap]\arrow[r,"h"]&\Hom(H_\ell(X;R),R)\arrow[d,"\frown\varphi^*"]\\
+	H^{k+\ell}(X;R)\arrow[r,"h"]&\Hom(H_{k+\ell}(X;R),R)
+\end{tikzcd}\]
+Donde la $h$ es suprayectiva. Y si $R$ es un campo, sí hay isomorfismos. Y también si $R=\Z$ y los $H^*$ son libres hay isomorfismos.
+
+\section{Consecuencias de dualidad de Poincaré}
+\begin{defn}
+	Sean $A$ y $B$ $R$-módulos y $A\times B\to R$ una forma bilineal. Decimos que esta forma es \textbf{no singular} si 
+	\begin{align*}
+\begin{aligned}
+			A&\to\Hom_R(B,R)\\
+		a&\mapsto \{a\}\times B\to R
+\end{aligned}\qquad
+\begin{aligned}
+	B&\to\Hom_R(B,R)\\
+	b&\mapsto A\times\{b\}\to R
+\end{aligned}
+	\end{align*}
+	son isomorfismos.
+\end{defn}
+Ahora consideremos
+\begin{align*}
+	\smile:H^k(M;R)\times H^{n-k}(M;R)&\to R\\
+	(\varphi,\psi)\qquad\qquad\quad&\mapsto(\varphi\smile\psi)([M])
+\end{align*}
+que no depende de la elección del representante por usar la clase fundamental.
+
+\begin{prop}
+	El mapeo $\smile$ es no singular si $R$ es un campo o si $R=\Z$ y cocientamos la torsión en la cohomología $H^*(M;\Z)$ (es decir, suponer que es finitamente generada).
+\end{prop}
+\begin{proof}
+	Demostremos no singularidad en el segundo factor, es decir consideremos
+	\begin{align*}
+		H^{n-k}(M)\overset{h}{\to}\Hom_R(H_{n-k}(M),R)
+	\end{align*}
+	que es un isomorfismo por hipótesis.
+	\[\begin{tikzcd}
+		H^{n-k}(M)\arrow[r,"h"]&\Hom_R(H_{n-k}(M),R)\arrow[r,"D^*"]&\Hom_R(H^k(M),R)
+	\end{tikzcd}\]
+	donde $D^*$ es el dual del mapeo de dualidad de Poincaré que, de hecho, también es un isomorfismo. Ahora debemos ver que de hecho este isomorfismo es el que llamamos $\smile$.
+	
+	Recordemos cómo actúa la $h$ que viene de coeficientes universales: de hecho, envía $[\psi]\mapsto\psi$. Y de hecho bajo $D^*$, $\psi\mapsto \psi([M] \frown -) = -\smile \psi([M])$.
+%\[\begin{tikzcd}
+%	\[\psi\] \arrow[r, maps to] & \psi \arrow[r, maps to] & \psi(\[M\] \frown -) = -\smile \psi(\[M\])
+%\end{tikzcd}\]
+\end{proof}
+
+\begin{coro}
+	$\alpha\in H^k(M;R)$ genera un sumando directo si y sólo si existe $\beta\in H^{n-k}(M;R)$ tal que $\alpha\smile\beta$ es un generador de $H^n(M;R)$.
+\end{coro}
+\begin{proof}
+	$\alpha$ genera un sumando si y sólo si existe $f: H^k(M;R)\to R$ tal que $\alpha\mapsto1$. Y de hecho por la proposición esto es equivalente a que exista $\beta$ tal que $f=(-\smile\beta)[M]$ con $\alpha\mapsto 1$.
+\end{proof}
+\begin{ejem}
+	Tomemos $P^n=\R P^n$ y $R=\Z/2$. Recordemos que la cohomología es
+	\[\begin{tikzcd}[column sep=tiny]
+		0\arrow[r]&1\arrow[r]&\ldots\arrow[r]&i\arrow[r]&\cdots\arrow[r]&j\arrow[r]&\cdots\arrow[r]&i+j\arrow[r]&\cdots\arrow[r]&n\\
+		\Z/2\arrow[r]&\Z/2\arrow[r]&\ldots\arrow[r]&\Z/2\arrow[r]&\cdots\arrow[r]&\Z/2\arrow[r]&\cdots\arrow[r]&\Z/2\arrow[r]&\cdots\arrow[r]&\Z/2
+	\end{tikzcd}\]
+	Queremos ver que $\bar{x}$ no trivial de grado $i$ copa $\bar{y}$ no trivial de grado $j$ nos dan el no trivial de grado $i+j$. Por la naturalidad del producto copa podemos tomar los elementos en $H^*(P^{i+j})$ de acuerdo a que como $P^{i+j}\hookrightarrow P^n$ podemos dualizar la inclusión y obtenemos $H^*(P^n)\to H^*(P^{i+j})$.
+	
+	Tomando el producto copa de $x\neq0$ con algún $y$ de grado $j$, tenemos que $x\smile y\neq0$ por el corolario, y luegos $y\neq0$.
+\end{ejem}
+
+\begin{ejem}
+	Tomemos $T=S^1\times S^1$. La cohomología es
+	\[\begin{tikzcd}[row sep=tiny]
+		0&1&2\\
+		\Z\arrow[r]&\Z\oplus\Z\arrow[r]&\Z\\
+		&\langle\alpha\rangle\oplus\langle\beta\rangle&\langle\tau\rangle
+	\end{tikzcd}\]
+	Como $\alpha$ genera un sumando directo, existe $\gamma$ tal que $\alpha\smile\gamma=\tau$. Pensando en $\alpha$ encajada como un meridiano $S^1$ en el toro,
+	\[\begin{tikzcd}
+		T&\Z\arrow[r]&\Z\oplus\Z\arrow[r]&\Z\\
+		S^1\arrow[u,hook]&\Z&\Z= \langle\alpha\rangle&0
+	\end{tikzcd}\]
+	por dimensión $\alpha\smile\alpha=0$, así que 
+	$\alpha\smile\alpha=0$ también en el toro.
+	
+	Como $\gamma=n_1\alpha+n_2\beta$ y,  Künneth, $H^*(S^1\times S^1)\approx H^*(S^1)\otimes H^*(S^1)$, (\textbf{?}) concluimos que $n_2=1$ y de hecho $\alpha\smile\beta=1$.
+\end{ejem}
+
+\section{Variedades con frontera}
+\begin{defn}
+	Una \textbf{variedad con frontera} es un espacio topológico Housdorff segundo numerable localmente homeomorfo a $\R^n_+=\{(x_1,\ldots,x_n):x_n\geq0\}$.
+\end{defn}
+\begin{obs}
+	La frontera $\partial M$ es una subvariedad de dimensión $n-1$ sin frontera orientable si $M$ es orientable.
+\end{obs}
+\begin{prop}
+	$\partial M$ siempre admite una vecindad collar, es decir, $\partial M\times(0,1)$.
+\end{prop}
+\begin{defn}
+	 $M$ es $R$-orientable si $M-\partial M$ es $R$-orientable.
+\end{defn}
+\begin{pregunta}
+	Sea $M$ cerrada. ¿Existe $W$ compacta tal que $\partial W=M$? No.
+\end{pregunta}
+
+\begin{defn}
+	Decimos que dos variedades cerradas $M$ y $N$ son \textbf{cobordantes} si existe $W$ compacta tal que $\partial W=M\sqcup N$.
+\end{defn}
+\begin{obs}
+	Ser cobordante es una relación de equivalencia.
+\end{obs}
+\begin{defn}
+	El \textbf{anillo de cobordismo} es $\text{Variedades diferenciables}\Big/\text{cobordismo}=(\Omega,\sqcup,\times)$.
+\end{defn}
+
+\chapter{La conjetura de Poincaré}
+Primero recordemos (¿recordemos?) que la única 1-variedad cerrada es $S^1$, y en dimensión 2 sólo están la esfera y las superficies de género $g$. En dimensión 3 hay muchas, como $S^3$, $T^3$, las sumas conexas de $T^3$, productos como $S^1\times S_g$, y parece haber muchas más.
+
+Y luego,
+\begin{enumerate}
+	\item[(Poincaré) ---] Si $M^3$ tiene la homología de la esfera, ¿entonces $M^3$ es homeomorfa a $S^3$?
+	
+	\item[(Poincaré) ---]  No.
+\end{enumerate}
+
+Siendo así que Poincaré encontró una 3-variedad que con la homología de $S^3$ que no es homeomorfa a $S^3$ haciendo una construcción tipo $A_5\curvearrowright S^3\to S^3/A_5$, de forma que $\pi_1(S^3/A_5)\cong A_5$ y resulta tener la homología de $S^3$. Que por cierto se obtiene identificando caras del dodecaedro. Esta variedad se llama \textbf{\textit{esfera homológica}}.
+
+\begin{pregunta}
+	Si $X,Y$ son variedades cerradas, conexas y homotópicamente equivalentes, ¿son homeomorfas?
+\end{pregunta}
+
+Sabiendo cuáles son las dimensiones en dimensión 0, 1 y 2, la respuesta es que sí, calculando sus grupos de homología. (El primer grupo de homología de $S_g$ es $\Z^{2g}$.) Así es que la pregunta es
+\begin{pregunta}[Conjetura de Poincaré]
+	$S^3\simeq M^3\overset{?}{\implies}S^3\cong M^3$
+\end{pregunta}
+
+O bien
+\begin{pregunta}[Conjetura de Poincaré]
+	$S^3\text{ simplemente conexa }\overset{?}{\implies}S^3\cong M^3$
+\end{pregunta}
+
+Aunque
+\begin{prop}
+	Si $M^3$ es simplemente conexa, entonces $M^3\simeq S^3$.
+\end{prop}
+
+Para lo cual, nos preguntamos si una familia de funciones entre todos los grupos de homotopía de dos espacios induce una función entre los espacios (al revés si es cierto).
+
+\begin{teo}[de Whitehead]
+	Sea $f:X\to Y$ es una función continua entre dos complejos CW. Si $f_*:\pi_n(X)\to \pi_n(Y)$ es un isomorfismo para toda $n$, entonces $f$ es una equivalencia homotópica.
+\end{teo}
+
+Consideremos
+\[\begin{tikzcd}[row sep=tiny]
+	h_n:\pi_n(X,x_0)\arrow[r]&H_n(X)\\
+	\left[f:S^n\to X\right]\arrow[r,maps to]\arrow[ddr]&f_*\left[S^n\right]\\ \\
+	&f_*:H_n(S^n)\to H_n\\
+	&\left[S^n\right]\mapsto f_*\left[S^n\right]
+\end{tikzcd}\]
+
+Usando las clases fundamentales ya que las tenemos a la mano.
+
+\begin{teo}[Homomorfismo de Hurewicz]\leavevmode
+	\begin{itemize}
+		\item Si $X$ es arco-conexo, $h_1$ es supra y $\ker h_1=[G,G]$.
+		\item Para $m\geq2$, si $\pi_i(X)=0$ para toda $i<m$ entonces $h_m$ es un isomorfismo.
+	\end{itemize}
+\end{teo}
+Es decir, el primer grupo de homología no cero y el primer grupo de homotopía no cero ocurren en la misma dimensión y son isomorfos.
+
+Para nuestra proposición necesitamos esta versión del teorema de Whitehead, que se puede deducir de la anterior:
+
+\begin{teo}[de Whitehead]
+	Si $X$ y $Y$ son complejos CW simplemente conexos y $f:X\to Y$ es tal que $f_*:H_n(X)\to H_n(Y)$ es un isomorfismo para toda $n$, entonces $f$ es una equivalencia homotópica.
+\end{teo}
+
+Ahora demostremos la proposición:
+\begin{proof}
+	Como $S^3$ y $M^3$ son simplemente conexas, basta mostrar que hay un isomorfismo en todos los grupos de homotopía. Por conexidad, $H_0(M^3)=0$, y como $H_1(M^3)$ es el abelianizado de $\pi_1(M^3)$, también es cero. Y como $M^3$ es orientable, $H^3\approx \Z$. Para calcular el segundo, $H^2(M^3)\approx H_1(M^3)\approx 0$. Ahora la parte libre de torsión en homología y cohmología coincide por coeficientes universales y dualidad de Poincaré, así que de hecho $H_2(M^3)=0$.
+	
+	Para aplicar el teorema de Whitehead necesitamos una función que induzca los isomorfismos en cada grupo. Ahora por Hurewicz, $\pi_2(M^3)\approx H_2(M^3)=0$, y luego
+	\begin{align*}
+		h_3:\pi_3:\pi_3(M^3)\to\overset{\approx}{\to} H_3{M^3}\\
+		[f:S^3\to M^3]&\mapsto \text{generador}
+	\end{align*}
+	Luego, $f_*$ es un isomorfismo de $H_3(S^3)$ en $H_3(M^3)$. Los otros son cero, y en el 0-ésimo grupo de homología cualquier función induce un isomorfismo.
+\end{proof}
+
+\begin{obs}
+	En dimensión 4 la proposición no es cierta, pues $M^4=S^2\times S^2$ es simplemente conexa pero $H_2(M^4)\approx\Z\times\Z$ por Künneth.
+\end{obs}
+
+El objetivo de este curso es ver que
+\begin{teo}[Smale]
+	$S^n\simeq M^n\implies S^n\approx M^n$ si $n\geq 6$ y $M^n$ es diferenciable.
+\end{teo}
+Resultó sólo un poco después de la prueba de Smale que
+\begin{teo}[Stalings, Newman]
+	$S^n\simeq M^n\implies S^n\approx M^n$ si $n\geq 5$.
+\end{teo}
+Aunque usando otras técnicas. Nosotros mostraremos el teorema de Smale usando una mezcla entre su prueba y la que un poco después dio Milnor.
+
+\begin{pregunta}
+	¿Qué pasa con $S^n\simeq M^n \text{ diferenciable}\implies S^n\overset{\text{difeo}}{\approx} M^n$?
+\end{pregunta}
+\begin{enumerate}
+	\item[(Milnor) ---]  No. En dimensión 7 hay una variedad que topológicamente es una esfera pero diferenciablemente no. (Usando un invariante diferenciable, relacionado a clases características).
+\end{enumerate}
+
+\clearpage
+\chapter{Exposiciones}
+\section{$K$-teoría}
+\begin{defn}\leavevmode
+	\begin{itemize}
+		\item Un \textbf{\textit{fibrado}} o \textbf{\textit{haz}} vectorial es una función $p:E\to B$ tal que
+	\begin{enumerate}
+		\item Para todo $b\in B$, $p^{–1}(b)$ es un espacio vectorial (sobre $\R$ o $\C$).
+		
+		\item Existe un cubrimiento $(U_\alpha)$ por abiertos de $B$ tal que $p^{-1}\approx U\times\R^n$ es un homeomorfismo
+	\end{enumerate}
+	\item Un \textbf{\textit{morfismo}} de fibrados vectoriales es una función que hace conmutar el siguiente diagrama
+	\[\begin{tikzcd}
+		E_1\arrow[rr]\arrow[dr,swap,"p_1"]&&E_2\arrow[dl,"p_2"]\\
+		&B
+	\end{tikzcd}\]
+	\item El \textbf{\textit{pullback}} de un haz vectorial es
+	\[\begin{tikzcd}
+		E'\arrow[r]\arrow[d,swap,"p'"]&E\arrow[d]\\
+		X\arrow[r,"f"]&Y
+	\end{tikzcd}\]
+	que resulta en una flecha $\operatorname{Vect}(Y)\to\operatorname{Vect}(X)$.
+	\end{itemize}
+\end{defn}
+\begin{lema}
+	En la siguiente situación
+	\[\begin{tikzcd}
+		E_1\arrow[rr,"f"]\arrow[rd,swap,"p_1"]&&E_2\arrow[ld,"p_2"]\\
+		&B
+	\end{tikzcd}\]
+	$f$ es un isomorfismo si $f|_{p^{-1}(b)}$ es un isomorfismo lineal en cada fibra.
+\end{lema}
+
+\begin{defn}
+	La \textbf{\textit{suma directa}} de dos fibrados vectoriales
+	\[\begin{tikzcd}
+		E_1\arrow[rd,swap,"p_1"]&&E_2\arrow[ld,"p_2"]\\
+		&B
+	\end{tikzcd}\]
+	es $E_1\oplus E_2:=\{(e_1,e_2):p(e_1)=p(e_2)\}\subset E_1\times E_2$.
+\end{defn}
+
+\begin{obs}\leavevmode
+	\begin{itemize}
+		\item Si $\varepsilon^n$ denota el haz trivial de dimensión $n$, tenemos que $\varepsilon^n\oplus \varepsilon^m=\varepsilon^{n+m}$.
+		
+		\item Si $B$ es Housdorff compacto, para cualquier haz vectorial $E\to B$, existe otro $E'\to B$ tal que $E\oplus E'$ es trivial.
+		\[\begin{tikzcd}
+			E\arrow[d]&E'\arrow[ld]\\
+			B
+		\end{tikzcd}\]
+	\end{itemize}
+\end{obs}
+
+\begin{defn}
+	El \textbf{\textit{producto tensorial}} de dos haces como en la definición de suma directa es $E_1\otimes E_2:=\bigsqcup p_1^{-1}(b)\otimes p_2^{-1}(b)$. Para darle una topología tomemos $U\subset B$ tal que $p^{-1}_1(U)\overset{\varphi_1}{=}\R^n\times U$ y $p^{-1}_2(U)\overset{\varphi_2}{=}\R^m\times U$, y requerimos que
+	\[\varphi_1\otimes\varphi_2:p^{-1}_1(U)\otimes p_2^{-1}(U)\to U(\R^n\otimes\R^m)\]
+	sea un homeomorfismo.
+\end{defn}
+
+Ahora, en $\operatorname{Vect}(X)$,
+\begin{itemize}
+	\item $E_1\approx E_2$ si y sólo si existen $n,m$ números naturales tales $E_1\otimes\varepsilon^n\simeq E_2\otimes\varepsilon^m$.
+	
+	\item $E_1\sim E_2$ si y sólo si existe $n$ tal que $E_1\oplus \varepsilon^n\simeq E_2\oplus \varepsilon^n$.
+\end{itemize}
+
+
+	El \textbf{\textit{grupo de categoría de $X$ reducido}} $\tilde{K}(X)$ como el grupo $(\operatorname{Vect}(X)/\sim ,\oplus)$. Observemos que la relación $\approx$ no tiene inversos. Para construir un grupo, los agregamos mediante $(E_1-E_2)=(E_1'-E_2')$, $E_1+E_2'=E_2+E_1'$ y $(E_1-E_2)\oplus(E_1'-E_2')=(E_1\oplus E_1)-(E_1'\oplus E_2')$. Con esto tenemos $K(X)$, el \textbf{\textit{grupo de categoría de $X$}}.
+	
+	Dada $X\overset{f}{\to}Y$ tenemos el pullback $\tilde{K}(Y)\overset{f^*}{\to}\tilde{K}(X)$. Y también está
+	\begin{align*}
+		K(X)&\overset{\varphi}{\to}\tilde{K}(X)\\
+		E-\varepsilon^n&\mapsto [E]_\sim
+	\end{align*}
+	cuyo kernel es $\ker(\varphi)=(\varepsilon^m-\varepsilon^n)$
+	Luego
+	\begin{align*}
+		K(X)\overset{\psi}{\to}K(\{x_0\})
+	\end{align*}
+	con $\ker(\psi)=p^{-1}(x_0)$. Notemos que le grupo de categoría de un punto es los enteros:
+	\[\begin{tikzcd}
+		E'\arrow[r]\arrow[d]&E\arrow[d]\\
+		\{x_0\}\arrow[r,"i"]&X
+	\end{tikzcd}\]
+	donde $E'=\{(e,x_0):p(e)=x_0\}$. Y también, $\ker(K(X)\to K(\{x_0\}))=\tilde{K}(X)$.
+
+Ahora le damos estructura de anillo a $K(X)$. Dado
+	\[\begin{tikzcd}
+	E_1\arrow[rd,swap,"p_1"]&&E_2\arrow[ld,"p_2"]\\
+	&B
+\end{tikzcd}\]
+tenemos $\tilde{K}(X)=\ker(K(X)\to K(x_0))$. Y definimos el producto externo
+\begin{align*}
+	\sigma:K(X)\otimes K(Y)&\to K(X\times Y)\\
+	a\otimes b&\mapsto p_1^*(a)p_2^*(b)
+\end{align*}
+Ahora usaremos el \textbf{\textit{fibrado vectorial línea}}, que está dado en $H\subseteq \C P^1\times \C^2=\{(x,y):v\in x\}$ como
+\[\begin{tikzcd}[column sep=tiny]
+	H\arrow[d,swap,"p"]&(x,v)\arrow[d,maps to]\\
+	\C P^1&x
+\end{tikzcd}\]
+\begin{af}
+	$(H\otimes H)\oplus1=H\oplus H$
+\end{af}
+\begin{teo}[Fundamental de …]
+	La composición
+	\[\begin{tikzcd}
+			\Z[H]/(H-1)^2\otimes K(X)\arrow[r]&K(S^2)\otimes K(X)\arrow[r]&K(S^2\times X)
+	\end{tikzcd}\]
+\end{teo}
+
+Ahora estudiemos las sucesiones exactas.
+Para 
+\[\begin{tikzcd}
+	A\arrow[hook,r,"i"]&X\arrow[r,"q"]&X/A
+\end{tikzcd}\]
+tenemos
+\[\begin{tikzcd}
+	\tilde{K}(X/A)\arrow[r,"q^*"]&\tilde{K}(X)\arrow[r,"i^*"]&\tilde{K}(A)
+\end{tikzcd}\]
+Tomando conos y suspensiones,
+\[\begin{tikzcd}[column sep=tiny]
+	A\arrow[r,hook]&X\arrow[r,hook]&X\cup CA\arrow[r]\arrow[d]&(X\cup CA)\cup CX\arrow[d]\arrow[r]&((X\cup CA)\cup CX)\cup C(X\cup CA)\arrow[d]\\
+	&&X/A&SA&SX
+\end{tikzcd}\]
+\begin{lema}
+	Si $A$ es contráctil, entonces $q:X\to X/A$ induce una biyección $\operatorname{Vect}(X/A)\to\operatorname{Vect}(X)$.
+\end{lema}
+Y por fin tenemos la sucesión exacta
+\[\begin{tikzcd}[column sep=small]
+	\cdots\arrow[r]&\tilde{K}(S(X/A))\arrow[r]&\tilde{K}(SX)\arrow[r]&\tilde{X}(SA)\arrow[r]&\tilde{K}(A/X)\arrow[r]&\tilde{K}(X)\arrow[r]&\tilde{K}(A)
+\end{tikzcd}\]
+
 \end{document}

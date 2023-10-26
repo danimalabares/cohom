@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  21 SEP 2023 16:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  26 OCT 2023 16:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -916,39 +916,77 @@ Overfull \hbox (7.62964pt too wide) in paragraph at lines 1081--1082
 e gru-pos abelianos,
  []
 
-[31] (./cohom.aux)
+[31] [32] [33] [34] [35]
+Overfull \hbox (1.59335pt too wide) in paragraph at lines 1285--1287
+\OT1/ppl/m/n/10 donde $\OML/cmm/m/it/10 ^^[ \OT1/cmr/m/n/10 : [\OML/cmm/m/it/10
+ v[]; [] ; v[]\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 X$\OT1/ppl/
+m/n/10 . Una vez definido en los b[]asicos, ex-ten-de-mos $\OML/cmm/m/it/10 R$\
+OT1/ppl/m/n/10 -bilinealmente
+ []
+
+[36] [37] [38]
+Overfull \hbox (14.88179pt too wide) in paragraph at lines 1429--1430
+[]\OT1/ppl/b/n/10 Definici^^Son. []\OT1/ppl/m/n/10 El \OT1/ppl/b/n/10 anillo de
+ cobor-dismo \OT1/ppl/m/n/10 es $[][][] \OT1/cmr/m/n/10 = (
+\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 t\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 ^^B\OT
+1/cmr/m/n/10 )$\OT1/ppl/m/n/10 . 
+ []
+
+[39]
+Chapter 3.
+[40
+
+] [41] [42]
+Chapter 4.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1528.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1528.
+
+
+LaTeX Warning: Command \textendash invalid in math mode on input line 1533.
+
+[43
+
+
+] [44] [45] (./cohom.aux)
 Package rerunfilecheck Info: File `cohom.out' has not changed.
-(rerunfilecheck)             Checksum: A0A9994287A4AC46A37ABAD697ADFBB6;1596.
+(rerunfilecheck)             Checksum: B105C49C6FC0DC86702B45B8B1D48919;2712.
  ) 
 Here is how much of TeX's memory you used:
- 31709 strings out of 476025
- 647884 string characters out of 5790018
- 1915388 words of memory out of 5000000
- 51697 multiletter control sequences out of 15000+600000
- 532661 words of font info for 90 fonts, out of 8000000 for 9000
+ 33026 strings out of 476025
+ 682260 string characters out of 5790018
+ 1916388 words of memory out of 5000000
+ 52980 multiletter control sequences out of 15000+600000
+ 535513 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,18n,89p,1194b,1191s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
-usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
-r/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
-local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/loc
-al/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/
-texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
-exlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/tex
-live/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texli
-ve/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/t
-exlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/loca
-l/texlive/2023/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/
-texlive/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive
-/2023/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/t
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
+/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></u
+sr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr
+/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
+ocal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/loca
+l/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/t
+exlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
+xlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texl
+ive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texliv
+e/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/te
+xlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local
+/texlive/2023/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/t
+exlive/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/
+2023/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/local/texlive/2023/t
 exmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf-di
-st/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on cohom.pdf (31 pages, 340661 bytes).
+st/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf-dist/font
+s/type1/urw/palatino/uplri8a.pfb>
+Output written on cohom.pdf (45 pages, 422319 bytes).
 PDF statistics:
- 300 PDF objects out of 1000 (max. 8388607)
- 230 compressed objects within 3 object streams
- 46 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 423 PDF objects out of 1000 (max. 8388607)
+ 334 compressed objects within 4 object streams
+ 78 named destinations out of 1000 (max. 500000)
+ 157 words of extra memory for PDF output out of 10000 (max. 10000000)
 
