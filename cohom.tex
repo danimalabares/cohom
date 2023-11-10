@@ -83,7 +83,7 @@
 
 
 \title{La conjetura de Poincaré en dimensiones altas}
-\author{Notas\\ \\ \href{https://github.com/danimalabares/cohom}{github.com/danimalabares/cohom}}
+\author{Notas\\ \\ \href{https://github.com/dan-gc/cohom}{github.com/dan-gc/cohom}}
 
 \begin{document}
 	\maketitle
@@ -1413,7 +1413,7 @@ que no depende de la elección del representante por usar la clase fundamental.
 	$\partial M$ siempre admite una vecindad collar, es decir, $\partial M\times(0,1)$.
 \end{prop}
 \begin{defn}
-	 $M$ es $R$-orientable si $M-\partial M$ es $R$-orientable.
+	$M$ es $R$-orientable si $M-\partial M$ es $R$-orientable.
 \end{defn}
 \begin{pregunta}
 	Sea $M$ cerrada. ¿Existe $W$ compacta tal que $\partial W=M$? No.
@@ -1428,6 +1428,7 @@ que no depende de la elección del representante por usar la clase fundamental.
 \begin{defn}
 	El \textbf{anillo de cobordismo} es $\text{Variedades diferenciables}\Big/\text{cobordismo}=(\Omega,\sqcup,\times)$.
 \end{defn}
+
 
 \chapter{La conjetura de Poincaré}
 Primero recordemos (¿recordemos?) que la única 1-variedad cerrada es $S^1$, y en dimensión 2 sólo están la esfera y las superficies de género $g$. En dimensión 3 hay muchas, como $S^3$, $T^3$, las sumas conexas de $T^3$, productos como $S^1\times S_g$, y parece haber muchas más.
@@ -1520,8 +1521,241 @@ Aunque usando otras técnicas. Nosotros mostraremos el teorema de Smale usando u
 	¿Qué pasa con $S^n\simeq M^n \text{ diferenciable}\implies S^n\overset{\text{difeo}}{\approx} M^n$?
 \end{pregunta}
 \begin{enumerate}
-	\item[(Milnor) ---]  No. En dimensión 7 hay una variedad que topológicamente es una esfera pero diferenciablemente no. (Usando un invariante diferenciable, relacionado a clases características).
+	\item[(Milnor) ---]  No. En dimensión 7 hay una variedad que topológicamente es una esfera pero diferenciablemente no. (Usando un invariante diferenciable, relacionado a clases características, haces tangente no isomorfos).
 \end{enumerate}
+
+
+\section{Cobordismo}
+\begin{defn}
+	Un \textbf{cobordismo} es una variedad $W$ con frontera $\partial W$ que expresamos como la unión de dos abiertos disjuntos no vacíos Decimos que $\partial_-W$ y $\partial_+W$. $W$ es un cobordismo entre $\partial_-W$ y $\partial_+W$, y que $\partial_-W$ y $\partial_+W$ son \textbf{cobordantes}.
+\end{defn}
+
+\[\begin{tikzpicture}[thick]
+	\filldraw[fill=green!25, fill opacity=0.8]
+	(1,2.6) .. controls (0.75,2.6) and (0.75,3.4) .. (1,3.4) .. 
+	controls (3,3.4) and (3,4.3) .. (6,4.3) .. 
+	controls (3.25,4.3) and (3.25,3.5) .. (6,3.5) .. 
+	controls (4.8,3.5) and (4.8,2.5) .. (6,2.5) .. 
+	controls (6.25,2.5) and (6.25,1.7) .. (6,1.7) ..
+	controls (3,1.7) and (3,2.6) .. (1,2.6);
+	\draw[dashed]
+	(1,2.6) .. controls (1.25,2.6) and (1.25,3.4) .. (1,3.4);
+	\draw  
+	(6,4.3) .. controls (5.75,4.3) and (5.75,3.5) .. (6,3.5);
+	\draw
+	(6,2.5) .. controls (5.75,2.5) and (5.75,1.7) .. (6,1.7);
+\end{tikzpicture}\]
+
+\begin{ejem}
+	El \textbf{cobordismo trivial} sobre $M$ es $W=M\times I$.
+\end{ejem}
+
+\begin{defn}
+	Un cobordismo $W$ es un \textbf{h-cobordismo} si
+	\[\begin{tikzcd}[row sep=tiny]
+		\partial_-W\arrow[dr,hook]\\
+		&W\\
+		\partial_+W\arrow[ur,hook]
+	\end{tikzcd}\]
+\end{defn}
+\begin{ejem}
+	Los pantalones no lo son porque hay dos círculos que no pueden ser homotópicamente equivalentes. El coboridmo trivial sí lo es. El cobordismo trivial con un género no lo es, ya que el grupo fundamental de $W$ es libre no abeliano mientras las fronteras son círculos.
+\end{ejem}
+
+\begin{teo}[del h-cobordismo, Smale]
+	Sea $W^m$ un h-cobordismo. Si $\pi_1(W)=1$ y $m\geq6$, entonces
+	\[W^m\overset{\text{difeo}}{\approx}\partial_-W\times I\]
+\end{teo}
+El resto del curso estaremos demostrando esto, salvo la siguiente discusión, donde argumentamos por qué este teorema implica
+
+\begin{teo}[Smale]
+	$S^n\simeq M^n\implies S^n\approx M^n$ si $n\geq 6$ y $M^n$ es diferenciable.
+\end{teo}
+\begin{proof}
+	A $M^n$ le quitamos dos discos $D^n$ para obtener el cobordismo $M=M-\{\int D^+\cup\int D^-\}$. De hecho,
+	\begin{lema}
+		$W$ es un h-cobordismo simplemente conexo.
+	\end{lema}
+	\begin{proof}
+		Definamos las variedades
+		\begin{align*}
+			\mathcal{D}^+=W\cup D^+,\qquad\mathcal{D}^-=W\cup D^-
+		\end{align*}
+		Calculemos $H_i(\mathcal{D}^+)$ usando Mayer-Vietoris de acuerdo a que $M=\mathcal{D}^+\cup_{\partial_-W}D^-$.
+		\[\begin{tikzcd}[column sep=small]
+			 \cdots\arrow[r]&\tilde{H}_i(\partial_-W)\arrow[r]&\tilde{H}_i(\mathcal{D}^+)\oplus\tilde{H}_i(D^-)\arrow[r]&\tilde{H}_i(M)\arrow[r]&\tilde{H}_{i-1}(\partial_-W)\arrow[r]&\cdots
+		\end{tikzcd}\]
+		Así que $H_i(\mathcal{D}^+)=0$ salvo quizás para $i=n,n-1$ usando que $M$ es homotópicamente equivalente a una esfera.
+		
+		Por dualidad de Poincaré con frontera, $H_n(\mathcal{D}^+)\approx H^0(\mathcal{D}^+\partial_-W)$, $H_{n-1}(\mathcal{D})\approx H^i(\mathcal{D}^+,\partial_-W)$. Para calcular estas cohomologías de parejas hacemos la sucesión exacta de la pareja:
+		\[\begin{tikzcd}
+			0\arrow[r]&H^0(\mathcal{D}^+,\partial_-W)\arrow[r]&H^0(\mathcal{D}^+)\arrow[r]&H^0(\partial_-W)
+		\end{tikzcd}\]
+		Los últimos dos son $\Z$, lo que obliga a esa flecha a ser un isomorfismo y entonces $H^0(\mathcal{D}^+,\partial_-W)\approx0$. Continuando la sucesión,
+		\[\begin{tikzcd}[column sep=small]
+			0\arrow[r]&H^0(\mathcal{D}^+,\partial_-W)\arrow[r]&H^0(\mathcal{D}^+)\arrow[r]&H^0(\partial_-W)\arrow[r]&H^1(\mathcal{D}^+,\partial_-W)\arrow[r,hook]&H^1(\mathcal{D}^+)\arrow[r]&\cdots
+		\end{tikzcd}\]
+		Y $H^1(\mathcal{D}^+)\approx0$ por dualidad de poincaré ya que sabemos que los grupos de homología se anulan salvo en $i=n,n-1$. Es decir, $\tilde{H}_i(\mathcal{D}^\pm)=0$ para toda $i$.
+		
+		Para ver que $\mathcal{D}^\pm\approx1$ usamos Van Kampen en el mismo $M=\mathcal{D}^+\cup_{\partial_-W}D^-$ para obtener
+		\[\pi_1(M)\approx\pi_1(\mathcal{D}^+)*_{\pi_1(\partial_-W)}\pi_1(D^-)\]
+		Todos los que conocemos son triviales, así que el único que no conocemos, $\pi_1(\mathcal{D}^+)$ también es trivial. De manera análoga, Van Kampen nos dice que
+		\[\pi_1(\mathcal{D}^+)\approx\pi_1(W)*_{\pi_1(S^{n-1})}\pi_1(D^+)\]
+		así que $\pi_1(W)=1$.
+		
+		Finalmente veamos que $\partial_+W\hookrightarrow W$ es una equivalencia homotópica. Trataremos de aplicar Whitehead. Usaremos sin demostrar que como las variedades son diferenciables tienen una estructura CW. Busquemos una función entre ellas que induzca isomorfismos $f_*:H_i(Y)\to H_i(X)$ para toda $i$.
+		
+		Por Mayer-Vietoris una vez más,
+		\[\begin{tikzcd}
+			0\arrow[r]&H_i(\partial_+W)\arrow[r]&H_i(W)\oplus H_i(D^+)\arrow[r]&H_i(\mathcal{D}^+)\arrow[r]&\cdots
+		\end{tikzcd}\]
+		Y de hecho, $H_i(D^+)\approx H_i(\mathcal{D}^+)\approx0$.
+	\end{proof}
+	
+	Entonces, por el teorema del h-cobordismo, $W\overset{\text{difeo}}{\approx}\partial_-W\times I\approx S^{n-1}\times I$. Así que tenemos un cilindro, le pegamos las tapas y terminamos: tenemos un homeomorfismo con $S^n$.
+\end{proof}
+\begin{obs}
+	El homeomorfismo que construimos no necesariamente es un difeomorfismo. De hecho, qué bueno, porque como discutimos antes, Milnor probó que hay un contraejemplo en dimensión 7 para el caso difeomorfo.
+	
+	Es posible hacer que esta función sea un difeomorfismo salvo en un punto.
+\end{obs}
+Recordemos que
+\begin{defn}\leavevmode
+	\begin{enumerate}
+		\item $f:M\to N$ es una \textbf{inmersión} si para todo $x\in M$, la diferencial $df_x:T_xM\to T_{f(x)}N$ es inyectiva.
+		\item $f$ es un \textbf{encaje} si es una inmersión y $f:M\to f(M)$ es un homeomorfismo.
+		\item Una \textbf{isotopía} es una función suave $F:M\times I\to N$ tal que
+		\[f_t:=F(-,t):M\to N\]
+		es un encaje para cada $t$.
+	\end{enumerate}
+\end{defn}
+
+\begin{teo}[de extensión de isotopía]
+	Si $f_t:M\to N$ es una isotopía, entonces existe otra isotopía
+	\[F_t:N\to N\]
+	tal que:
+	\begin{enumerate}
+		\item $F_0=\Id_N$
+		\item $f_t=F_t\circ f_0$ para toda $t\in I$.
+	\end{enumerate}
+	es decir, podemos controlar una isotopía de $M$ en $N$ mediante una isotopía de $N$ en $N$.
+\end{teo}
+
+\begin{defn}
+	El \textbf{asa} $h$ de dimensión $n$ e \textbf{índice} $I(h)$ $0\leq i\leq n$ es $D^i\times D^{n-i}\approx D^n$ donde $D^i=\{x\in\R^i:|x|\leq 1\}$.
+\end{defn}
+\begin{prop}
+	\begin{align*}
+	\partial h&=\partial D^i\times D^{n-i}\cup D^i\times \partial D^{n-i}\\
+	&=\underbrace{S^{i-1}\times D^{n-i}}_{\partial^-h}\cup\underbrace{ D^{i}\times S^{n-(i+1)}}_{\partial^+h}
+	\end{align*}
+\end{prop}
+\begin{ejem}
+	Supongamos que $n=3$. Trataremos de dar una descomposición en asas que, a diferencia de una descomposición CW, todas las ``células" son de la misma dimensión, pero de índices distintos.
+	\[\begin{matrix}
+		i=0&i=1&i=2&i=3\\
+		D^0\times D^3&D^1\times D^2&D^2\times D^1&D^3\times D^0
+	\end{matrix}\]
+	que parecen parecidos pero realmente no lo son, porque el $\partial^-h$ y el $\partial^+h$ cambian de papel.
+\end{ejem}
+Ahora consideremos $M^n$ una variedad con frontera, $h$ un asa de dimensión $n$ e índice $i$ y $f:\partial^-h\to\partial M$ un encaje. Definimos
+\[M+h:=M\cup_f D^i\times D^{n-i}\]
+que es una variedad diferenciable.
+
+\begin{teo}
+	Sea $M$ una variedad cerrada. Entonces $M$ admite una descomposición por asas, es decir,
+	\[M\overset{\text{difeo}}{\approx} h_1+h_2+\ldots+h_r\]
+	tal que $I(h_i)\leq I(h_{i+1})$.
+\end{teo}
+\begin{obs}
+	La operación suma no es asociativa ni conmutativa. Se deben ir sumando una por una las asas.
+\end{obs}
+
+\begin{teo}
+	Sea $W^n$ un cobordismo entre $\partial^-W$ y $\partial^+W$, entonces
+	\[W^n=\partial^-W\times [0,1]+h_1+\ldots+h_m\]
+	tal que $\partial^-W$ queda intacto en el sentido de que la imagen de ninguno de los encajes de pegado toca la tapa de abajo.
+\end{teo}
+Nuestro objetivo es desarrollar un mecanismo que a esta expresión nos permita quitarle un asa, de modo que terminaríamos iterando suficientes veces.
+
+\section{Cálculo de asas}
+\begin{lema}[1]
+	Si $f,g:\partial^-h\to\partial h$ son isotópicos, entonces
+	\[M+_fh\overset{\text{difeo}}{\approx}M+_gh\]
+\end{lema}
+\begin{proof}
+	Consideramos
+	\[f:\partial^-h\hookrightarrow \partial M\]
+	\[F_t:\partial M\times I\to \partial M\]
+	\begin{align*}
+		F'_t:\partial M\times I&\to \partial M\times I\\
+	(x,t)&\mapsto (F_t(),t)
+	\end{align*}
+	De donde, al considerar una vecindad regular de la frontera de $M$ obtenemos que el siguiente diagrama conmuta:
+	\[\begin{tikzcd}
+		\partial M\times I\arrow[d,"F'_t",swap]&h\arrow[l,swap,"f"]\arrow[d,"\Id"]\\
+		\partial M\times I&h\arrow[l,swap,"g"]
+	\end{tikzcd}\]
+\end{proof}
+En un asa
+	\begin{align*}
+	\partial h&=\partial D^i\times D^{n-i}\cup D^i\times \partial D^{n-i}\\
+	&=\underbrace{S^{i-1}\times D^{n-i}}_{\partial^-h}\cup\underbrace{ D^{i}\times S^{n-(i+1)}}_{\partial^+h}
+\end{align*}
+diremos que $D^i\times\{0\}$ es el \textbf{disco de adjunción}, $S^{i-1}\times\{0\}$ es la \textbf{esfera de adjunción}. Correspondientemente, $\{0\}\times D^i$ es el \textbf{disco complementario} y $\{0\}\times S^{n-i-1}$ es la \textbf{esfera complementaria}.
+
+Para un ejemplo tomemos $D^1\times D^2$. El disco de adjunción es el alma del cilindro, la esfera de adjunción son los centros de las tapas, el disco complementario es el disco a la mitad del cilindro y la esfera complementaria es la frontera del disco complementario.
+
+Usaremos un resultado que Milnor de muestra con teoría de Morse. Damos una \textbf{descomposición por asas de $M$}. Tomamos una estructura de complejo CW en $M$. Declaramos que el 0-esqueleto sea una suma de 0-asas, $h^0_1+\ldots+h_{r_1}^0$. Para cada arista que une dos puntos consideramos una 1-asa que es un cilindro como en el párrafo anterior y extendemos nuestra estructura a $(h^0_1+\ldots+h_{r_0}^0)+(h^1_1+\ldots +h^1_{r_1})$.
+
+\begin{teo}[De Whitehead]
+	Hay una descomposición por asas de $M$
+	\[(h^0_1+\ldots+h_{r_0}^0)+(h^1_1+\ldots +h^1_{r_1})+\ldots\]
+\end{teo}
+Si $W$ es un cobordismo entre $\partial^-W$ y $\partial^+W$, consideramos
+	\[W^n=\partial^-W\times [0,1]+(h^0_1+\ldots+h_{r_0}^0)+(h^1_1+\ldots +h^1_{r_1})+\ldots\]
+Y de nuevo, nuestro objetivo es quitar las asas una por una.
+
+A partir de ahora el símbolo $=$ signifca difeomorfismo.
+\begin{lema}[2]
+	$(M+h_1)+h_2$. Sea $N=\partial(M+h_1)$. Denotemos or $S$ a la esfera complementaria de $h_1$ y $\mathcal{S}$ la esfera de adjunción de $h_2$. (Notemos que  $S$ y $\mathcal{S}$ son subvariedades de $N$.) Si $S$ y $\mathcal{S}$ son disjuntas, entonces (módulo isotopía), puedo adjuntar $h_1$ y $h_2$ al mismo tiempo, es decir,
+	\[(M+h_1)+h_2=M+(h_1\sqcup h_2)\]
+\end{lema}
+\begin{proof}
+	Si las funciones de pegado no se tocan, terminamos. Si, en cambio, pego una asa y luego otra, y la segunda se pega sobre la primera, al menos sabemos que las esferas de adjunción no se tocan. Pero sí se podrían tocar partecitas del asa alrededor de $\mathcal{S}$, pero no importa, porque puedo isotopear, aplicando el lema 1, a un asa que no toca la esfera de adjunción de la primera asa, $S$. Y finalmente, podemos isotopear la segunda asa hasta que no toque en lo absoluto a la primera asa.
+\end{proof}
+
+Ahora consideremos dos asas con índices consecutivos, digamos $I(h_1)=i$, $I(h_2)=i+1$. Entonces la esfera complementaria $S$ de $h_1$ tiene dimensión $n-i-1$ y la esfera de adjunción $\mathcal{S}$ de $h_2$ tiene dimensión $n-i$. Sus codimensiones son $i+1$ y $n-i$ respectivamente, suya suma es $n-1$ y por el teorema de transversalidad, $\dim(S\cap \mathcal{S})=0$.
+
+De ahora en adelante supondremos que la esfera complementaria de un asa y la esfera de adjunción de un asa se intersectan transversalmente. La descomposición de $M$ dada de esta forma se llama \textbf{descomposición t-estándar}.
+
+Ahora enunciamos el lema que nos permite quitar asas.
+
+\begin{lema}[3]
+	Dadas dos asas de índices consecutivos $I(h_1)=i$, $I(h_2)=i+1$, si $S\cap\mathcal{S}$ es exactamente un punto, entonces $M+h_1+h_2=M$.
+\end{lema}
+\begin{proof}
+	(del lema 3). Consideremos primero adjuntar una 0-asa, es decir, una bola. La esfera de adjunción es un punto y la complementaria una esfera, de hecho el resultado es algo disconexo. Ahora adjuntamos una 1-asa. El resultado es equivalente a adjuntar una bola. Realmente no modificamos la variedad.
+	
+	Ahora comencemos por adjuntar una 1-asa. Obtenemos literalmente un asa como de una tasa pegada a la variedad, cuya esfera de adjunción es un círculo a la mitad del asa. Ahora adjuntamos una 2-asa. Podemos suponer que la esfera de adjunción se ve como una línea longitudinal sobre la primera asa, y en el resto de la variedad puede ser muy exótica. Y el resto de la segunda asa, de hecho, rellena el hoyo o ``género" que se había formado al pegar la primera asa.
+	
+	El paso final es demostrar que este proceso se puede ver como pegar tres asas, que a la mera hora es equivalente a pegar una bola.
+\end{proof}
+
+Para terminar nuestra demostración basta ver que en una descomposición t-estándar de $M$ podemos encontrar para cada $i$-asa una $(i+1)$-asa cuyas esferas complementaria y de adjunción se intersecten en exactamente un punto.
+
+\begin{defn}
+	Sean dos asas de índices consecutivos $I(h_1)=i$, $I(h_2)=i+1$. Supongamos que $2\leq I(h_1)\leq n-3$, que $n\geq6$ y que $\pi_1(N)=0$. $N$, $S$ y $\mathcal{S}$ son orientables, así que podemos fijar una orientación para cada una. La intersección $S\cap\mathcal{S}$ es una cantidad finita de puntos, a los que podemos asignar un número $\pm1$, dependiendo de la orientación. El \textbf{\textit{número de intersección orientado}} es
+	\[\sum_{s\in S\cap \mathcal{S}}\sigma(x)=\pm1\]
+\end{defn}
+\begin{lema}[4, el truco de Whitney]
+	En la situación anterior, podemos isotopear $\mathcal{S}$ de forma que $S\cap \mathcal{S}$ es un punto.
+\end{lema}
+\begin{proof}
+	Tomamos curvas que unen una pareja de puntos en $S\cap \mathcal{S}$. Por ser simplemente conexo, podemos considerar el espacio entre las curvas como un disco. Para isotopear esta inmersión a un encaje, necesitamos dimensión al menos 6.
+\end{proof}
+En consecuencia,
+\[M+h_1+h_2=M\]
 
 \clearpage
 \chapter{Exposiciones}
@@ -1628,11 +1862,13 @@ Ahora usaremos el \textbf{\textit{fibrado vectorial línea}}, que está dado en 
 \begin{af}
 	$(H\otimes H)\oplus1=H\oplus H$
 \end{af}
-\begin{teo}[Fundamental de …]
-	La composición
+\begin{teo}[Fundamental del producto]
+	De acuerdo a composición
 	\[\begin{tikzcd}
 			\Z[H]/(H-1)^2\otimes K(X)\arrow[r]&K(S^2)\otimes K(X)\arrow[r]&K(S^2\times X)
 	\end{tikzcd}\]
+	hay un isomorfismo
+	\[\Z[H]/H-1\to K(S^2)\]
 \end{teo}
 
 Ahora estudiemos las sucesiones exactas.
@@ -1645,7 +1881,7 @@ tenemos
 	\tilde{K}(X/A)\arrow[r,"q^*"]&\tilde{K}(X)\arrow[r,"i^*"]&\tilde{K}(A)
 \end{tikzcd}\]
 Tomando conos y suspensiones,
-\[\begin{tikzcd}[column sep=tiny]
+\[\begin{tikzcd}[column sep=small]
 	A\arrow[r,hook]&X\arrow[r,hook]&X\cup CA\arrow[r]\arrow[d]&(X\cup CA)\cup CX\arrow[d]\arrow[r]&((X\cup CA)\cup CX)\cup C(X\cup CA)\arrow[d]\\
 	&&X/A&SA&SX
 \end{tikzcd}\]
@@ -1656,5 +1892,294 @@ Y por fin tenemos la sucesión exacta
 \[\begin{tikzcd}[column sep=small]
 	\cdots\arrow[r]&\tilde{K}(S(X/A))\arrow[r]&\tilde{K}(SX)\arrow[r]&\tilde{X}(SA)\arrow[r]&\tilde{K}(A/X)\arrow[r]&\tilde{K}(X)\arrow[r]&\tilde{K}(A)
 \end{tikzcd}\]
+\begin{teo}[De periodicidad de Bott]
+	\[\tilde{K}(X)\simeq\tilde{K}(S^2X)\]
+	donde $S^2X$ es la doble suspensión de $X$.
+\end{teo}
+\begin{coro}
+	\[\tilde{K}(S^n)=\begin{cases}
+		\Z\qquad\text{ si }n\text{ es par}\\
+		0\qquad\text{ si }n\text{ es impar}
+	\end{cases}\]
+\end{coro}
+
+Ahora veamos aplicaciones de esto:
+\begin{defn}
+	$S^n$ es \textbf{\textit{paralelizable}} si existen campos vectoriales $V_1,\ldots,V_n$ tales que $\{V_1,\ldots,V_n\}$ es linealmente independiente en cada punto de $S^n$. Esto es equivalente a que el haz tangente sea trivial.
+\end{defn}
+
+\begin{teo}
+	Sólo $n=1,2,4,8$ cumplen lo siguiente:
+	\begin{enumerate}
+		\item $\R^n$ es un álgebra de división.
+		\item $S^{n-1}$ es paralelizable.
+	\end{enumerate}
+\end{teo}
+
+\textcolor{cyan}{¿Qué nos dice el hecho de que el haz tengente sea trivial respecto a la curvatura? $S^1$ es plana en el sentido de Lee, ie. localmente isométrica al espacio euclideano.}
+
+\begin{defn}
+	$S^{n-1}$ es un \textbf{\textit{H-espacio}} si existen $S^{n-1}\times S^{n-1}\overset{H}{\to} S^{n-1}$ y $e\in S^{n-1}$ tales que $H(e,x)=x=H(x,e)$.
+\end{defn}
+
+\begin{prop}
+	Si $n$ satisface alguna de las consecuencias del teorema anterior, entonces $S^{n-1}$ es un H-espacio.
+\end{prop}
+\begin{proof}\leavevmode
+	\begin{enumerate}
+		\item $(x,y)\to xy/|xy|$
+		\item Para cada $x\in S^{n-1}$ tomamos una base ortonormal. Podemos decidir que la base correspondiente a $e_1$ sea la base canónica de $\R^{n-1}$. Luego tomamos $\alpha_x\in\operatorname{SO}(n)$ que convierte la base en $x$ en la canónica. El mapeo $(x,y)\mapsto \alpha_x(y)$ es el buscado.
+	\end{enumerate}
+\end{proof}
+\begin{obs}\leavevmode
+	\begin{enumerate}
+		\item $\tilde{K}(S^{2n})=\Z$ y $\tilde{K}(S^{2n+1})=0$.
+		\item $\tilde{K}(S^{2k})\otimes \tilde{K}(X)\to\tilde{K}(S^{2k}\cap X)$
+		\item $K(S^{2k})\otimes K(X)\to K(S^{2k}\times X)$ es un isomorfismo.
+	\end{enumerate}
+\end{obs}
+	De lo cual se sigue $S^{2k}$ no es un H-espacio si $k>0$. Resta demostrar que los únicos casos donde $S^{n-1}$ es un H-espacio son $2,4$ y $8$.
+	
+	\section{Clases características}
+	Consideremos una matrix
+	\[X=\begin{pmatrix}
+		x&y\\
+		z&w
+	\end{pmatrix}\]
+	\begin{defn}
+		$P(X)$ se llama \textbf{$\operatorname{GL}(r,X)$-invariante} si para cualquier matriz $A\in\operatorname{GL}(r,\R)$
+		\[P(A^{-1}XA)=P(X)\]
+	\end{defn}
+	\begin{ejem}\leavevmode
+		\begin{enumerate}
+			\item $\det(X)$. Para $X$ definida arriba, $\det(X)=xw-yz$
+			\item $\operatorname{tr}(X)$. Para $X$ definida arriba, $\operatorname{tr}(X)=x+w$
+			\item $\det(\lambda I+X)$. Para $X$ en general, $\det(\lambda I+X)=\lambda^r+f_1(X)\lambda^{r-1}+\ldots+f_r(X)$.
+			\item $\operatorname{tr}_k(X)=\operatorname{tr}(X^k)$.
+		\end{enumerate}
+	\end{ejem}
+	
+	\begin{prop}
+		Si $\mathcal{A}$ es $\R$-álgebra conmutativa con unidad y $P$ es $\operatorname{GL}$-invariante, entonces para una matriz con entradas en $\mathcal{A}$, digamos $X\in\mathcal{A}(X^i_j)$,
+		\[P(A^{-1}XA)=P(X)\qquad \text{para }A\in\operatorname{GL}\]
+	\end{prop}
+\begin{defn}
+	Sea $E\to M$ un haz vectorial sobre $M$. Una \textbf{\textit{conexón}} en $E$ es una función
+	\[\nabla:\Gamma(TM)\times\Gamma(E)\to \Gamma(E)\]
+	tal que para todo $X\in\Gamma(TM)$ y $s\in\Gamma(E)$,
+	\begin{enumerate}
+		\item $\nabla_Xs$ es $C^\infty(M)$-bilineal.
+		\item $\nabla_Xs$ satisface la regla de Leibniz en $s$: para $f\in C^\infty(M)$,
+		\[\nabla_X(fs)=(Xf)s+f\nabla_Xs\]
+	\end{enumerate}
+\end{defn}
+\begin{defn}
+	El \textbf{tensor de curvatura} en una variedad es una función $\R$-multilineal
+	\[R:\Gamma(TM)\times\Gamma(TM)\times\Gamma(s)\to\Gamma(s)\]
+	dada por
+	\[R(X,Y)s=\nabla_X\nabla_Y s-\nabla_Y\nabla_Xs-\nabla_{[X,Y]}s\]
+\end{defn}
+Dado un marco local $e_1,\ldots,e_k$ en $U$,
+\[R(X,Y)e_j=\sum\Omega_j^i(X,Y)e_i\]
+donde $\Omega=(\Omega^j_i)$ es una matriz de 2-formas.
+
+Veamos que esta matriz está bien definida cuando cambiamos de marco. Sea $\tilde{e}_1,\ldots,\tilde{e}_n$ otro marco local en $U$. Entonces hay una función $a:U\to\operatorname{GL}(k,\R)$ tal que $\tilde{\Omega}=a\Omega a^{-1}$.
+
+Ahora tratemos de definir el morfismo de Chern-Weil. Sea $P$ un polinomio homogéneo de grado $k$ $\operatorname{GL}$-invariante y $p\in M$. Consideremos 
+\[\mathcal{A}=\bigoplus_{i=0}^\infty \bigwedge^{2i}(T^*_pM)\]
+Observemos que $\Omega_p\in \mathcal{A}$. Por la invarianza de $\Omega$ bajo conjugación, tenemos que $P(\Omega_p)=P(\tilde{\Omega}_p)$.
+	
+Cuando dejamos variar $p$ sobre la variedad, obtenemos una función $P(\Omega):U\to\bigwedge$.
+
+Por ejemplo,
+\[P(\Omega)=\left|\begin{matrix}
+	\Omega^1_1&\Omega^2_1\\
+	\Omega^1_2&\Omega^2_2
+\end{matrix}\right|=\Omega^1_1\wedge\Omega^2_2-\Omega^2_1\wedge\Omega^1_2\in\bigwedge^4(T^*M)\]
+
+Así que en general $P(\Omega)\in\bigwedge^{2k}(M)$.
+\begin{teo}
+	$P(\Omega)$ es una forma cerrada y $[P(\Omega)]_{dR}$ no depende de $\nabla$.
+\end{teo}
+
+Hasta ahora hemos construido un mapeo
+\[\left\{\text{polinomios homogéneos invariantes}\right\}\longrightarrow H^*(M)\]
+Y quisiéramos extenderlo a todos los polinomios invariantes. De hecho, $\operatorname{Inv}(\operatorname{GL}(r,\R))$ está generado por cualquiera de los siguientes conjuntos:
+\begin{enumerate}
+	\item $\{f_i(X)\}$.
+	\item $\{\operatorname{tr}_k(X)\}$.
+\end{enumerate}
+Así que de hecho tenemos
+\[\left\{\text{polinomios invariantes}\right\}\overset{CE}{\longrightarrow} H^*(M)\]
+mediante
+\[C_E(PQ)=[P(\Omega)\wedge Q(\Omega)]\]
+Ahora podemos definir
+\begin{defn}
+La \textbf{clase de Pontrjiagin} es:
+	\[P_k(E)=C_E\left(f_{2k}\left(\frac{1}{2\pi}\Omega\right)\right)\in H^{4k}(M)\]	
+\end{defn}
+Para definir la clase de Euler, necesitaremos
+\begin{prop}
+	Si $X$ es una matrix de $2m\times 2m$ antisimétrica, entonces $\det(X)$ es un cuadrado perfecto en $\Z(x^i_j)$.
+\end{prop}
+\begin{defn}
+	El polinomio \textbf{Pfaffiano} es $\operatorname{Pf}(X)=\sqrt{\det(X)}$.
+\end{defn}
+que no es invariante en todo $\operatorname{GL}(r,\R)$, pero sí en $\operatorname{SO}(r,\R)$. Ahora sí,
+\begin{defn}
+	La \textbf{clase de Euler} es
+	\[e(E)=c_E(\operatorname{Pf}(X))\]
+\end{defn}
+\begin{teo}
+	Si $M$ es compacta, riemanniana de dimensión para y orientable, entonces
+	\[\int_M\operatorname{Pf}(\Omega)=\chi(M)\]
+\end{teo}
+\begin{defn}
+	En el polinomio
+	\[\det(I+\frac{i}{2\pi}\Omega)=1+c_1(E)+\ldots+c_r(E)\]
+	 los términos $c_i(E)$ son las \textbf{clases de Chern-Weil}.
+\end{defn}
+
+Finalmente podemos dar una interpretación funtorial de las clases características. Para
+\[\operatorname{Vect}_k(M)=\{[E\overset{\pi}{\to}M]_{\simeq}:\dim(E)=k\}\]
+tenemos
+\[\operatorname{Vect}_k(-)\to H^*(-)\]
+que es natural en cuanto a que para una flecha $M\to N$,
+\[\begin{tikzcd}
+	f^*E\arrow[r]\arrow[d]&E\arrow[d]\\
+	M\arrow[r,"f"]&N
+\end{tikzcd}\]
+conmuta.
+
+Ahora veamos una aplicación:
+\begin{prop}
+	Si $M$ es compacta de dimensión $4m$ y $M\hookrightarrow \R^{4m+1}$ es una hipersuperficie, entonces $P_k(M)$ se anula.
+\end{prop}
+
+\begin{defn}
+	Una \textbf{variedad de Calabi-Yau} es una variedad compleja, de Käler, compacta y con primera clase de Chern cero.
+\end{defn}
+Recordemos cómo se define la característica de Euler:
+\[\chi(M)=\sum_i(-1)^ic_n=\sum_i(-1)^i\beta_n\]
+donde $c_n$ es una $n$-célula y $\beta_n=\operatorname{ran}H_n$.
+
+\begin{teo}
+	Si $V_1:M\to TM$ es un campo con ceros aislados, entonces
+	\[\chi(M)=\sum\text{ceros de }V_1\]
+\end{teo}
+Cuya generalización es que
+\begin{teo}
+	Si $V_1,\ldots,V_k:M\to TM$, entonces $\{p\in M:\det(V_{ip})=0\}$ es una subvariedad de dimensión $k-1$ que define un $\Z_2$-ciclo.
+\end{teo}
+Para dar un ejemplo de cómo usar las clases características trataremos de dar una generalización del teorema de la bola peluda en el caso de los espacios proyectivos. Veremos en qué casos existen campos \textbf{\textit{paralelizables}}.
+
+Dado un haz $E\overset{\pi}{\to}M$, hay una sucesioón $\{w_i(\pi):i\in\N\}$ con $w_i(\pi)\in H^i(M,\Z_2)$ tal que
+\begin{itemize}
+	\item $w_0(\pi)=1$
+	\item $w_i(\pi)=0$ para $i>0$.
+	\item (Naturalidad.) Si $f:B(\varepsilon)\to B(\eta)$ continua (o diferenciable) induce una función $f^*:H^2(B(\eta),\Z_2)\to H^i(B(\varepsilon),\Z_2)$ dada por $w_i(\eta)\mapsto w_i(\varepsilon)$.
+	\item (Regla del producto de Whitney). $w_k(\varepsilon\oplus\eta)=\sum_{i=0}^kw_i(\varepsilon)\smile w_{k-i}(\eta)$.
+	\item Un haz de línea $\gamma_1^1\to p^1$, $w_1(\gamma^1_1)$.
+\end{itemize}
+\begin{prop}
+	Si $\eta\approx\varepsilon$ entonces $w_i(\eta)=w_i(\varepsilon)$.
+\end{prop}
+\begin{proof}
+	Recordemos que dos haces sobre el mismos espacio son isomorfos si hay un diagrama conmutativo
+	\[\begin{tikzcd}
+		E(\eta)\arrow[r]\arrow[d,"\eta"]&E(\varepsilon)\arrow[d]\\
+		M\arrow[r,swap,"1"]&M
+	\end{tikzcd}\]
+	De forma que nos basta probar naturalidad, y de hecho
+	\begin{align*}
+		1^*:H^i(M,\Z_2)&\to H^i(M,\Z_2)\\
+		w_i(\varepsilon)&\mapsto w_i(\eta)
+	\end{align*}
+\end{proof}
+
+\begin{prop}
+	Si $\varepsilon\to M$ es trivial, $w_i(\varepsilon)=0$ para $i>0$.
+\end{prop}
+\begin{proof}
+	Tenemos
+	\[\begin{tikzcd}
+		E(\varepsilon)\arrow[r,"\approx"]\arrow[d]&M\times\R^k\arrow[d]&\{\cdot\}\times\R^k\arrow[l,swap,hook]\arrow[d]\\
+		M\arrow[r,swap,"1"]&M&\{\cdot\}\arrow[l,swap,hook]
+	\end{tikzcd}\]
+	y el mapeo inducido manda la cohomología al cero.
+\end{proof}
+\begin{prop}
+	Si $\varepsilon$ es trivial, entonces $w_j(\varepsilon\oplus\eta)=w_j(\eta)$.
+\end{prop}
+\begin{proof}
+	Directo de la regla de Whitney,
+	\begin{align*}
+		w_k(\varepsilon\oplus\eta)&=\sum_{i=0}^kw_i(\varepsilon)\smile w_{k-i}(\eta)\\
+		&=w_0(\varepsilon)\smile w_k(\eta)\\
+		&=w_k(\eta)
+	\end{align*}
+\end{proof}
+\begin{prop}
+	Si $\eta$ tiene dimensión $n$ y métrica $\mu:M\to\R$, y tiene una sección que no se anula, $w_n(\eta)=0$.	
+\end{prop}
+\begin{proof}
+	Tomemos una sección $X:B(\eta)\to E(\eta)$ que no se anula. Podemos descomponer la fibra, que es un espacio euclideano para obtener $\tilde{X}\oplus\tilde{X}^\perp\equiv\eta$. Como $\tilde{X}$ es trivial, $w_n(\tilde{X}\oplus\tilde{X}^\perp)=w_n(\tilde{X}^\perp)=0$.
+\end{proof}
+\begin{coro}
+	Si tenemos $X_1,\ldots,X_k$ secciones globales linealmente independientes que no se anulan, entonces $0=w_n(\eta)=w_{n-1}(\eta)=\ldots=w_{n-k+1}(\eta)$.
+\end{coro}
+\begin{obs}
+	Una variedad es paralelizable (si haz tangente es trivial) si $w(M)=1$.
+\end{obs}
+\begin{defn}
+	La \textbf{\textit{clase total de Stiefel-Whitney}} de un haz vectorial trivial $\xi$ de dimensión $n$ sobre $B$ es
+	\[w(\xi)=1+w_1(\xi)+w_2(\xi)\ldots+w_n(\xi)+0+\ldots\]
+\end{defn}
+Para abordar el ejemplo que tenemos en mente, dado un haz lineal sobre el proyectivo, calculamos $w(\gamma^1_n\to P^n)$. Tenemos $E(\gamma^1_n)\subset P^n\times\R^{n+1}$.
+\[\begin{tikzcd}
+	E(\gamma^1_1)\arrow[r]\arrow[d]&E(\gamma^1_n)\arrow[d]\\
+	P^1\arrow[r,hook,"i"]&P^n
+\end{tikzcd}\]
+Que inducen
+\begin{align*}
+	H^1(P^n,\Z_2)&\overset{i^*}{\to}H^1(P^1,\Z_2)\\
+	w_1(\gamma^1_n)&\mapsto w_1(\gamma^1_1)=1
+\end{align*}
+usando que el producto copa del elemento no trivial en la cohomología del proyectivo va a dar al elemento no trivial. Luego,
+\[w(\gamma^1_n)=(1+a)+0+0+\ldots\]
+Además, tenemos
+\[\gamma^1_n\oplus\gamma^\perp\approx P^n\times\R^{n+1}\]
+y de hecho
+\[w(\gamma^\perp)=1+a+\ldots+a^n\]
+donde $a^k=a\smile\ldots\smile a$.
+
+Luego, Milnor y Sheffel prueban que
+\[TP^n\approx \Hom(\gamma^1_n,\gamma^\perp)\]
+
+\begin{teo}
+	\[TP^n\oplus(P^n\times\R)\approx\underbrace{\gamma^n\oplus\ldots\oplus\gamma^1_n}_{n+1\text{ veces}}\]
+\end{teo}
+\begin{proof}
+	\[TP^n\oplus(P^n\times\R)\approx\Hom(\gamma^1_n,\gamma^\perp)\oplus (P^n\times\R)\]
+	y de hecho
+	\begin{align*}TP^n\oplus(P^n\times\R)&\approx\Hom(\gamma^1_n,\gamma^\perp)\oplus\Hom(\gamma^1_n,\gamma^1_n)\\
+		&\approx\Hom(\gamma^1_n,\gamma^1_n\oplus\gamma^\perp)\\
+		&\approx(\gamma^1_n,P^n\times\R^{n+1})\\
+		&\approx\Hom(\gamma^1_n,P^n\times\R)\oplus\ldots\oplus\Hom(\gamma^1_n,P^n\times\R)\\
+		&\approx\underbrace{\gamma^1_n\oplus\ldots\oplus\gamma^1_n}_{n\text{ veces}}
+	\end{align*}
+	así que 
+	\begin{align*}
+		w(TP^n)&= w(\gamma^1_n\oplus\ldots\oplus\gamma^1_n)\\
+		&=w(\gamma^1_n)\ldots w(\gamma^1_n)\\
+		&=(1+u)^{n+1}
+	\end{align*}
+\end{proof}
+Por fin, como vimos en el curso, $w(TP^n)=1\iff n+1=2^k$.
+
+¿Cuáles podrían ser paralelizables? $P^1$, $P^3$, $P^7$, $P^{15}$, $P^{31}$.
+
+De hecho, podemos construr campos paralelos en $S^1$, $S^3$, $S^7$ y $S^{15}$ usando las estructuras de cuaternios, octonios, etc, que descienden al proyectivo. De hecho, a partir de 15 no es posible.
+
 
 \end{document}

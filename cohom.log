@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  26 OCT 2023 16:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  9 NOV 2023 16:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -937,30 +937,54 @@ Chapter 3.
 [40
 
 ] [41] [42]
+Overfull \hbox (14.10909pt too wide) in paragraph at lines 1590--1591
+[]\OT1/ppl/m/n/10 Por du-al-i-dad de Poincar[]e con fron-tera, $\OML/cmm/m/it/1
+0 H[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 D[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^
+Y \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 D[]\OML/cmm/m/it/10 @[]
+W\OT1/cmr/m/n/10 )$\OT1/ppl/m/n/10 , $\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OMS
+/cmsy/m/n/10 D\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^Y \OML/cmm/m/it/10 H[]\OT1/c
+mr/m/n/10 (\OMS/cmsy/m/n/10 D[]\OML/cmm/m/it/10 ; @[]W\OT1/cmr/m/n/10 )$\OT1/pp
+l/m/n/10 .
+ []
+
+
+Overfull \hbox (10.68562pt too wide) detected at line 1597
+[]
+ []
+
+[43] [44] [45] [46] [47] [48]
 Chapter 4.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1528.
+(hyperref)                removing `math shift' on input line 1762.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1528.
+(hyperref)                removing `math shift' on input line 1762.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 1533.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1767.
 
-[43
+[49
 
 
-] [44] [45] (./cohom.aux)
+] [50] [51]
+Overfull \hbox (20.78194pt too wide) in paragraph at lines 1908--1909
+[]\OT1/ppl/b/n/10 Definici^^Son. []$\OML/cmm/m/it/10 S[]$ \OT1/ppl/m/n/10 es \O
+T1/ppl/b/it/10 par-aleliz-able \OT1/ppl/m/n/10 si ex-is-ten cam-pos vec-to-ri-a
+les $\OML/cmm/m/it/10 V[]; [] ; V[]$ \OT1/ppl/m/n/10 tales que $\OMS/cmsy/m/n/1
+0 f\OML/cmm/m/it/10 V[]; [] ; V[]\OMS/cmsy/m/n/10 g$
+ []
+
+[52] [53] [54] [55] [56] [57] [58] (./cohom.aux)
 Package rerunfilecheck Info: File `cohom.out' has not changed.
-(rerunfilecheck)             Checksum: B105C49C6FC0DC86702B45B8B1D48919;2712.
+(rerunfilecheck)             Checksum: 33EAC392B6E26DCC73E9DDB1C7864086;3124.
  ) 
 Here is how much of TeX's memory you used:
- 33026 strings out of 476025
- 682260 string characters out of 5790018
+ 33560 strings out of 476025
+ 695808 string characters out of 5790018
  1916388 words of memory out of 5000000
- 52980 multiletter control sequences out of 15000+600000
+ 53478 multiletter control sequences out of 15000+600000
  535513 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,18n,89p,1194b,1191s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -983,10 +1007,10 @@ exlive/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/
 exmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf-di
 st/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf-dist/font
 s/type1/urw/palatino/uplri8a.pfb>
-Output written on cohom.pdf (45 pages, 422319 bytes).
+Output written on cohom.pdf (58 pages, 477478 bytes).
 PDF statistics:
- 423 PDF objects out of 1000 (max. 8388607)
- 334 compressed objects within 4 object streams
- 78 named destinations out of 1000 (max. 500000)
- 157 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 520 PDF objects out of 1000 (max. 8388607)
+ 417 compressed objects within 5 object streams
+ 114 named destinations out of 1000 (max. 500000)
+ 181 words of extra memory for PDF output out of 10000 (max. 10000000)
 
