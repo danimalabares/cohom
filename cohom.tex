@@ -32,6 +32,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{stmaryrd}
+\usepackage{dutchcal}
 \usepackage{tikz}
 \usepackage{tikz-cd}
 \usepackage[bookmarks,bookmarksopen,bookmarksdepth=3]{hyperref}
@@ -1756,6 +1757,64 @@ Para terminar nuestra demostración basta ver que en una descomposición t-está
 \end{proof}
 En consecuencia,
 \[M+h_1+h_2=M\]
+%Ahora queremos encontrar dos asas que se cancelan.
+Definamos $C_i$ como el grupo abeliano libre generado por las asas de índice $i$ y el siguiente complejo de cadenas:
+\[\begin{tikzcd}
+	C:C_n\arrow[r,"D^n"]&C_{n-1}\arrow[r,"D^{n-1}"]&\cdots\arrow[r]&C_1\arrow[r,"D^1"]&C_0\arrow[r]&0
+\end{tikzcd}\]
+donde
+\[D_{k,j}^i=\sum_{S_j\cap\mathcal{S}_k}\sigma(x)\]
+para $S_j$ la esfera complementaria de $h_j^i$ y $\mathcal{S}$ es la esfera de adjunción de $h^{i+1}_k$.
+%\[\begin{matrix}
+%	0\cdots&
+%\end{matrix}\]
+\begin{prop}
+	$C$ es un complejo de cadenas y $H_\bullet(C)\approx H_\bullet(W,\partial^-W)$.
+\end{prop}
+Notemos que si $W$ es un h-cobordismo, $\partial^-W\subset W$ es una equivalencia homotópica, y por la sucesión exacta larga de la pareja $H(W,\partial^-W)$ se hace cero. En conclusión, el complejo de cadenas $C$ es acíclico.
+
+\begin{lema}[5]
+	Fijemos $0\leq j,k\leq m_i$ y $(h_j^i,h_k^i)$ asas. Entonces, podemos construir otra descomposición por asas de $W$ tal que es t-estándar y tal que
+	\begin{itemize}
+		\item Tiene el mismo número de asas en cada índice.
+		\item Las matrices de incidencia son iguales salvo la de índice $i$.
+	\end{itemize}
+			La nueva matriz de incidencia, $\mathcal{D}^i$ de $D^i$ se obtiene a través de la operación elemental de sumar (o restar) la $k$-ésima columna a la $j$-ésima columna.
+\end{lema}
+\begin{prop}
+	Si $W$ es un h-cobordismo de dimensión $\geq6$, $W$ admite una descomposición por asas t-esándar sin asas de índices $0,1, n-1,n$.
+\end{prop}
+
+\begin{proof}
+	(del teorema del h-cobordismo). Sólo debemos encontrar dos asas que se puedan cancelar. Comencemos con una descomposición por asas como en la proposición anterior, digamos
+	\[W=\partial^-W\times I\times h_1\times\ldots\times h_m\]
+	y consideremos su complejo de cadenas asociado. Sea $i-1$ tal que $C_{i-1}$ es el primer grupo no cero.
+	\[\begin{tikzcd}
+		\cdots\arrow[r]&C_i\arrow[r,"D^i"]\arrow[r]&C_{i-1}\arrow[r]&0\arrow[r]&\cdots\arrow[r]&0
+	\end{tikzcd}\]
+	Como $W$ es un h-cobordismo, $H_\bullet(C)=0$. En particular, $D^i$ es suprayectiva. Así, podemos ``diagonalizar" la matriz para obtener algo de la forma
+	\[\left(\begin{matrix}
+		\pm1&0&\cdots &0\\
+		0&\pm1\\
+		\vdots&&\\
+		0&&\cdots&\pm1
+	\end{matrix}\right)\]
+	Es posible construir complejo de cadenas usando el lema 5 cuya $D^i$ es exactamente esta matriz. Esto hace que el número de intersección de $S_j\cap\mathcal{S}_k$ sea $\pm1$.
+	
+	Si en la expresión
+	\begin{align*}
+		W=\partial^-W\times[0,1]+&({\color{blue}h_1^{i-1}}+\ldots+h_{m_{i-1}}^{i-1})\\
+		&+({\color{blue}h_1}^i+\ldots+h^i_{m_{i}})+\ldots
+	\end{align*}
+	Y si logramos poner los términos azul en orden consecutivo, podríamos cancelarlos. Usando el lema 5, la expresión anterior es
+	\begin{align*}
+		=\partial^-W\times[0,1]+&(h_2^{i-1}\sqcup\ldots\sqcup h^{i-1}_{m_i-i}\sqcup {\color{blue}h_1^{i-1}})\\
+		&+({\color{blue}h_{m_i}^i}\sqcup h_1^i\sqcup\ldots\sqcup h_{m_i-1}^i)+\ldots
+	\end{align*}
+	Y para cancelar las asas sólo debemos confirmar la hipótesis de ser simplemente conexo. Por hipótesis tenemos que $W$ es simplemente conexo, así que $W\times[0,1]$ también. Y luego, para $i-1\leq2$, también
+	\[\pi_1(W\times[0,1]+h_2^{i-1})=1\]
+	Entonces, en la expresión anterior podemos descartar los términos en azul. Y nada, podemos iterar el proceso.
+\end{proof}
 
 \clearpage
 \chapter{Exposiciones}
@@ -2181,5 +2240,345 @@ Por fin, como vimos en el curso, $w(TP^n)=1\iff n+1=2^k$.
 
 De hecho, podemos construr campos paralelos en $S^1$, $S^3$, $S^7$ y $S^{15}$ usando las estructuras de cuaternios, octonios, etc, que descienden al proyectivo. De hecho, a partir de 15 no es posible.
 
+\section{Teorema de de Rham vía cohomología de gavillas}
+\begin{defn}\leavevmode
+\begin{itemize}
+	\item 	Sea $X\in\operatorname{Top}$ y $\mathcal{O}(X)$ el conjunto ordenado por la inclusión de abiertos de $X$ visto como categoría. Una \textbf{\textit{pregavilla}} $F$ sobre $X$ es un funtor contravariente
+	\[F:\mathcal{O}(X)^{\operatorname{op}}\to\operatorname{Set}\]
+	\item A $S\in F(U)$ le llamamos \textbf{\textit{sección sobre $U$}}. Si $U$ es todo el espacio, le llamamos \textbf{\textit{sección global}}.
+	\item Los morfismos inducidos se llaman \textbf{\textit{restricciones}},
+	\[\begin{tikzcd}
+		U&&F(U)\arrow[d,"\rho^U_V"]\\
+		V\arrow[u,hook]&&F(V)
+	\end{tikzcd}\]
+	\item SI $S\in F(U)$, denotamos $\rho_V^U(S):=S|_V$.
+	\item Las funciones $F,G\in\operatorname{Fun}(\mathcal{O}(X)^{\operatorname{op}},\operatorname{Set})=\operatorname{Psh}(X)$ son morfsmos de pregavillas.
+		\item Sea $F\in\operatorname{Fun}(\mathcal{O}(X)^{\operatorname{op}},\operatorname{Set})$. $F$ es una \textbf{\textit{gavilla}} si y sólo si dado $U\overset{\operatorname{ab}}{\subseteq}X$ y un cubriemiento abierto $\{U_\alpha\}_{\alpha\in \Lambda}$ de $U$, y $\forall\alpha\in\Lambda$, $S_\alpha\in F(U_\alpha)$, tales que $\forall\alpha,\beta\in\Lambda$, $S_\alpha|_{U_\alpha\cap U_\beta}=S_\beta|_{U_\alpha\cap U_\beta}$, entonces existe una única $S\in F(U)$ tal que $S|_{U_|\alpha}=S_\alpha$.
+		
+		Esta definición nos permite extraer información global sobre los objetos. Es algo una condición de pegado.
+		\item La categoría de gavillas una subcategoría plena a de las pregavillas: $\operatorname{Sh}(X)\hookrightarrow\operatorname{Psh}(X)$.
+\end{itemize}
+\end{defn}
+\begin{ejem}\leavevmode
+	\begin{itemize}
+		\item Si $X\in\operatorname{Top}$, entonces el espacio de funciones continuas $C_x\in\operatorname{Psh}(X)$ es una pregavilla.
+		\item $M$ variedad, $\C^\infty(M)\in\operatorname{Psh}(X)$.
+		\item (La pregavilla constante de valor $A$). Si $X\in\operatorname{Top}$, $C_A\in\operatorname{Psh}(X)$ definida para un abierto $U\subset X$, $C_A(U)=A$. Si $U\subseteq V$, la única flecha posible es $\Id_A$.
+	\end{itemize}
+\end{ejem}
+\begin{defn}
+	Un \textbf{\textit{haz}} sobre un espacio topológico $X$ es una función continua $\rho:E\to X$ que es un homeomorfismo local. Es decir, para todo $e\in E$ existe un abierto $U\subseteq E$ tal que $p(U)\subseteq X$ es abierto y $p|_U:U\to p(U)$ es un homeomorfismo.
+	
+	Un \textbf{\textit{morfismo de haces}}, para $E\to X$ y $F\to X$ es una función que hace conmutar el diagrama
+	\[\begin{tikzcd}[column sep=small]
+		E\arrow[rr,"\alpha"]\arrow[dr,"p",swap]&&F\arrow[dl,"q"]\\
+		&X
+	\end{tikzcd}\]
+\end{defn}
+\begin{obs}
+	La idea es que la categoría de haces es equivalente a la categoría de gavillas.
+\end{obs}
+\begin{defn}
+	Sea $F\in\operatorname{Sh}(X)$ y $x\in X$. Definamos
+	\[F_x:=\underset{U\ni X}{\operatorname{colim}}F(U)\]
+	Consideremos el conjunto
+	\[\{(S,U):U\overset{\operatorname{ab}}{\subseteq},S\in F(U),x\in U\}\big/\sim\]
+	donde $(S,V)\sim(T,V)\iff\exists x\in W\subseteq U\cap V$ con $S|_W=T|_W$.
+\end{defn}
+Para verlo
+\[\begin{tikzcd}
+	\operatorname{Psh}(X)\arrow[r]&\operatorname{Top}/X\arrow[l,shift only]\\
+	\operatorname{Sh}(X)\arrow[r]&\operatorname{Et}(X)
+\end{tikzcd}\]
+\textbf{*Falta*}
 
+Para demostrar el teorema de de Rham usaremos la técnica de funtor derivado. En el curso nos encontramos con dos funtores derivados, $\Ext$ y $\Tor$. Comenzaremos con la siguiente definición
+
+\begin{defn}\leavevmode
+	\begin{enumerate}
+		\item Sea $\mathcal{A}\in\operatorname{Cat}$. Decimos que $\mathcal{A}$ es una \textbf{\textit{categoría abeliana}} si:
+	\begin{enumerate}
+		\item Tiene \textbf{\textit{biproductos}} finitos, lo que implica que hay un objeto cero.
+		\item Tiene kernels y cokernels.
+		\item Es normal y conormal, es decir, todos los monomorfismos son kernels de algún morfismo y todos los epimorfismos son cokernels de algún morfismo.
+	\end{enumerate}
+
+	\item Sean $\mathcal{A},\mathcal{B}$ categorías abelianas. Un funtor $F:\mathcal{A}\to\mathcal{B}$ es \textbf{\textit{aditivo}} si respeta biproductos (y en particual al objeto cero).
+	
+	Estos son los funtores que ``respetan las categorías abelianas".
+	
+	\item Sean $\mathcal{C}$ y $\hat{\mathcal{C}}$ categorías abelianas y $F:\mathcal{C}\to\hat{\mathcal{C}}$ un funtor aditivo \textbf{\textit{exacto a izquierda}} (como lo definimos en el curso), y supongamos que $\mathcal{C}$ tiene \textbf{\textit{suficientes inyectivos}}. Un objeto $I$ es \textbf{\textit{inyectivo}} si cualquier morfismo que llega a él se puede extender de acuerdo al siguiente diagrama:
+	\[\begin{tikzcd}
+		A\arrow[r,hook]\arrow[dr]&B\arrow[d,dashed]\\
+		&I
+	\end{tikzcd}\]
+	Decimos que $\{R^i F:\mathcal{C}\to\hat{\mathcal{C}}\}_{i\in\N}$ son los \textbf{\textit{funtores derivados de $F$}} si
+	\begin{enumerate}
+		\item $R\circ F=F$
+		\item Para cualquier sucesión exacta corta en la categoría dominio
+		\[\begin{tikzcd}
+			0\arrow[r]&A\arrow[r]&B\arrow[r]&C\arrow[r]&0\\
+		\end{tikzcd}\]
+		existe una sucesión exacta larga
+		\[\begin{tikzcd}
+			0\arrow[r]&F(A)\arrow[r]&F(B)\arrow[r]&F(C)\arrow[dll]\\
+			&R^1F(A)\arrow[r]&R^1F(B)\arrow[r]&R^1F(C)\arrow[dll]&\\&\cdots
+		\end{tikzcd}\]
+	\end{enumerate}
+	\item $R^i(I)=0$ para toda $i\geq1$ cuando $I$ es inyectivo.
+	\end{enumerate}
+\end{defn}
+\begin{prop}
+	Los funtores derivados de cualquier funtor exacto izquierdo existen.
+\end{prop}
+Para calcular los funtores derivados, consideremos un objeto $A$ en alguna categoría $\mathcal{C}$ y una \textbf{\textit{resolución inyectiva}}, que es una sucesión de la forma
+\[\begin{tikzcd}
+	0\arrow[r]&A\arrow[r]&I_0\arrow[r,"d^0"]&I_1\arrow[r,"d^1"]\arrow[r]&\cdots
+\end{tikzcd}\]
+y aplicamos $F$ para obtener
+\[\begin{tikzcd}
+	F(I_0)\arrow[r]&F(I_1)\arrow[r]&\arrow[r]&\cdots\arrow[r]&F(I_0)
+\end{tikzcd}\]
+\begin{defn}
+	Sea $F:\mathcal{C}\to\hat{\mathcal{C}}$ aditivo y exacto a izquierda. Decimos que $A\in\mathcal{C}$ es \textbf{\textit{$F$-acíclico}} si $R^iF(A)=0$ para toda $i\geq0$.
+\end{defn}
+Es posibla calcular los funtores derivados usando no sólo resoluciones inyectivas sino resoluciones acíclicas.
+\begin{prop}
+	Sea $A\in\mathcal{C}$ y $(M_\bullet,d_\bullet)$ un complejo $F$-acíclico, es decir, tal que $M_i$ es acíclico para toda $i\geq0$. Supongamos que
+	\[\begin{tikzcd}
+		0\arrow[r]&A\arrow[r]&M_0\arrow[r,"d_0"]&M_1\arrow[r,"d_1"]&M_2\arrow[r]&\cdots
+	\end{tikzcd}\]
+	es exacta. Entonces $RF^i(A)=H^i(F(M_\bullet))$.
+\end{prop}
+\begin{proof}
+	Sea $B=\coker(A\overset{i}{\to}M_0)$. Entonces tenemos la siguiente sucesión exacta corta
+	\[\begin{tikzcd}
+		0\arrow[r]&A\arrow[r,"i"]&M_0\arrow[r]&B\arrow[r]&0
+	\end{tikzcd}\]
+	y una sucesión exacta larga asociada:
+\[\begin{tikzcd}
+	0\arrow[r]&F(A)\arrow[r]&F(M_0)\arrow[r]&F(B)\arrow[dll]\\
+	&R^1F(A)\arrow[r]&R^1F(M_0)\arrow[r]&R^1F(B)\arrow[dll]&\\&R^2F(A)\arrow[r]&R^2F(M_0)\arrow[r]&R^2F(B)\arrow[dll]&\\&\cdots
+\end{tikzcd}\]
+Y para toda $i\geq1$, $R^iF(B)\approx R^{i+1}F(A)$,
+\[\begin{tikzcd}
+	F(M_0)\arrow[r]&F(B)\arrow[r]&R^1F(A)\arrow[r]&0
+\end{tikzcd}\]
+así que
+\[\begin{tikzcd}
+	F(B)\arrow[r]&R^1F(A)=\coker(F(M_0\to F(B)))
+\end{tikzcd}\]
+(Por ahora dejamos la demostración hasta aquí).
+\end{proof}
+Ahora consideremos la cateogría de gavillas sobre un espacio topológico $\mathcal{C}=\operatorname{Sh}_{\operatorname{Ab}(X)}$, que es una categoría abeliana. Hacemos
+
+
+%\[\begin{tikzcd}
+%	\mathcal{C}=\operatorname{Sh}_{\operatorname{Ab}(X)}\arrow[r,hook]&\operatorname{Fun}(\mathcal{O}(X)^\operatorname{op},\operatorname{Ab})=\operatorname{Psh}_{\operatorname{Ab}}(X)
+%\end{tikzcd}\]
+Y luego hacemos también:
+\[\begin{tikzcd}[row sep=tiny]
+	\operatorname{Sh}_{\operatorname{Ab}}(X)\arrow[r,"\Gamma"]&\operatorname{Ab}\\
+	F\arrow[r,maps to]&F(X)
+\end{tikzcd}\]
+De aquí podemos considerar la \textbf{\textit{cohomología de gavillas}} de un espacio topológico, que es de la forma $R^i\Gamma(F):=H^i(X;F)$. Es decir, los coeficientes son gavillas.
+
+Sea $M$ una variedad y $\R\in\operatorname{Sh}_{\operatorname{Ab}}(M)$. Hacemos
+\[\begin{tikzcd}
+	0\arrow[r]&R\arrow[r]&C^\bullet_{\operatorname{sing}}(M)
+\end{tikzcd}\]
+y también podemos calcular la resolución
+\[\begin{tikzcd}
+	0\arrow[r]&\R\arrow[r]&\Omega^\bullet(M)
+\end{tikzcd}\]
+que inicialmente son pregavillas. Al gavillanizar obtenemos sucesiones exactas. La idea es usar que las formas cerradas son localmente exactas (por el lema de Poincaré). De aquí se sigue las dos sucesiones anteriores efectivamente son resoluciones (de la misma gavilla); ambos son los funtores derivados de la misma gavilla. Por la proposición anterior tenemos un isomorfismo.
+
+Aplicando el funtor de secciones globales $\Gamma$, de la primera obtenemos la cohomología singular, y de la segunda la cohomología de de Rham. En símbolos,
+\[H^i_{dR}(M)\approx R^i\R\approx H^i(X,\R).\]
+
+\section{Bordismo, espectros y teorías de (co)homología}
+En la literatura a veces encontramos símbolos como $\Omega^\mathfrak{X}$, lo que llamamos \textbf{\textit{estructura tangencial}}. La idea es estudiar cobordismos de variedades que tienen estructura extra. Para esto debemos estudiar \textbf{\textit{estabilidad de haces}}, \textbf{\textit{haces principales}} y \textbf{\textit{espacios clasificantes}}. No hablaremos de nada de esto $\ddot{\smile}$.
+
+\begin{enumerate}
+	\item Sea $X$ un espacio topológico. Definamos $\Omega^0_n:=\{(M^n,f)|f:M^n\to X, M\text{ es cerrada}\}\Big/\sim_{\operatorname{bor}}$. Es decir, tomamos parejas de variedades cerradas con funciones que van a dar a $X$ y las identificamos si son cobordantes:
+	\begin{align*}
+		(M,f)\sim_{\operatorname{bor}}(N,g)\iff \exists W^{n+1}\text{ y } h:W\to X\text{ tal que } \partial W=M\sqcup N
+	\end{align*}
+	Es decir,
+	\[\begin{tikzcd}
+		&X\\
+		M\arrow[ur,"f"]\arrow[r,hook]&W\arrow[u,dash,"h"]&N\arrow[l,hook]\arrow[ul,"g",swap]
+	\end{tikzcd}\]
+	\item Ahora definamos la operación
+	\begin{align*}
+		\sqcup:\Omega^0_n(X)\times\Omega^0_n(X)&\to\Omega^0_n(X)\\
+		((M,f),(N,g))&\mapsto(M\sqcup N,f\sqcup g)
+	\end{align*}
+\end{enumerate}
+	\begin{prop}
+		$(\Omega^0_n(X,\sqcup))$ es un grupo abeliano con neutro $(\varnothing,\varnothing)$; y el inverso de $(M,f)$ es $(M,f)$.
+	\end{prop}
+	\begin{obs}
+		\begin{itemize}
+			\item $\Omega_n^0(X)$ es un $\Z_2$-espacio vectorial.
+			\item $\Omega^0_n(pt)\approx\Omega^0_n$.
+		\end{itemize}
+	\end{obs}
+	
+	\begin{ejem}\leavevmode
+		\begin{itemize}
+			\item $\Omega^0_0$. Se trata de variedades compactas de dimensión 0, es decir, colecciones finitas  puntos, $M=\bigcup_{i=1}^kpt$. Si la cantidad de puntos es par, tenemos un \textbf{\textit{cobordismo al vacío}}. Para el caso impar, como podemos aparear las parejas, sólo necesitamos estudiar el cobordismo de un punto. Una variedad compacta de dimensión 1 es una unión finita de puntos e intervalos, cuya frontera no puede ser un sólo punto. En conclusión $\Omega_0^0\approx\Z_2$.
+			
+			\item $\Omega^0_1$. Las variedades de dimensión compactas sin frontera son círculos, que son bordantes a un disco.
+			
+			\item $\Omega^0_2$. Toda superficie conexa compacta sin frontera es una suma conexa de toros o planos proyectivos. Una suma conexa de toros es fácilmente la frontera de una variedad de dimensión superior. Para el caso no orientable, tenemos casos:
+			\begin{enumerate}
+				\item $\R P^2\#\R P^2\approx K$, que se puede ver como un cubriente sobre $S^1$ con fibra $S^1$. Rellenamos el disco y obtenemos una 3-variedad, así que $K$ es cobordante al vacío, es decir $[K]=[\varnothing]$.
+				
+				\item $\R P^2$. Supongamos que existe $X$ de dimensión 3 tal que $\partial X=\R P^2$ y consideremos $X\bigcup_{\R P^2}X=M$. Luego,
+				\[\chi(M)=\partial \chi(X)-\chi(\R P^2)=2\chi(X)-1\]
+				Necesitaremos que
+				\begin{lema}[Hatcher]
+					$\mathfrak{X}(M^{2k+1})=0$ para $M$ compacta.
+				\end{lema}
+				Es decir, $X$ debería tener característica cero, así que obtenemos una contradicción. 
+			\end{enumerate}
+			En conclusión, $\Omega^0_2=\Z_2$.
+				\item Aunque es posible (usando métodos complicados) calcular los siguientes grupos, no los enunciaremos aquí.
+		\end{itemize}
+	\end{ejem}
+	\begin{prop}
+		$(\Omega^0_*,\sqcup,\times)$ es una $Z_2$-álgebra graduada.
+	\end{prop}
+	\begin{teo}[Thom]
+		$\Omega^0_*\approx\Z_2[X_j:2^i-1\neq0]=\Z_2[X_2,X_4,X_5,X_6,\ldots]$.
+	\end{teo}
+	\begin{teo}
+		\#Stiefl-Whytney iguales implican que $[M]=[N]$.
+	\end{teo}
+	\begin{obs}
+		$\Omega_n:\operatorname{Top}\to\operatorname{Ab}$ es un funtor.
+	\end{obs}
+	Inicialmente podríamos tener una teoría de homología no reducida en complejos CW. Para construir una teoría reducida, usamos el siguiente concepto:
+	\begin{defn}
+		Una \textbf{\textit{teoría de homología reducida en $CW_*$}} (la categoría de espacios topológicos CW basados) es una colección de functores
+		\[\{h_n:CW_*\to\operatorname{Ab}\}\]
+		y transformaciones
+		\[t_n:F_n\Sigma\to F_{n+1}\]
+		donde
+		\begin{align*}
+			\Sigma:\operatorname{Top}&\to\operatorname{Top}\\
+			X&\mapsto \Sigma X=X\times I/\sim
+		\end{align*}
+		y se cumple que
+		\begin{enumerate}
+			\item $f\sim g\implies f_*=g_*$.
+			\item Si $A$ es un subcomplejo,
+			\[ \begin{tikzcd}
+				A\arrow[r,hook]&X\arrow[d,"F_n"]\arrow[r]&X/A\\
+				&\text{exacta}
+			\end{tikzcd}\]
+		\end{enumerate}
+	\end{defn}
+	\begin{proof}
+		(de 1. para $\Omega_n^0(-)$) Sean $f\simeq_Hg$, $H:X\times I\to Y$ y queremos ver que $f_*=g_*$. Tenemos que $f_*(M,\ell)=(M,f\circ\ell)$, $q_*(M,\ell)=(M,g\circ\ell)$ y definamos
+		\begin{align*}
+			T:M\times I&\to Y
+			(m,t)&\mapsto (\ell(m),t)
+		\end{align*}
+		y obtenemos el diagrama
+		\[\begin{tikzcd}
+			&Y\\
+			M\arrow[ur,"f\circ\ell"]\arrow[r,hook]&M\times I\arrow[u,"T"]&M\arrow[l,hook]\arrow[ul,"g\circ\ell"]
+		\end{tikzcd}\]
+		y como todo está hecho para que todo conmute, $f_*=g_*$.
+	\end{proof}
+	Por ahora mostraremos 2.
+	
+	\begin{prop}
+		$\{\Omega_n^0\}_{n\in\Z_+}$ definen una teoría de homología reducida en $CW_*$.
+	\end{prop}
+	
+	\begin{defn}
+		Un \textbf{\textit{espectro}} es una sucesión $\{E_n,s_n\}_{n\in\Z}$ donde $E_n$ es un CW y $s_n:\sum E_n\to E_{n+1}$ y $s_n(\sum E_n)$ es un subcomplejo de $E_{n+1}$.
+	\end{defn}
+	En la literatura este concepto se puede encontrar como \textbf{\textit{pre-espectro}}.
+
+	\begin{ejem}[Definición]
+		Sea $X\in CW_*$, definimos $\Sigma^\infty X$ como
+		\[(\Sigma^\infty X)_n\begin{cases}
+			pt\qquad n<0\\
+			\sigma^nX,\qquad n\geq0
+		\end{cases}\]
+		donde
+		\[\Id=s_n:\Sigma^{n+1}X\to\Sigma^{n+1}X\]
+		Decimos que $\Sigma^\infty S^0$ es el \textbf{\textit{espectro esférico}}, ya que las suspensiones de las esferas son más esferas.
+	\end{ejem}
+	\begin{defn}\leavevmode
+		\begin{enumerate}
+			\item Sean $E=\{ E_n,S_n\}$, $F=\{F_n,t_n\}$ dos espectros. Una función $f:E\to F$ es una famulia de funciones celulares basades
+		\[f_n:E_n\to F_n\]
+		tales que
+		\[f_{n+1}s_n=t_n\Sigma f_n\]
+		es decir, son compatibles con las estructuras de los espectros, que quiere decir que el siguiente diagrama conmuta
+		\[\begin{tikzcd}
+			\Sigma E_n\arrow[d,swap,"\Sigma f"]\arrow[r,"s_n"]&E_{n+1}\arrow[d]\\
+			\Sigma F_n\arrow[r,"t_n"]&F_{n+1}
+		\end{tikzcd}\]
+		\item Denotaremos por $\mathcal{S}$ como la categoría de espectros con ciertos morfismos que no podremos definir ahora.
+		\item Dos funciones $g_0,g_1:E\to F$ son \textbf{\textit{homotópicas}} si existe $G:E\wedge I^+\to F$ tal que $G$ coincide con $g_i$ en el subespectro $E\wedge\{i,*\}$, donde $\wedge$ quiere decir que es basado.
+		\item El \textbf{\textit{$k$-ésimo grupo de homotopía de un espectro es}} $\pi_k(E)=[\Sigma^k\Sigma^\infty S^0,E]$.
+		\item El \textbf{\textit{$k$-ésimo grupo de homotopía estable}} es $\pi^{\operatorname{st}}_k(X):=\pi_k(\Sigma^\infty X)$.
+		\item $\Sigma:\mathcal{S}\to \mathcal{S}$ dado por $(\Sigma E)_n=E_{n+1}$ y $\Sigma E_{n+1}\overset{s_{n+1}}{\to}E_{n+2}$.
+		\item Una \textbf{\textit{teoría de homología en $\mathcal{S}$}} es una familia
+		\[\{h_n:\mathcal{S}\to \operatorname{Ab}\}_{n\in\Z_+}\]
+		de funtores covariantes y transformaciones naturales
+		\[h_n\overset{\hat{s}_n}{\to}h_{n+1}\]
+		tales que
+		\begin{enumerate}
+			\item $f\sim g\implies f_*=g_*$.
+			\item Una \textbf{\textit{sucesión cofibrante}}
+			\[\begin{tikzcd}
+				X\arrow[r,"f"]&Y\arrow[r,"y"]&Z
+			\end{tikzcd}\]
+			de espectros va a una sucesión exacta en $\operatorname{Ab}$ bajo $h_n$ para toda $n$.
+		\end{enumerate}
+		\end{enumerate}
+	\end{defn}
+	\begin{teo}
+		Un espectro define una teoría de (co)homología en $\mathcal{S}$.
+	\end{teo}
+	\begin{teo}
+		Una teoría de homología en $\mathcal{S}$ define una teoría de homología reducida en $CW_*$.
+	\end{teo}
+	Así que tenemos una manera de pasar de un espectro a una teoría de cohomología en $CW_*$. Resulta que la $n$-ésima homología de un espectro es igual (o se puede definir como) el $n$-ésimo grupo de homotopía punteada de un espacio smash con el espectro:
+	\[H_n(X;E)=\pi_n(X^+\wedge E)\]
+	\begin{pregunta}
+		¿Cuál será el espectro asociado a la teoría de homología reducida asociada a $\Omega_n^0(-)$? Se llama \textbf{\textit{el espectro de Thom}}.
+	\end{pregunta}
+	\begin{defn}\leavevmode
+		\begin{enumerate}
+			\item El \textbf{\textit{Grassmaniano}} $\operatorname{Gr}_k(\R^{n+k})$ es el conjunto de subespacios lineales de dimensión $k$ de $\R^{n+k}$.
+			\item El \textbf{\textit{espacio clasificante}} es el colímite de
+			\[\begin{tikzcd}[column sep=tiny]
+				\operatorname{Gr}_n(\R^n)\arrow[r]&\operatorname{Gr}_n(\R^{n+1})\arrow[r]&\cdots\\
+				V\arrow[r,mapsto]&O\oplus V
+			\end{tikzcd}\]
+			que denotamos por $\operatorname{BO}(n)=\operatorname{colim}_k\operatorname{Gr}_n(\R^{n+k})\approx\{V^k\leq\R^\infty\}$.
+			\item El \textbf{\textit{haz universal}} sobre $\operatorname{Gr}_n(\R^{n+k})$ tiene espacio total $\gamma^{n+k}_n=\{(V,v)|v\in V\}$.
+			\item El \textbf{\textit{haz universal}} sobre $\operatorname{BO}(n)$ tiene espacio total $\gamma^{n+k}_n=\{(V,v)|v\in V\}$.
+			\item El \textbf{\textit{espacio de Thom}} de un haz vectorial $\xi:E\to B$ se define como $\operatorname{Th}(\xi)=D(\xi)/S(\xi)$. Es decir, tomamos el haz de discos y hacemos cociente por la frontera.
+				\begin{ejem}
+				Si $\xi:\R\times I\to\R$ obtenemos la suspensión reducida.
+			\end{ejem}
+			
+			\item $MO(n):=\operatorname{Th}(\gamma_n)$.
+		\end{enumerate}
+	\end{defn}
+	Resultará que
+	\[\operatorname{Th}:\operatorname{Vect}(X)\to\operatorname{Top}\]
+	es un funtor, y de hecho
+	\[\Omega_n^0=H_n(pt,MO(n))=\pi_n(MO).\]
+
+	Las referencias que se usaron son Dan Freeds; Yuli B. Rudyak, Thom Spectra, Orientability and Cobordism; entre otras.
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  9 NOV 2023 16:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.1)  23 NOV 2023 17:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -249,12 +249,30 @@ Package: stmaryrd 1994/03/03 St Mary's Road symbol package
 LaTeX Font Info:    Overwriting symbol font `stmry' in version `bold'
 (Font)                  U/stmry/m/n --> U/stmry/b/n on input line 89.
 )
+(/usr/local/texlive/2023/texmf-dist/tex/latex/dutchcal/dutchcal.sty
+Package: dutchcal 2011/06/16 v1 U/dutchcal
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2023/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks34
+\XKV@tempa@toks=\toks35
+)
+\XKV@depth=\count285
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+LaTeX Font Info:    Redeclaring math alphabet \mathcal on input line 8.
+LaTeX Font Info:    Overwriting math alphabet `\mathcal' in version `bold'
+(Font)                  U/dutchcal/m/n --> U/dutchcal/b/n on input line 9.
+)
 (/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
 x
-\pgfutil@everybye=\toks34
+\pgfutil@everybye=\toks36
 \pgfutil@tempdima=\dimen174
 \pgfutil@tempdimb=\dimen175
 )
@@ -271,12 +289,12 @@ Package: pgf 2023-01-15 v3.1.10 (3.1.10)
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks35
-\pgfkeys@temptoks=\toks36
+\pgfkeys@pathtoks=\toks37
+\pgfkeys@temptoks=\toks38
 
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfil
 tered.code.tex
-\pgfkeys@tmptoks=\toks37
+\pgfkeys@tmptoks=\toks39
 ))
 \pgf@x=\dimen176
 \pgf@y=\dimen177
@@ -290,14 +308,14 @@ tered.code.tex
 \pgf@yd=\dimen185
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count285
-\c@pgf@countb=\count286
-\c@pgf@countc=\count287
-\c@pgf@countd=\count288
-\t@pgf@toka=\toks38
-\t@pgf@tokb=\toks39
-\t@pgf@tokc=\toks40
-\pgf@sys@id@count=\count289
+\c@pgf@counta=\count286
+\c@pgf@countb=\count287
+\c@pgf@countc=\count288
+\c@pgf@countd=\count289
+\t@pgf@toka=\toks40
+\t@pgf@tokb=\toks41
+\t@pgf@tokc=\toks42
+\pgf@sys@id@count=\count290
 
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
@@ -315,8 +333,8 @@ File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
 code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count290
-\pgfsyssoftpath@bigbuffer@items=\count291
+\pgfsyssoftpath@smallbuffer@items=\count291
+\pgfsyssoftpath@bigbuffer@items=\count292
 )
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
 code.tex
@@ -346,11 +364,11 @@ Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen186
-\pgfmath@count=\count292
+\pgfmath@count=\count293
 \pgfmath@box=\box58
-\pgfmath@toks=\toks41
-\pgfmath@stack@operand=\toks42
-\pgfmath@stack@operation=\toks43
+\pgfmath@toks=\toks43
+\pgfmath@stack@operand=\toks44
+\pgfmath@stack@operation=\toks45
 )
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
 tex)
@@ -372,7 +390,7 @@ code.tex)
 erarithmetics.code.tex)
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count293
+\c@pgfmathroundto@lastzeros=\count294
 )) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
 de.tex
@@ -410,7 +428,7 @@ File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfpic=\box59
 \pgf@hbox=\box60
 \pgf@layerbox@main=\box61
-\pgf@picture@serial@count=\count294
+\pgf@picture@serial@count=\count295
 )
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
 ate.code.tex
@@ -445,8 +463,8 @@ File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 e.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@max=\dimen266
-\pgf@sys@shading@range@num=\count295
-\pgf@shadingcount=\count296
+\pgf@sys@shading@range@num=\count296
+\pgf@shadingcount=\count297
 )
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
 e.tex
@@ -501,8 +519,8 @@ Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
 \pgffor@iter=\dimen269
 \pgffor@skip=\dimen270
-\pgffor@stack=\toks44
-\pgffor@toks=\toks45
+\pgffor@stack=\toks46
+\pgffor@toks=\toks47
 ))
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
 e.tex
@@ -511,7 +529,7 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
 dlers.code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count297
+\pgf@plot@mark@count=\count298
 \pgfplotmarksize=\dimen271
 )
 \tikz@lastx=\dimen272
@@ -526,19 +544,19 @@ File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@figbox@bg=\box65
 \tikz@tempbox=\box66
 \tikz@tempbox@bg=\box67
-\tikztreelevel=\count298
-\tikznumberofchildren=\count299
-\tikznumberofcurrentchild=\count300
-\tikz@fig@count=\count301
+\tikztreelevel=\count299
+\tikznumberofchildren=\count300
+\tikznumberofcurrentchild=\count301
+\tikz@fig@count=\count302
 
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
 e.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count302
-\pgfmatrixcurrentcolumn=\count303
-\pgf@matrix@numberofcolumns=\count304
+\pgfmatrixcurrentrow=\count303
+\pgfmatrixcurrentcolumn=\count304
+\pgf@matrix@numberofcolumns=\count305
 )
-\tikz@expandcount=\count305
+\tikz@expandcount=\count306
 
 (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarytopaths.code.tex
@@ -603,11 +621,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count306
+\c@section@level=\count307
 )
 \@linkdim=\dimen284
-\Hy@linkcounter=\count307
-\Hy@pagecounter=\count308
+\Hy@linkcounter=\count308
+\Hy@pagecounter=\count309
  (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2023-02-07 v7.00v Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -619,7 +637,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 (/usr/local/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count309
+\Hy@SavedSpaceFactor=\count310
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2023-02-07 v7.00v Hyperref: PDF Unicode definition (HO)
@@ -635,7 +653,7 @@ Package hyperref Info: Plain pages OFF on input line 4192.
 Package hyperref Info: Backreferencing OFF on input line 4197.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4425.
-\c@Hy@tempcnt=\count310
+\c@Hy@tempcnt=\count311
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
@@ -651,7 +669,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count311
+\Fld@menulength=\count312
 \Field@Width=\dimen286
 \Fld@charsize=\dimen287
 Package hyperref Info: Hyper figures OFF on input line 6042.
@@ -666,9 +684,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6072.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count312
-\c@Item=\count313
-\c@Hfootnote=\count314
+\Hy@abspage=\count313
+\c@Item=\count314
+\c@Hfootnote=\count315
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -680,8 +698,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count315
-\c@bookmark@seq@number=\count316
+\Fld@listcount=\count316
+\c@bookmark@seq@number=\count317
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
@@ -694,38 +712,38 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip59
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 48.
+Package hyperref Info: Option `colorlinks' set `true' on input line 49.
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 8
-8.
+9.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
 (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count317
+\l__color_backend_stack_int=\count318
 \l__pdf_internal_box=\box68
 )
 (./cohom.aux)
 \openout1 = `cohom.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -763,17 +781,17 @@ LaTeX Font Info:    ... okay on input line 88.
 
 (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count318
+\scratchcounter=\count319
 \scratchdimen=\dimen288
 \scratchbox=\box69
-\nofMPsegments=\count319
-\nofMParguments=\count320
-\everyMPshowfont=\toks46
-\MPscratchCnt=\count321
+\nofMPsegments=\count320
+\nofMParguments=\count321
+\everyMPshowfont=\toks48
+\MPscratchCnt=\count322
 \MPscratchDim=\dimen289
-\MPnumerator=\count322
-\makeMPintoPDFobject=\count323
-\everyMPtoPDFconversion=\toks47
+\MPnumerator=\count323
+\makeMPintoPDFobject=\count324
+\everyMPtoPDFconversion=\toks49
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -786,26 +804,26 @@ e
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 88.
+Package hyperref Info: Link coloring ON on input line 89.
 
 (./cohom.out) (./cohom.out)
 \@outlinefile=\write4
 \openout4 = `cohom.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 90.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 91.
 
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 90.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 91.
 
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 9
-0.
+1.
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [1
 
@@ -820,18 +838,18 @@ al/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc}] (./cohom.toc)
 ]
 Chapter 1.
 LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 1
-12.
+13.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 ) [3
 
 ] [4]
-Overfull \hbox (26.4153pt too wide) detected at line 188
+Overfull \hbox (26.4153pt too wide) detected at line 189
 []
  []
 
 [5] [6]
-Overfull \hbox (5.89752pt too wide) in paragraph at lines 279--280
+Overfull \hbox (5.89752pt too wide) in paragraph at lines 280--281
 []\OT1/ppl/b/n/10 Definici^^Son. []\OT1/ppl/m/n/10 Sea $\OML/cmm/m/it/10 M$ \OT
 1/ppl/m/n/10 un $\OML/cmm/m/it/10 R$\OT1/ppl/m/n/10 -m[]odulo. Una \OT1/ppl/b/n
 /10 res-oluci^^Son li-bre (proyec-tiva) \OT1/ppl/m/n/10 de $\OML/cmm/m/it/10 M$
@@ -842,17 +860,17 @@ Overfull \hbox (5.89752pt too wide) in paragraph at lines 279--280
 Underfull \vbox (badness 1622) has occurred while \output is active []
 
  [10]
-Overfull \hbox (37.42964pt too wide) detected at line 407
+Overfull \hbox (37.42964pt too wide) detected at line 408
 []
  []
 
 
-Overfull \hbox (52.01299pt too wide) detected at line 411
+Overfull \hbox (52.01299pt too wide) detected at line 412
 []
  []
 
 [11]
-Overfull \hbox (37.42964pt too wide) detected at line 426
+Overfull \hbox (37.42964pt too wide) detected at line 427
 []
  []
 
@@ -861,27 +879,27 @@ Chapter 2.
 [19
 
 ] [20]
-Overfull \hbox (2.18532pt too wide) detected at line 749
+Overfull \hbox (2.18532pt too wide) detected at line 750
 []
  []
 
 [21]
-Overfull \hbox (33.92769pt too wide) detected at line 765
+Overfull \hbox (33.92769pt too wide) detected at line 766
 []
  []
 
 
-Overfull \hbox (37.99004pt too wide) detected at line 773
+Overfull \hbox (37.99004pt too wide) detected at line 774
 []
  []
 
 
-Overfull \hbox (37.99004pt too wide) detected at line 802
+Overfull \hbox (37.99004pt too wide) detected at line 803
 []
  []
 
 [22] [23]
-Overfull \hbox (42.89662pt too wide) in paragraph at lines 845--846
+Overfull \hbox (42.89662pt too wide) in paragraph at lines 846--847
 []\OT1/ppl/b/n/10 Observaci^^Son. []\OT1/ppl/m/n/10 Se trata de un \OT1/ppl/b/n
 /10 anillo grad-u-ado\OT1/ppl/m/n/10 , que es una es-truc-tura de la forma $\OT
 1/cmr/m/n/10 ([][] \OML/cmm/m/it/10 A[]; \OT1/cmr/m/n/10 +\OML/cmm/m/it/10 ; \O
@@ -889,18 +907,18 @@ MS/cmsy/m/n/10 ^^A\OT1/cmr/m/n/10 )$
  []
 
 [24] [25] [26]
-Overfull \hbox (33.76805pt too wide) in paragraph at lines 928--937
+Overfull \hbox (33.76805pt too wide) in paragraph at lines 929--938
 \OT1/ppl/m/n/10 in-duce []. Y tambi[]en ten-emos $[][]\OT1/cmr/m/n/10 (\OMS/cms
 y/m/n/10 ^^@\OML/cmm/m/it/10 ; N\OT1/cmr/m/n/10 )$\OT1/ppl/m/n/10 . 
  []
 
 
-Overfull \hbox (23.44649pt too wide) detected at line 960
+Overfull \hbox (23.44649pt too wide) detected at line 961
 []
  []
 
 [27] [28] [29]
-Overfull \hbox (0.66563pt too wide) in paragraph at lines 1041--1042
+Overfull \hbox (0.66563pt too wide) in paragraph at lines 1042--1043
 []\OT1/ppl/b/n/10 Observaci^^Son. []\OT1/ppl/m/n/10 Si ex-iste $\OML/cmm/m/it/1
 0 f \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R\OML
 /cmm/m/it/10 P[]$\OT1/ppl/m/n/10 , en-tonces la funci[]on in-ducida $\OML/cmm/m
@@ -910,14 +928,14 @@ mr/m/n/10 2) \OMS/cmsy/m/n/10 !
  []
 
 [30]
-Overfull \hbox (7.62964pt too wide) in paragraph at lines 1081--1082
+Overfull \hbox (7.62964pt too wide) in paragraph at lines 1082--1083
 []\OT1/ppl/m/n/10 El mismo ejem-plo con co-e-fi-cientes en $\U/msb/m/n/10 Z\OML
 /cmm/m/it/10 =\OT1/cmr/m/n/10 2$ \OT1/ppl/m/n/10 tiene el mismo iso-mor-fismo d
 e gru-pos abelianos,
  []
 
 [31] [32] [33] [34] [35]
-Overfull \hbox (1.59335pt too wide) in paragraph at lines 1285--1287
+Overfull \hbox (1.59335pt too wide) in paragraph at lines 1286--1288
 \OT1/ppl/m/n/10 donde $\OML/cmm/m/it/10 ^^[ \OT1/cmr/m/n/10 : [\OML/cmm/m/it/10
  v[]; [] ; v[]\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 X$\OT1/ppl/
 m/n/10 . Una vez definido en los b[]asicos, ex-ten-de-mos $\OML/cmm/m/it/10 R$\
@@ -925,7 +943,7 @@ OT1/ppl/m/n/10 -bilinealmente
  []
 
 [36] [37] [38]
-Overfull \hbox (14.88179pt too wide) in paragraph at lines 1429--1430
+Overfull \hbox (14.88179pt too wide) in paragraph at lines 1430--1431
 []\OT1/ppl/b/n/10 Definici^^Son. []\OT1/ppl/m/n/10 El \OT1/ppl/b/n/10 anillo de
  cobor-dismo \OT1/ppl/m/n/10 es $[][][] \OT1/cmr/m/n/10 = (
 \OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 t\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 ^^B\OT
@@ -937,80 +955,130 @@ Chapter 3.
 [40
 
 ] [41] [42]
-Overfull \hbox (14.10909pt too wide) in paragraph at lines 1590--1591
+LaTeX Font Info:    Trying to load font information for U+dutchcal on input lin
+e 1584.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/dutchcal/udutchcal.fd
+File: udutchcal.fd 2011/06/16 Fontinst v1.933 font definitions for U/dutchcal.
+)
+LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
+(Font)              scaled to size 10.0pt on input line 1584.
+LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
+(Font)              scaled to size 7.0pt on input line 1584.
+LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
+(Font)              scaled to size 5.0pt on input line 1584.
+
+Overfull \hbox (17.38216pt too wide) in paragraph at lines 1591--1592
 []\OT1/ppl/m/n/10 Por du-al-i-dad de Poincar[]e con fron-tera, $\OML/cmm/m/it/1
-0 H[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 D[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^
-Y \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 D[]\OML/cmm/m/it/10 @[]
-W\OT1/cmr/m/n/10 )$\OT1/ppl/m/n/10 , $\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OMS
-/cmsy/m/n/10 D\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^Y \OML/cmm/m/it/10 H[]\OT1/c
-mr/m/n/10 (\OMS/cmsy/m/n/10 D[]\OML/cmm/m/it/10 ; @[]W\OT1/cmr/m/n/10 )$\OT1/pp
-l/m/n/10 .
+0 H[]\OT1/cmr/m/n/10 (\U/dutchcal/m/n/10 D[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 
+^^Y \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\U/dutchcal/m/n/10 D[]\OML/cmm/m/it/10
+ @[]W\OT1/cmr/m/n/10 )$\OT1/ppl/m/n/10 , $\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (
+\U/dutchcal/m/n/10 D\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^Y \OML/cmm/m/it/10 H[]
+\OT1/cmr/m/n/10 (\U/dutchcal/m/n/10 D[]\OML/cmm/m/it/10 ; @[]W\OT1/cmr/m/n/10 )
+$\OT1/ppl/m/n/10 .
  []
 
 
-Overfull \hbox (10.68562pt too wide) detected at line 1597
+Overfull \hbox (13.9587pt too wide) detected at line 1598
 []
  []
 
-[43] [44] [45] [46] [47] [48]
+[43] [44] [45] [46] [47] [48] [49]
 Chapter 4.
+LaTeX Font Info:    Font shape `U/dutchcal/m/n' will be
+(Font)              scaled to size 14.4pt on input line 1821.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1762.
+(hyperref)                removing `math shift' on input line 1821.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1762.
+(hyperref)                removing `math shift' on input line 1821.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 1767.
+LaTeX Warning: Command \textendash invalid in math mode on input line 1826.
 
-[49
+[50
 
 
-] [50] [51]
-Overfull \hbox (20.78194pt too wide) in paragraph at lines 1908--1909
+] [51] [52]
+Overfull \hbox (20.78194pt too wide) in paragraph at lines 1967--1968
 []\OT1/ppl/b/n/10 Definici^^Son. []$\OML/cmm/m/it/10 S[]$ \OT1/ppl/m/n/10 es \O
 T1/ppl/b/it/10 par-aleliz-able \OT1/ppl/m/n/10 si ex-is-ten cam-pos vec-to-ri-a
 les $\OML/cmm/m/it/10 V[]; [] ; V[]$ \OT1/ppl/m/n/10 tales que $\OMS/cmsy/m/n/1
 0 f\OML/cmm/m/it/10 V[]; [] ; V[]\OMS/cmsy/m/n/10 g$
  []
 
-[52] [53] [54] [55] [56] [57] [58] (./cohom.aux)
+[53] [54] [55] [56] [57] [58] [59] [60] [61]
+Underfull \vbox (badness 1168) has occurred while \output is active []
+
+ [62]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 240
+0.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+) [63]
+Overfull \hbox (43.40382pt too wide) in paragraph at lines 2403--2404
+[]\OT1/ppl/m/n/10 Sea $\OML/cmm/m/it/10 X$ \OT1/ppl/m/n/10 un es-pa-cio topol[]
+ogico. De-fi-namos $\OT1/cmr/m/n/10 
+[] := \OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M[]; f\OT1/cmr/m/n/10
+ )\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 M[] \
+OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 X; M[]\OMS/cmsy/m/n/10 g[] ^^X[]$\OT1/ppl/m/
+n/10 .
+ []
+
+[64]
+Overfull \hbox (15.08289pt too wide) in paragraph at lines 2444--2445
+[]\OT1/ppl/m/n/10 Es de-cir, $\OML/cmm/m/it/10 X$ \OT1/ppl/m/n/10 de-ber[]^^Pa 
+tener car-ac-ter[]^^Pstica cero, as[]^^P que obten-emos una con-tradicci[]on. 
+ []
+
+
+Overfull \hbox (12.89748pt too wide) in paragraph at lines 2464--2465
+[]\OT1/ppl/b/n/10 Definici^^Son. []\OT1/ppl/m/n/10 Una \OT1/ppl/b/it/10 teor[]^
+^Pa de ho-molog[]^^Pa re-ducida en $\OML/cmm/m/it/10 CW[]$ \OT1/ppl/m/n/10 (la 
+cat-e-gor[]^^Pa de es-pa-cios topol[]ogicos
+ []
+
+[65] [66] [67] [68] (./cohom.aux)
 Package rerunfilecheck Info: File `cohom.out' has not changed.
-(rerunfilecheck)             Checksum: 33EAC392B6E26DCC73E9DDB1C7864086;3124.
+(rerunfilecheck)             Checksum: 21D8EC756249137C9E8E029D3B2EF17A;3746.
  ) 
 Here is how much of TeX's memory you used:
- 33560 strings out of 476025
- 695808 string characters out of 5790018
+ 35043 strings out of 476025
+ 732037 string characters out of 5790018
  1916388 words of memory out of 5000000
- 53478 multiletter control sequences out of 15000+600000
- 535513 words of font info for 99 fonts, out of 8000000 for 9000
+ 54892 multiletter control sequences out of 15000+600000
+ 537995 words of font info for 109 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,18n,89p,1194b,1191s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
-></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
-/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></u
-sr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr
-/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
-ocal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/loca
-l/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/t
-exlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
-xlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texl
-ive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texliv
-e/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/te
-xlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local
-/texlive/2023/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/t
-exlive/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/
-2023/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/local/texlive/2023/t
-exmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf-di
-st/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf-dist/font
-s/type1/urw/palatino/uplri8a.pfb>
-Output written on cohom.pdf (58 pages, 477478 bytes).
+ 84i,18n,89p,1194b,1264s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/dutchcal/DutchCalReg.p
+fb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pf
+b></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
+usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
+r/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
+local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/loc
+al/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/
+texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
+exlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/tex
+live/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texli
+ve/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/tex
+live/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/te
+xlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/loca
+l/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/l
+ocal/texlive/2023/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/loc
+al/texlive/2023/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texl
+ive/2023/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/local/texlive/20
+23/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texm
+f-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2023/texmf-dist/
+fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on cohom.pdf (68 pages, 538232 bytes).
 PDF statistics:
- 520 PDF objects out of 1000 (max. 8388607)
- 417 compressed objects within 5 object streams
- 114 named destinations out of 1000 (max. 500000)
- 181 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 626 PDF objects out of 1000 (max. 8388607)
+ 506 compressed objects within 6 object streams
+ 156 named destinations out of 1000 (max. 500000)
+ 197 words of extra memory for PDF output out of 10000 (max. 10000000)
 
